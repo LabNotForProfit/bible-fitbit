@@ -13,3 +13,9 @@
  *= require_tree .
  *= require_self
  */
+
+#user-widget{
+	background-color: #5be3c3;
+	padding: 5px;
+	display: inline-block;
+}
