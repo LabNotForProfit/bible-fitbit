@@ -1,14 +1,25 @@
 class Api::RegistrationsController < Devise::RegistrationsController
+
+protect_from_forgery	
 respond_to :json
-def create
- 
-user = User.new(params[:user])
-if user.save
-render :json=> user.as_json(:auth_token=>user.authentication_token, :email=>user.email), :status=>201
-return
-else
-warden.custom_failure!
-render :json=> user.errors, :status=>422
-end
-end
+
+	def create
+	# user = User.new(params[:api_user])
+	user = User.new({:email=>params[:api_user][:email], :password=>params[:api_user][:password]})
+	if user.save
+		respond_to do |format|
+			format.json{
+				render :json => user.as_json
+			}
+			format.html{
+				redirect_to new_api_user_session_path
+			}
+		end
+	return
+	else
+		warden.custom_failure!
+		render :json=> user.errors, :status=>422
+	end
+	end
+
 end 
