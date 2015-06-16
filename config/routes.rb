@@ -62,6 +62,7 @@ Rails.application.routes.draw do
   #     # (app/controllers/api/users_controller.rb)
   #     resources :users
   #   end
+  devise_for :users
   namespace :api, path: '/' do
     devise_for :users
   end
