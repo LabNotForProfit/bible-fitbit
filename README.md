@@ -13,3 +13,10 @@ Successful logout response:
 {"success":true,"message":"signed out"}
 Unsuccessful logout response:
 {:success=>false, :message=>"logout not successful"}
+
+Registration:
+
+POST /users
+JSON request: {"api_user":{"email":"example@example.com", "password": "password"}}
+Successful registration response:
+{"id":11,"email":"example@example.com","created_at":"2015-06-16T05:02:15.116Z","updated_at":"2015-06-16T05:02:15.116Z"}
