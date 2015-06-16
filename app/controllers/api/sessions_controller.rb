@@ -22,7 +22,14 @@ return invalid_login_attempt unless resource
  
 if resource.valid_password?(params[:api_user][:password])
 sign_in("user", resource)
-render :json=> {:success=>true, :email=>resource.email}
+respond_to do |format|
+	format.json{
+		render :json=> {:success=>true, :email=>resource.email}
+	}
+	format.html{
+		redirect_to root_path
+	}
+end
 return
 end
 invalid_login_attempt
