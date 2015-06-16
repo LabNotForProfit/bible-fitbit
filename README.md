@@ -2,7 +2,7 @@
 
 ##User Authentication:
 
-POST /users/sign_in
+POST /api/users/sign_in
 JSON request:
 ```
 {"api_user":{"email":"example@example.com", "password": "password"}}
@@ -12,7 +12,7 @@ Successful authentication response:
 {"success":true,"email":"example@example.com"}
 ```
 
-DELETE /users/sign_out
+DELETE /api/users/sign_out
 Successful logout response:
 ```
 {"success":true,"message":"signed out"}
@@ -24,7 +24,7 @@ Unsuccessful logout response:
 
 ##Registration:
 
-POST /users
+POST /api/users
 ```
 JSON request: {"api_user":{"email":"example@example.com", "password": "password"}}
 ```
