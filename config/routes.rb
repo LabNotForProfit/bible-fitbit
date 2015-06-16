@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  #devise_for :users
   get 'home/index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -56,4 +56,13 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
+   #   namespace :admin do
+  #     # Directs /api/users/* to Api::UsersController
+  #     # (app/controllers/api/users_controller.rb)
+  #     resources :users
+  #   end
+  namespace :api, path: '/' do
+    devise_for :users
+  end
 end
