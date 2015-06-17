@@ -13,6 +13,7 @@ class Api::UsersController < ApplicationController
 		end
   end
 
+  # GET /api/users/show/:id
   def show
   	if user = User.get_user(params[:id])
   		render :json => user.as_json
