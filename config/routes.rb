@@ -67,7 +67,11 @@ Rails.application.routes.draw do
   namespace :api do
     devise_for :users
     # GET    /api/users/show(.:format)          api/registrations#show
-    devise_scope :user do get "/users" => 'users#index' end 
+    devise_scope :user do 
+      get "/users" => 'users#index' 
+      # get "/users/show" => 'users#show'
+      resources :users, only: :show, path: 'users/show', controller: 'users'
+    end 
   end
 
 end

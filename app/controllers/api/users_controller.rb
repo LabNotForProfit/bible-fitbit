@@ -14,10 +14,11 @@ class Api::UsersController < ApplicationController
   end
 
   def show
-	@user = User.find(params[:id])
-	unless @user == current_user
-	  redirect_to :back, :alert => "Access denied."
-	end
+  	if user = User.get_user(params[:id])
+  		render :json => user.as_json
+  	else
+  		render :json => {:status => "false", :error => "No user found with id: #{params[:id]}"}
+  	end
   end
 
 end

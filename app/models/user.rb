@@ -17,4 +17,19 @@ class User < ActiveRecord::Base
 	end
 	return all_users
   end
+
+  def self.get_user(id)
+  	user_info = {}
+
+  	# If a user with id doesn't exist, return false. Checkpoint
+  	# to make sure we don't go any further in code block if
+  	# user doesn't exist
+  	unless @user= User.find_by_id(id)
+  		return false
+  	end
+
+  	# Only use the data that we want from the user object
+  	user_info = {:id => @user.id, :email => @user.email}
+  	return user_info
+  end
 end
