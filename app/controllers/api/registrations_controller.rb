@@ -23,13 +23,4 @@ respond_to :json
 	end
 	end
 
-	#GET /api/users/show
-	def show
-		if all_users = User.get_users
-			render :json => all_users.as_json
-		else
-			render :json => {:status => "false" ,:error => "Unable to get users"}	
-		end
-	end
-
 end 
