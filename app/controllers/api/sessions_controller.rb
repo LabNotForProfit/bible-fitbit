@@ -6,14 +6,14 @@ before_filter :ensure_params_exist, :only => :create
  
 respond_to :json
 
-# GET /users/sign_in
+# GET /api/users/sign_in
 def new
 self.resource = resource_class.new(sign_in_params)
 clean_up_passwords(resource)
 respond_with(resource, serialize_options(resource))
 end
 
-# POST /users/sign_in
+# POST /api/users/sign_in
 def create
 #build_resource
 
@@ -36,6 +36,7 @@ invalid_login_attempt
 
 end
 
+#DELETE /api/users/sign_out
 def destroy
 #sign_out(resource_name)
 signed_out = (Devise.sign_out_all_scopes ? sign_out : sign_out(resource_name))
@@ -47,11 +48,12 @@ else
 	render :json=>{:success=>false, :message=>"logout not successful"}
 end
 end
+
  
 protected
 def ensure_params_exist
 puts params
-return unless params[:api_user].blank? #this is true for some reason thus I'm getting this error
+return unless params[:api_user].blank? 
 render :json=>{:success=>false, :message=>"missing user_login parameter"}, :status=>422
 end
  
