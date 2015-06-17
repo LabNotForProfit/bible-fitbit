@@ -6,20 +6,16 @@ class Api::UsersController < ApplicationController
 
   # GET /api/users
   def index
-	if all_users = User.get_users
-			render :json => all_users.as_json
-		else
-			render :json => {:status => "false" ,:error => "Unable to get users"}	
-		end
-  end
+	 render :json => User.all.as_json
+	end
 
   # GET /api/users/show/:id
   def show
-  	if user = User.get_user(params[:id])
-  		render :json => user.as_json
-  	else
-  		render :json => {:status => "false", :error => "No user found with id: #{params[:id]}"}
-  	end
+  	if !user = User.find_by_id(params[:id])
+      render :json => {:status => "false", :error => "No user found with id: #{params[:id]}"}
+    else
+      render :json => user.as_json
+    end
   end
 
 end

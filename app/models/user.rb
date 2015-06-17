@@ -5,7 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
 
-  # "Class method" # User.get_users       
+  # "Class method" # User.get_users
+  # To be used if we want to return a more limited hash than User.all.as_json       
   def self.get_users
   	all_users = {}
   	@users = User.all
@@ -18,6 +19,7 @@ class User < ActiveRecord::Base
 	return all_users
   end
 
+  # To be used if we want to return a more limited hash than User.find_by_id(id).as_json 
   def self.get_user(id)
   	user_info = {}
 
