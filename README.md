@@ -37,13 +37,13 @@ Successful registration response:
 
 GET /api/users/
 ```
-{"example@example.com":{"id":8},"example2@example.com":{"id":9}}
+[{"id":1,"email":"example@example.com","created_at":"2015-06-16T17:52:40.769Z","updated_at":"2015-06-16T17:52:40.769Z"},{"id":2,"email":"example@example.com","created_at":"2015-06-16T18:45:33.688Z","updated_at":"2015-06-16T18:45:33.702Z"}]
 ```
 
 GET /api/users/show/:id
 Successful get user response:
 ```
-{"id":8,"email":"example@example.com"}
+{"id":8,"email":"example@example.com","created_at":"2015-06-16T18:46:25.268Z","updated_at":"2015-06-16T18:46:25.275Z"}
 ```
 Unsuccessful get user response:
 ```
