@@ -26,7 +26,7 @@ Unsuccessful logout response:
 
 POST /api/users
 ```
-JSON request: {"api_user":{"email":"example@example.com", "password": "password"}}
+JSON request: {"api_user":{"email":"example@example.com","password":"password","username":"myusername"}}
 ```
 Successful registration response:
 ```
