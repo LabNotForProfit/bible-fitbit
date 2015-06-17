@@ -5,8 +5,8 @@ respond_to :json
 
 	# POST /api/users
 	def create
-	# user = User.new(params[:api_user])
-	user = User.new({:email=>params[:api_user][:email], :password=>params[:api_user][:password], :username => params[:api_user][:username]})
+	user = User.new(sign_up_params)
+	# user = User.new({:email=>params[:api_user][:email], :password=>params[:api_user][:password], :username => params[:api_user][:username]})
 	if user.save
 		respond_to do |format|
 			format.json{
