@@ -1,6 +1,6 @@
 <%= content_tag(:div, class: "timeline") do %>
 	<%= content_tag(:header) do %>
-		<%= content_tag(:h1, "Your Progress Page") %>
+		<%= content_tag(:h1, "Your Progress Page, #{@user.username}") %>
 	<% end %> <!-- header -->
 	<%= content_tag(:section, class: "cd-container", id: "cd-timeline") do %>	
 		<% @books.each do |book| %>
