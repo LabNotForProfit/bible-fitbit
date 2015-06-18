@@ -1,5 +1,5 @@
 class Api::SessionsController < Devise::SessionsController
-prepend_before_filter :require_no_authentication, :only => [:create]
+# prepend_before_filter :require_no_authentication, :only => [:create] shouldn't need this as it inherits it from Devise
 protect_from_forgery
 #include Devise::Controllers
 before_filter :ensure_params_exist, :only => :create
