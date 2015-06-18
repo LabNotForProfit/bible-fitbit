@@ -5,5 +5,21 @@
 	  <li><strong>Friends</strong></li>
 	  <li><strong>Progress</strong></li>
 	  <li><strong>Leaderboards</strong></li>
+	  <div class="datatable-wrapper">
+			<table id="userNames">
+				<thead>
+					<tr>
+						<th>User Name</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% User.all.each do |user| %>
+						<tr>
+							<td><%= user.username %></td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
+	  </div>
 	<% end %>
 </div>
