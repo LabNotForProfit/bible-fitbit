@@ -1,26 +1,23 @@
-<body>
-	<div class = "timeline">
-		<header>
-			<h1>Responsive Vertical Timeline</h1>
-		</header>
-		<section id="cd-timeline" class="cd-container">
-			<% @books.each do |book| %>
-				<%= content_tag(:div, class: "cd-timeline-block") do %>
-					<%= content_tag(:div, class: ["cd-timeline-img", "cd-picture"]) do %>
-						<%= image_tag("img/book-icon.png" ) %>
-					<% end %>
-					<%= content_tag(:div, class: "cd-timeline-content") do %>
-						<%= content_tag(:h2, "Title goes here") %>
-						<%= content_tag(:p, "Content goes here") %>
-						<%= content_tag :a, :href => "#0" do %>
-        					<%= "Click here" %>
-      					<% end %>
-      					<%= content_tag(:span, book, class: "cd-date")%>
-					<% end %>
+<%= content_tag(:div, class: "timeline") do %>
+	<%= content_tag(:header) do %>
+		<%= content_tag(:h1, "Your Progress Page") %>
+	<% end %> <!-- header -->
+	<%= content_tag(:section, class: "cd-container", id: "cd-timeline") do %>	
+		<% @books.each do |book| %>
+			<%= content_tag(:div, class: "cd-timeline-block") do %>
+				<%= content_tag(:div, class: ["cd-timeline-img", "cd-picture"]) do %>
+					<%= image_tag("img/book-icon.png" ) %>
 				<% end %>
-			<% end %>
-		</section>
-		</div>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="js/main.js"></script>
-</body>
+				<%= content_tag(:div, class: "cd-timeline-content") do %>
+					<%= content_tag(:h2, "Title goes here") %>
+					<%= content_tag(:p, "Content goes here") %>
+					<%= content_tag :a, :href => "#0" do %>
+        				<%= "Click here" %>
+      				<% end %>
+      				<%= content_tag(:span, book, class: "cd-date")%>
+				<% end %> <!-- cd-timeline-content -->
+			<% end %> <!-- cd-timeline-block -->
+		<% end %> <!-- for each block -->
+	<% end %>  <!-- cd-container -->
+<% end %> <!-- timeline -->
+
