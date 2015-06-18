@@ -71,6 +71,7 @@ Rails.application.routes.draw do
       get "/users" => 'users#index' 
       # get "/users/show" => 'users#show'
       resources :users, only: :show, path: 'users/show', controller: 'users'
+      resources :friendships
     end 
   end
 
