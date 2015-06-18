@@ -1,0 +1,22 @@
+<h1>All Badges</h1>
+<div><%= link_to 'Home', home_index_path %></div>
+<div><%= link_to 'New Badge', new_api_badge_path %></div>
+<%= javascript_include_tag 'allBadges', 'data-turbolinks-track' => true %>
+<div class="datatable-wrapper">
+	<table id="allBadges" class="use-datatable">
+		<thead>
+			<tr>
+				<th>Badge</th>
+				<th>Description</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% Badge.all.each do |badge| %>
+				<tr>
+					<td><%= badge.name %></td>
+					<td><%= badge.description %></td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>
