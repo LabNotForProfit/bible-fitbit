@@ -14,8 +14,8 @@
 				<td><%= user.username %></td>
 				<td><%= user.email %></td>
 				<td>
-					<!-- Check if this user is not in our friends list -->
-					<% if !(current_user.friends.include?(user)) %>
+					<!-- Check if this user is not the current_user and is not in our friends list -->
+					<% if user != current_user && !(current_user.friends.include?(user)) %>
 						<%= link_to "Add Friend", api_friendships_path(:friend_id => user), :method => :post %>
 					<% end %>
 				</td>
