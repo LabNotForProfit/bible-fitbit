@@ -5,6 +5,8 @@ class FriendRequest < ActiveRecord::Base
 	validate :not_self
 	validate :not_friends
   validate :not_pending
+  validates :user, presence: true  
+	validates :friend, presence: true, uniqueness: { scope: :user } 
 
 	# This method will build the actual association and destroy the request
 	def accept
