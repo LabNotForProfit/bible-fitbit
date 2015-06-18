@@ -1,0 +1,27 @@
+<h1>Users</h1>
+
+<table>
+	<thead>
+		<tr>
+			<th>Username</th>
+			<th>Email</th>
+			<th colspan="1"></th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @users.each do |user| %>
+			<tr>
+				<td><%= link_to user.username, api_user_path(user) %></td>
+				<td><%= user.email %></td>
+				<td>
+					<% if user_signed_in? %>
+						<!-- Check if this user is not the current_user and is not in our friends list -->
+						<% if user != current_user && !(current_user.friends.include?(user)) %>
+							<%= link_to "Send Friend Request", api_friend_requests_path(:friend_id => user), :method => :post %>
+						<% end %>
+					<% end %>
+				</td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>

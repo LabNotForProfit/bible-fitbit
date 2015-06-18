@@ -74,6 +74,8 @@ Rails.application.routes.draw do
       get "/users" => 'users#index' 
       # get "/users/show" => 'users#show'
       resources :users, only: :show, path: 'users/show', controller: 'users'
+      resources :friendships
+      resources :friend_requests, :except => [:new, :show, :edit]
     end 
   end
 
