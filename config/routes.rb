@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'timeline/index'
+
   #devise_for :users
   get 'home/index'
   # get 'api/users/show' => 'api/registrations#show'

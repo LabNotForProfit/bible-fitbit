@@ -1,0 +1,23 @@
+<%= content_tag(:div, class: "timeline") do %>
+	<%= content_tag(:header) do %>
+		<%= content_tag(:h1, "Your Progress Page, #{@user.username}") %>
+	<% end %> <!-- header -->
+	<%= content_tag(:section, class: "cd-container", id: "cd-timeline") do %>	
+		<% @books.each do |book| %>
+			<%= content_tag(:div, class: "cd-timeline-block") do %>
+				<%= content_tag(:div, class: ["cd-timeline-img", "cd-picture"]) do %>
+					<%= image_tag("img/book-icon.png" ) %>
+				<% end %>
+				<%= content_tag(:div, class: "cd-timeline-content") do %>
+					<%= content_tag(:h2, "Title goes here") %>
+					<%= content_tag(:p, "Content goes here") %>
+					<%= content_tag :a, :href => "#0" do %>
+        				<%= "Click here" %>
+      				<% end %>
+      				<%= content_tag(:span, book, class: "cd-date")%>
+				<% end %> <!-- cd-timeline-content -->
+			<% end %> <!-- cd-timeline-block -->
+		<% end %> <!-- for each block -->
+	<% end %>  <!-- cd-container -->
+<% end %> <!-- timeline -->
+
