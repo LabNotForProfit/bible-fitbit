@@ -1,6 +1,6 @@
 class Api::RegistrationsController < Devise::RegistrationsController
 
-  before_filter :configure_permitted_parameters	
+  before_filter :configure_permitted_parameters
   protect_from_forgery
   respond_to :json
 
@@ -24,6 +24,11 @@ class Api::RegistrationsController < Devise::RegistrationsController
       warden.custom_failure!
       render :json=> user.errors, :status=>422
     end
+  end
+
+   # GET /api/users/edit
+  def edit
+  	render :edit
   end
 
   protected
