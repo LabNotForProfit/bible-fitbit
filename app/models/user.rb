@@ -4,7 +4,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-
   # "Class method" # User.get_users
   # To be used if we want to return a more limited hash than User.all.as_json       
   def self.get_users

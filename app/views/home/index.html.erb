@@ -1,3 +1,4 @@
+<%= javascript_include_tag 'homeIndex', 'data-turbolinks-track' => true %>
 <div id='body'>
 	<% if user_signed_in? %>
 	  <h1>Welcome <%= current_user.email %>!</h1>
@@ -5,8 +6,9 @@
 	  <li><strong>Friends</strong></li>
 	  <li><strong>Progress</strong></li>
 	  <li><strong>Leaderboards</strong></li>
+	  <li><strong><%= link_to 'All Badges', api_badges_path %></strong></li>
 	  <div class="datatable-wrapper">
-			<table id="userNames">
+			<table id="userNames" class="use-datatable">
 				<thead>
 					<tr>
 						<th>User Name</th>
