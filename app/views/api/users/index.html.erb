@@ -13,7 +13,12 @@
 			<tr>
 				<td><%= user.username %></td>
 				<td><%= user.email %></td>
-				<td><%= link_to "Add Friend", api_friendships_path(:friend_id => user), :method => :post %>
+				<td>
+					<!-- Check if this user is not in our friends list -->
+					<% if !(current_user.friends.include?(user)) %>
+						<%= link_to "Add Friend", api_friendships_path(:friend_id => user), :method => :post %>
+					<% end %>
+				</td>
 			</tr>
 		<% end %>
 	</tbody>
