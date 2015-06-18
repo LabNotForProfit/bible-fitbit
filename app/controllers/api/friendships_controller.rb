@@ -10,4 +10,11 @@ class Api::FriendshipsController < ApplicationController
 			redirect_to root_url
 		end
 	end
+
+	def destroy
+		@friendship = current_user.friendships.find(params[:id])
+		@friendship.destroy
+		flash[:notice] = "Destroyed Friendship"
+		redirect_to api_user_path(current_user)
+	end
 end

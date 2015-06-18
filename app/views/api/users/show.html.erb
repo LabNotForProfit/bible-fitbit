@@ -1,10 +1,12 @@
 <h1>My Profile</h1>
-
 <p>Username: <%= @user.username %></p>
-
 <h2>Your Friends</h2>
 <ul>
-  <% for user in @user.friends %>
-  <li><%= h user.username %></li>
-  <% end %>  
+	<% for friendship in @user.friendships %>
+		<li>
+			<%= h friendship.friend.username %>
+			<%= link_to "Unfriend", api_friendship_path(friendship), :method => :delete %>
+			<!-- Because of api namespace we can't just use friendship model for path, but need to specify -->
+		</li>
+	<% end %>
 </ul>
