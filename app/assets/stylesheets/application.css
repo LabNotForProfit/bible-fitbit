@@ -24,3 +24,16 @@
 	float: left;
 	width: 500px;
 }
+
+.badge-box {
+	margin-bottom: 10px;
+}
+
+input.medium {
+	width: 300px;
+}
+
+textarea.medium {
+	width: 300px;
+	height: 100px;
+}

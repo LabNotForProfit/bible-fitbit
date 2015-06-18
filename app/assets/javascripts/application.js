@@ -16,6 +16,23 @@
 //= require_tree .
 //= require jquery.dataTables
 
-$(function() {
-	$('#userNames').DataTable();
-})
+function saveBadge() {
+	var name = $('#badgeName').val();
+	if (name == '') {
+		alert('Error: Name cannot be empty!');
+		return;
+	}
+
+	var requestObject = {
+		name: name,
+		description: $('#badgeDescription').val()
+	}
+	$.ajax({
+		type: 'POST',
+		url: '/api/badges',
+		data: requestObject,
+		success: function(data) {
+			window.location.href = '/api/badges';
+		}
+	})
+}
