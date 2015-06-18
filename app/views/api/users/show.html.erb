@@ -5,12 +5,11 @@
 	<% for friendship in @user.friendships %>
 		<li>
 			<%= h friendship.friend.username %>
-			# <%=  link_to "Unfriend", api_friendship_path(friendship), :method => :delete %>
+			<%=  link_to "Unfriend", api_friendship_path(friendship), :method => :delete %>
 			<!-- Because of api namespace we can't just use friendship model for path, but need to specify -->
 		</li>
 	<% end %>
 </ul>
-
 <h2>Your Friend Requests</h2>
 <ul>
 	<!-- If this is the current_user, show pending friend requests -->

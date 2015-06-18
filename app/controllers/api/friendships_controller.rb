@@ -20,12 +20,13 @@ class Api::FriendshipsController < ApplicationController
 		# redirect_to api_user_path(current_user)
 
 		current_user.remove_friend(@friend)
-		head :no_content
+		redirect_to api_user_path(current_user)
 	end
 
 	private
 
 	def set_friend
-    @friend = current_user.friends.find(params[:id])
+		# get the friend of this friendship
+    @friend = Friendship.find(params[:id]).friend 
   end
 end

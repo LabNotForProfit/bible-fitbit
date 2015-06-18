@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
     :recoverable, :rememberable, :trackable, :validatable
 
   def remove_friend(friend)
-    current_user.friends.destroy(friend)
+    self.friends.destroy(friend)
   end
 
   def friend_requests_for_me
