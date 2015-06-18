@@ -1,5 +1,6 @@
 class Api::RegistrationsController < Devise::RegistrationsController
 
+  before_filter :configure_permitted_parameters	
   protect_from_forgery
   respond_to :json
 
@@ -23,6 +24,12 @@ class Api::RegistrationsController < Devise::RegistrationsController
       warden.custom_failure!
       render :json=> user.errors, :status=>422
     end
+  end
+
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.for(:sign_up).push(:username)
   end
 
 end
