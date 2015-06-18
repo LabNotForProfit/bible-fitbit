@@ -10,15 +10,31 @@
 		</li>
 	<% end %>
 </ul>
-<h2>Your Friend Requests</h2>
-<ul>
-	<!-- If this is the current_user, show pending friend requests -->
-	<% if @user == current_user %>
-		<% for request in @user.friend_requests_for_me %>
-			<li>
-				Friend Request From: <%= request.user.username %>
-				<%= link_to "Accept", api_friend_request_path(request), :method => :put %>
-			</li>
-		<% end %>
+
+<!-- If this is the current_user, show pending friend requests -->
+<% if @user == current_user %>
+	<% if !@user.friend_requests_for_me.empty? %>
+		<h2>Your Friend Requests</h2>
+
+		<ul>
+			<% for request in @user.friend_requests_for_me %>
+				<li>
+					Friend Request From: <%= request.user.username %>
+					<%= link_to "Accept", api_friend_request_path(request), :method => :put %>
+				</li>
+			<% end %>
+		</ul>
 	<% end %>
-</ul>
+
+	<% if !@user.friend_requests.empty? %>
+		<h2>Friend Requests Sent To</h2>
+		<ul>
+			<% for request in @user.friend_requests %>
+				<li>
+					Still Waiting to Hear Back From: <%= request.friend.username %>
+				</li>
+			<% end %>
+		</ul>
+	<% end %>
+
+<% end %>

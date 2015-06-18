@@ -11,8 +11,14 @@
 	<p class="notice"><%= notice %></p>
 	<p class="alert"><%= alert %></p>
 
+	<h1>Bible FitBit!</h1>
+
 	<%= link_to "Home", root_path %>
 	<%= link_to "Users List", api_users_path %>
+	<% if user_signed_in? %>
+		<%= link_to 'My Profile', api_user_path(current_user) %>
+		<%= link_to 'Sign Out', destroy_api_user_session_path, :method => :delete %>
+	<% end %>
 
 	<%= yield %>
 	<%= render 'layouts/user_widget' %>

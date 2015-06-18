@@ -1,10 +1,8 @@
 <div id='user-widget'>
 	<% if user_signed_in? %>
-	  <!-- <p>Welcome <%= current_user.email %></p> -->
-	  <%= link_to 'Logged In [click to logout]', destroy_api_user_session_path, :method => :delete %>
-	  <%= link_to 'My Profile', api_user_path(current_user) %>
+		<p> Hello, <%= current_user.username %></p>
 	<% else %>
-	  <p>You are not signed in.</p>
-	  <%= link_to 'Login', new_api_user_session_path %>
+	  	<p>You are not signed in.</p>
+	  	<%= link_to 'Login', new_api_user_session_path %>
 	<% end %>
 </div>
