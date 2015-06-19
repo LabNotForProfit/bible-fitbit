@@ -4,7 +4,8 @@
 	  <h1>Welcome <%= current_user.email %>!</h1>
 	  <h2>Coming Soon...</h2>
 	  <li><strong>Friends</strong></li>
-	  <li><strong>Check your progress at : <%= link_to 'My Progress', timeline_index_path %></strong></li>
+	  <li><strong>Check your progress at : <%= link_to 'My Progress', timeline_index_path %></strong>
+	  	<strong><%= link_to 'Add Progress', timeline_edit_path %></strong></li>
 	  <li><strong>Leaderboards</strong></li>
 	  <li><strong><%= link_to 'All Badges', api_badges_path %></strong></li>
 	  <div class="datatable-wrapper">

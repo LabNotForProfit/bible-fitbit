@@ -1,17 +1,8 @@
 class TimelineController < ApplicationController
-	before_filter :set_up_bible_array, :only => [:index, :edit]
   
   def index
   	@user = current_user
-  end
-
-  def edit
-  end
-
-  private 
-
-  def set_up_bible_array
-	@books = ['Genesis', 'Exodus', 'Leviticus', 'Numbers','Deuteronomy', 'Joshua',
+  	@books = ['Genesis', 'Exodus', 'Leviticus', 'Numbers','Deuteronomy', 'Joshua',
 			 'Judges', 'Ruth', '1 Samuel', '2 Samuel', '1 Kings', '2 Kings', '1 Chronicles',
 			 '2 Chronicles', 'Ezra', 'Nehemiah', 'Esther', 'Job', 'Psalms', 'Proverbs',
 			 'Ecclesiastes', 'Song of Songs', 'Isaiah', 'Jeremiah', 'Lamentations', 'Ezekiel',
@@ -23,6 +14,9 @@ class TimelineController < ApplicationController
 			 '2 John', '3 John', 'Jude', 'Revelation']
   end
 
-
+  def edit
+  	@user = current_user
+  	@all_books = Book.all
+  end
 
 end
