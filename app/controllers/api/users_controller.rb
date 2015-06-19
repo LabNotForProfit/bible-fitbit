@@ -21,7 +21,8 @@ class Api::UsersController < ApplicationController
 
   # GET /api/users/show/:id
   def show
-    @user = User.find_by_id(params[:id])
+    # change to User.friendly.find to use the friendly username param
+    @user = User.friendly.find(params[:id])
 
     respond_to do |format|
       format.json {
