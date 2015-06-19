@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'timeline/index'
+  get 'timeline/edit'
 
   #devise_for :users
   get 'home/index'
