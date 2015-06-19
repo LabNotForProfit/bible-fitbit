@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :username
+
   has_many :friendships, dependent: :destroy
   has_many :friends, :through => :friendships
 
