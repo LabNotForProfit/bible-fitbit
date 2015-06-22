@@ -1,11 +1,19 @@
 class User < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :username
+
   has_many :friendships, dependent: :destroy
   has_many :friends, :through => :friendships
 
   has_many :friend_requests, dependent: :destroy
   has_many :pending_friends, through: :friend_requests, source: :friend
 
+
   has_and_belongs_to_many :books
+
+
+  UNAME_REGEX = /\A(\w|\.)+\z/
+  validates :username, :presence => true, :uniqueness => true, :length => {:in => 1..20}, :format => UNAME_REGEX
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
