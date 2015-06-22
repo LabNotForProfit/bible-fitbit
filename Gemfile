@@ -32,6 +32,7 @@ gem 'devise'
 gem 'bourbon'
 
 gem 'friendly_id'
+gem 'jquery-ui-rails'
 
 gem 'bible_gateway'
 # gem 'biblesearch-api'

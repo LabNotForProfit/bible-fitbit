@@ -15,6 +15,7 @@
 //= require turbolinks
 //= require_tree .
 //= require jquery.dataTables
+//= require jquery-ui
 
 function saveBadge() {
 	var name = $('#badgeName').val();

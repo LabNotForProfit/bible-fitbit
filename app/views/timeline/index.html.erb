@@ -1,12 +1,15 @@
+<%= javascript_include_tag 'timelineIndex', 'data-turbolinks-track' => true %>
 <%= content_tag(:div, class: "timeline") do %>
+	<%= label_tag(:bookSearch, 'Search: ') %>
+	<%= text_field_tag(:bookSearch, nil, placeholder: 'Book Search') %>
 	<%= content_tag(:header) do %>
 		<%= content_tag(:h1, "Your Progress Page, #{@user.username}") %>
 	<% end %> <!-- header -->
 	<%= content_tag(:section, class: "cd-container", id: "cd-timeline") do %>	
 		<% @books.each do |book| %>
-			<%= content_tag(:div, class: "cd-timeline-block") do %>
+			<%= content_tag(:div, id: book.split(' ').join(), class: "cd-timeline-block") do %>
 				<%= content_tag(:div, class: ["cd-timeline-img", "cd-picture"]) do %>
-					<%= image_tag("img/book-icon.png" ) %>
+					<%= image_tag("img/book-icon.png") %>
 				<% end %>
 				<%= content_tag(:div, class: "cd-timeline-content") do %>
 					<%= content_tag(:h2, "Title goes here") %>
