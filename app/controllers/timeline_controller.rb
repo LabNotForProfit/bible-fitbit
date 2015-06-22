@@ -17,6 +17,15 @@ class TimelineController < ApplicationController
   def edit
   	@user = current_user
   	@all_books = Book.all
+  	@genesis = {:name => "Genesis", :class => "brick size21", :position => "0-0"}
+  	@exodus = {:name => "Exodus", :class => "brick size12", :position => "0-2"}
+    @leviticus = {:name => "Leviticus", :class => "brick size11", :position => "0-3"}
+  	@numbers = {:name => "Numbers", :class => "brick size11", :position => "1-3"}
+  	@deuteronomy = {:name => "Deuteronomy", :class => "brick size22", :position => "0-4"}
+  	@joshua = {:name => "Joshua", :class => "brick size22", :position => "0-6"}
+  	@judges = {:name => "Judges", :class => "brick size22", :position => "1-0"}
+
+  	@book_list = [@genesis, @exodus, @leviticus, @numbers, @deuteronomy, @joshua, @judges]
   end
 
 end
