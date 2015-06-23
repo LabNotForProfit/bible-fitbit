@@ -7,7 +7,6 @@ class Api::RegistrationsController < Devise::RegistrationsController
   # POST /api/users
   def create
     build_resource(sign_up_params)
-    byebug
     resource.save
     yield resource if block_given?
     if resource.persisted?
