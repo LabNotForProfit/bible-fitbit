@@ -8,9 +8,10 @@ class Api::SessionsController < Devise::SessionsController
 
   # GET /api/users/sign_in
   def new
-    self.resource = resource_class.new(sign_in_params)
-    clean_up_passwords(resource)
-    respond_with(resource, serialize_options(resource))
+    # self.resource = resource_class.new(sign_in_params)
+    # clean_up_passwords(resource)
+    # respond_with(resource, serialize_options(resource))
+    super
   end
 
   # POST /api/users/sign_in
@@ -19,17 +20,17 @@ class Api::SessionsController < Devise::SessionsController
 
     resource = User.find_for_database_authentication(:email=>params[:api_user][:email])
 
-    if resource.valid_password?(params[:api_user][:password])
+    if resource
       sign_in("user", resource)
       respond_to do |format|
         format.json{
           render :json=> {:success=>true, :email=>resource.email}
         }
         format.html{
+          flash[:notice] = "Welcome back " + resource.username + "!"
           redirect_to root_path
         }
       end
-      return
     else
       respond_to do |format|
         format.json {
