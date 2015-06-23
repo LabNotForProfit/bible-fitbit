@@ -12,9 +12,12 @@
 <body>
 
 <div id="notification-container">
-	<p class="notice"><%= notice %></p>
-	
-	<p class="alert"><%= alert %></p>
+	<% if flash[:notice] %>
+		<p class="notice"><%= notice %></p>
+	<% end %>
+	<% if flash[:alert] %>
+		<p class="alert"><%= alert %></p>
+	<% end %>
 </div>
 
 	<h1>Bible FitBit!</h1>
