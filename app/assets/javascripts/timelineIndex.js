@@ -12,10 +12,13 @@ $(function () {
 		source: books
 	})
 	$bookSearch.bind('enterKey', function(e) {
-		var url = window.location.href;
-		var urlInfo = url.split('#');
-		console.log(urlInfo[0] + '#' + $('#bookSearch').val().split(' ').join(''));
-		window.location.href = urlInfo[0] + '#' + $('#bookSearch').val().split(' ').join('');
+		var goToDiv = $('#' + $('#bookSearch').val().split(' ').join(''));
+		if (goToDiv.offset().top > 0) {
+			$('html,body').animate({
+          		scrollTop: goToDiv.offset().top - goToDiv.height()
+        	}, 1000);
+        	return false;
+		}
 	});
 	$bookSearch.keyup(function(e) {
 		if (e.keyCode == 13) {
