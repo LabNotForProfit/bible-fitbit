@@ -16,10 +16,10 @@ class Api::SessionsController < Devise::SessionsController
 
   # POST /api/users/sign_in
   def create
-    #build_resource
+    # resource = User.find_for_database_authentication(:email=>params[:api_user][:email])
 
-    resource = User.find_for_database_authentication(:email=>params[:api_user][:email])
-
+    resource = warden.authenticate!(auth_options)
+    # if authentication fails it should fail immediately but just in case
     if resource
       sign_in("user", resource)
       respond_to do |format|
@@ -61,7 +61,6 @@ class Api::SessionsController < Devise::SessionsController
 
   protected
   def ensure_params_exist
-    puts params
     return unless params[:api_user].blank?
     render :json=>{:success=>false, :message=>"missing user_login parameter"}, :status=>422
   end
