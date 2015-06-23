@@ -208,3 +208,9 @@ DEPENDENCIES
   turbolinks
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
+<<<<<<< Updated upstream
+=======
+
+BUNDLED WITH
+   1.10.4
+>>>>>>> Stashed changes
