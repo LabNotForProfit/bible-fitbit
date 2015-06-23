@@ -14,6 +14,7 @@ class Api::RegistrationsController < Devise::RegistrationsController
           render :json => user.as_json
         }
         format.html{
+          flash[:notice] = "Welcome to Bible Fitbit!"
           redirect_to new_api_user_session_path
           # sign_up("user", resource)
           # respond_with resource, location: after_sign_up_path_for(resource)
