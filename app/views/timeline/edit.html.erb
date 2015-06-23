@@ -189,4 +189,12 @@
 				wall.fitWidth();
 			});
 		</script>
+		<script type="text/javascript">
+			$( ".brick" ).click(function() {
+			var bookName = $(this).children('.cover').children('h2').html();
+			var url = window.location.href;
+			window.location.href = url + '/' + bookName; 
+			//var book_name = $(this).children('.cover').children('h2').html();
+  			});
+		</script>
 	</body>

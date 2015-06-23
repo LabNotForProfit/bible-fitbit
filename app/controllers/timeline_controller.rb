@@ -28,4 +28,7 @@ class TimelineController < ApplicationController
   	@book_list = [@genesis, @exodus, @leviticus, @numbers, @deuteronomy, @joshua, @judges]
   end
 
+  def update
+  end
+
 end
