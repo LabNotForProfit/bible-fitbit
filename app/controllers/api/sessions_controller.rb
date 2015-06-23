@@ -18,7 +18,6 @@ class Api::SessionsController < Devise::SessionsController
     #build_resource
 
     resource = User.find_for_database_authentication(:email=>params[:api_user][:email])
-    return invalid_login_attempt unless resource
 
     if resource.valid_password?(params[:api_user][:password])
       sign_in("user", resource)
@@ -31,8 +30,17 @@ class Api::SessionsController < Devise::SessionsController
         }
       end
       return
+    else
+      respond_to do |format|
+        format.json {
+          render :json => {:success=>false, :message=>"Error with your login or password"}
+        }
+        format.html {
+          flash[:alert] = 'Error with your login or password'
+          redirect_to new_api_user_session_path
+        }
+      end
     end
-    invalid_login_attempt
 
   end
 
