@@ -52,3 +52,24 @@ sup {
 	font-size: xx-small;
 	vertical-align: super;
 }
+
+/* Notice and Alert */
+.alert {
+	display: inline-block;
+	padding: 10px;
+	color: rgb(85, 85, 85);
+	border-radius: 5px;
+	margin: 10px;
+	border: 1px solid rgb(252, 98, 98);
+	background-color: rgb(255, 204, 204);
+	box-shadow: 0 3px 3px rgba(0,0,0,0.3),inset 0 1px 0 rgba(255,255,255,0.6);
+	animation: fadeOut 5s linear forwards;
+}
+
+@keyframes fadeOut {
+	0% 	{ opacity: 0; }
+	10% { opacity: 1; }
+	90% { opacity: 1; transform: translateY(0px);}
+	99% { opacity: 0; transform: translateY(-30px);}
+	100% { opacity: 0; }
+}
