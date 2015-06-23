@@ -1,4 +1,8 @@
-﻿		<style type="text/css">
+﻿<%= javascript_include_tag 'jquery.classywiggle', 'data-turbolinks-track' => true %>
+		<style type="text/css">
+		.brick{
+			cursor: pointer;
+		}
 			.free-wall {
 				margin: 10px;
 			}
@@ -8,6 +12,7 @@
 			[id='2-2']{
 				background-image: url("http://shoutitforlife.com/wp-content/uploads/2012/09/Exodus.jpg");
 			}
+
 		</style>
 	</head>
 	<body>
@@ -197,4 +202,5 @@
 			//var book_name = $(this).children('.cover').children('h2').html();
   			});
 		</script>
+		
 	</body>
