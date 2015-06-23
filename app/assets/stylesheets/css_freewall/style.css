@@ -35,7 +35,7 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
-body {
+body.freewall {
 	background: rgba(231, 231, 231, 0.43);
 	line-height: 1.125em;
 	color: white;
@@ -76,15 +76,15 @@ h6 {
 	font-size: 0.875em;
 }
 a {
-	text-decoration: none;
-	color: white;
+	/*text-decoration: none;
+	color: white;*/
 }
 a:hover {
-	color: white;
-	opacity: 0.9;
+	/*color: white;
+	opacity: 0.9;*/
 }
 a:visited {
-	color: white;
+	/*color: white;*/
 }
 h2 {
 	cursor: pointer;

@@ -1,4 +1,4 @@
-body {
+body.metro {
 	background: rgb(32, 27, 27) url(../i/freewall.jpg) no-repeat center fixed ;
 	font-family: "Segoe UI", arial, tahoma;
 	background-size: cover;
