@@ -1,13 +1,60 @@
 <%= javascript_include_tag 'jquery.knob', 'data-turbolinks-track' => true %>
-
+<style>
+.completed-button {
+  display: inline-block;
+  width: 200px;
+  padding: 8px;
+  color: #E74C3C;
+  border: 1px solid #E74C3C;
+  text-align: center;
+  outline: none;
+  text-decoration: none;
+}
+.completed-button-done {
+  display: inline-block;
+  width: 200px;
+  padding: 8px;
+  color: #2ECC71;
+  border: 1px solid #2ECC71;
+  text-align: center;
+  outline: none;
+  text-decoration: none;
+}
+</style>
+<script>
+$(document).ready(function() {
+	// Change button CSS and animate knob on button click
+	$( ".completed-button" ).click(function() {
+    	if ($(this).attr('class') == 'completed-button' ){
+        	$(".completed-button").attr('class', 'completed-button-done');
+        	console.log("do something");
+            $('.dial').each(function () {
+           		var $this = $(this);
+           		var myVal = $this.attr("rel");
+           		$this.knob({});
+           		$({ value: 0 }).animate({value: myVal}, {
+               	duration: 2500,
+               	easing: 'swing',
+               	step: function () {
+                	$this.val(Math.ceil(this.value)).trigger('change');
+                }
+           		})
+			});
+    	} 
+    	else {
+        console.log("already completed");
+    	}
+	});
+});
+</script>
 <p><%= @book.name %></p>
 <h2><%= @passages.collection.first.text.html_safe %></h2>
-<input type="text" class="dial" value="0">
+<input class="dial" value="0" rel="100">
+<a class="completed-button" href="#">COMPLETED</a>
 
 <script>
 $(".dial").knob({
     'min':0,
     'max':100,
-    'data-displayInput':false
 });
 </script>

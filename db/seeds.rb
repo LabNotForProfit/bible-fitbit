@@ -36,16 +36,7 @@ User.create({username: 'Test3', email: 'test3@test.com', password: 'asdfasdf'})
 User.create({username: 'Test4', email: 'test4@test.com', password: 'asdfasdf'})
 User.create({username: 'Test5', email: 'test5@test.com', password: 'asdfasdf'})
 
-#create Book object
-@books.each do |book|
-	Book.create({name: book})
+#create Book objects
+for i in 0..65
+	Book.create({name: @books[i], key_verse: @key_verses[i], abbr: @book_abbr[i]})
 end
-#update Book object with key verses
-for i in 1..66
-	Book.update(i, key_verse: @key_verses[i-1])
-end
-#udpate Book object with book abbreviations
-for i in 1..66
-	Book.update(i, abbr: @book_abbr[i-1])
-end
-
