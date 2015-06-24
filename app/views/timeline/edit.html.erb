@@ -6,13 +6,9 @@
 			.free-wall {
 				margin: 10px;
 			}
-			[id='1-2']{
+			/*[id='1-2']{
 				background-image: url("http://biologos.org/uploads/questions/image-question5-large.jpg");
-			}
-			[id='2-2']{
-				background-image: url("http://shoutitforlife.com/wp-content/uploads/2012/09/Exodus.jpg");
-			}
-
+			}*/
 		</style>
 	</head>
 	<body>
@@ -26,7 +22,7 @@
 		</div>
 		<div id="freewall" class="free-wall">
 
-			<% Book.all.each do |book| %>
+			<% @books.each do |book| %>
 				<%= content_tag(:div, class: 'brick size12') do %>
 					<%= content_tag(:div, class: "cover") do %>
 						<%= content_tag(:h2, book.name) %>
@@ -36,22 +32,6 @@
 			<% end %>
 		</div>
 		<script type="text/javascript">
-			
-			var colour = [
-				"rgb(142, 68, 173)",
-				"rgb(243, 156, 18)",
-				"rgb(135, 0, 0)",
-				"rgb(211, 84, 0)",
-				"rgb(0, 106, 63)",
-				"rgb(192, 57, 43)",
-				"rgb(39, 174, 96)",
-				"rgb(41, 128, 185)"
-			];
-
-			$(".brick").each(function() {
-				this.style.backgroundColor =  colour[colour.length * Math.random() << 0];
-			});
-
 			$(function() {
 				var wall = new Freewall("#freewall");
 				wall.reset({

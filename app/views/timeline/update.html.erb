@@ -1,7 +1,7 @@
 <%= javascript_include_tag 'jquery.knob', 'data-turbolinks-track' => true %>
 
-<p><%= params[:book] %></p>
-<p><%= @verse.value.text.html_safe %></p>
+<p><%= @book.name %></p>
+<h2><%= @passages.collection.first.text.html_safe %></h2>
 <input type="text" class="dial" value="0">
 
 <script>

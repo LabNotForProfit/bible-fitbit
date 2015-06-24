@@ -9,26 +9,14 @@ class TimelineController < ApplicationController
 
   def edit
   	@user = current_user
+    @books = Book.order(:id)
   end
 
   def update
     @biblesearch = BibleSearch.new('PPBuBK5LCmR4KLIsbytjtvCPDWbLkoSagxJhzQ6u')
-    @abbreviations = {"Genesis"=>"Gen","Exodus"=>"Exod"}
-    get_abbr(params[:book])
-    get_verse(@value)
+    @book = Book.find_by_name(params[:book])
+    # @passages = @biblesearch.passages('John 15:5', :version => "eng-ESV")
+    @passages = @biblesearch.passages((@book.abbr+' '+@book.key_verse), :version => "eng-ESV")
+
   end
-
-  private
-
-  # Get Chapter 1 verse 1 of book that user is editing progress for.
-  def get_verse(value)
-  @verse = @biblesearch.verse('eng-ESV:'+value+'.1.1')
-  end
-
-  #Get bible abbreviation of book user is editing for API call.
-  def get_abbr(book)
-    @abbreviations = {"Genesis"=>"Gen","Exodus"=>"Exod"}
-    @abbreviations.each { |key,value| @value = value if key == params[:book] }
-  end
-
 end
