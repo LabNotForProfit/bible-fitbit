@@ -1,0 +1,35 @@
+<h2>Friends</h2>
+<ul>
+	<% for friendship in @friendships %>
+		<li>
+			<%= h friendship.friend.username %>
+			<%=  link_to "Unfriend", api_friendship_path(friendship), :method => :delete %>
+			<!-- Because of api namespace we can't just use friendship model for path, but need to specify -->
+		</li>
+	<% end %>
+</ul>
+
+<!-- If this is the current_user, show pending friend requests -->
+
+<% if !@in_friend_requests.empty? %>
+	<h2>Your Friend Requests</h2>
+	<ul>
+		<% for request in @in_friend_requests %>
+			<li>
+				Friend Request From: <%= request.user.username %>
+				<%= link_to "Accept", api_friend_request_path(request), :method => :put %>
+			</li>
+		<% end %>
+	</ul>
+<% end %>
+
+<% if !@friend_requests.empty? %>
+	<h2>Friend Requests Sent To</h2>
+	<ul>
+		<% for request in @friend_requests %>
+			<li>
+				Still Waiting to Hear Back From: <%= request.friend.username %>
+			</li>
+		<% end %>
+	</ul>
+<% end %>
