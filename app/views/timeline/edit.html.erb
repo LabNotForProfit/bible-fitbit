@@ -21,66 +21,14 @@
 		</div>
 		<div id="freewall" class="free-wall">
 
-			<% @book_list.each do |book| %>
-				<%= content_tag(:div, class: book[:class], data: {position: book[:position]}) do %>
+			<% Book.all.each do |book| %>
+				<%= content_tag(:div, class: 'brick size12') do %>
 					<%= content_tag(:div, class: "cover") do %>
-						<%= content_tag(:h2, book[:name]) %>
+						<%= content_tag(:h2, book.name) %>
 						<%= content_tag(:p, "Content goes here") %>
 					<% end %>
 				<% end %>
 			<% end %>
-
-			<!-- Row 0 --> 
-			
-			<!-- <div class="brick size21" data-position="0-0" style="background-image: url(http://biologos.org/uploads/questions/image-question5-large.jpg)">
-				<div class='cover'>
-					<h2>Genesis</h2>
-					<p> top: 0 </p>
-					<p> left: 0</p>
-				</div>
-			</div> -->
-			<!-- <div class="brick size12" data-position="0-2"style="background-image: url(http://shoutitforlife.com/wp-content/uploads/2012/09/Exodus.jpg)">
-				<div class='cover'>
-					<h2>Exodus</h2>
-					<p> top: 0 </p>
-					<p> left: 2</p>
-				</div></div> -->
-				<!-- <div class="brick size11" data-position="0-3" style="background-image: url(http://w3.chabad.org/media/images/725/YrJO7256906.jpg)">
-				<div class='cover'>
-					<h2>Leviticus</h2>
-					<p> top: 0 </p>
-					<p> left: 3</p>
-				</div></div> -->
-			<!-- <div class="brick size22" data-position="0-4"style="background-image: url(https://thetenthleper.files.wordpress.com/2015/03/deuteronomy.jpeg)">
-				<div class='cover'>
-					<h2>Deuteronomy</h2>
-					<p> top: 0 </p>
-					<p> left: 4</p>
-				</div>
-			</div> -->
-			<!-- <div class="brick size22" data-position="0-6" style="background-image: url(http://shoutitforlife.com/wp-content/uploads/2012/12/the-book-of-Joshua.jpg)">
-				<div class='cover'>
-					<h2>Joshua</h2>
-					<p> top: 0 </p>
-					<p> left: 6</p>
-				</div></div> -->
-
-			<!-- Row 1 --> 
-			<!-- <div class="brick size22" data-position="1-0" style="background-image: url(http://assets1.womenoffaith.com/wp-content/uploads/2013/02/judges.jpg)">
-				<div class='cover'>
-					<h2>Judges</h2>
-					<p> top: 1 </p>
-					<p> left: 0</p>
-				</div></div> -->
-			<!-- <div class="brick size11" data-position="1-3" style="background-image: url(http://godofarmies.com/wp-content/uploads/2012/07/Book-of-Numbers.jpg)">
-				<div class='cover'>
-					<h2>Numbers</h2>
-					<p> top: 1 </p>
-					<p> left: 3</p>
-				</div>></div> -->
-
-			<!-- Row 2 --> 
-				
 		</div>
 		<script type="text/javascript">
 			

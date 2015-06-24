@@ -391,6 +391,7 @@ table {
 .brick .cover {
 	overflow: hidden;
 	margin: 20px;
+	font-size: 11px;
 }
 
 .brick .read-more {
