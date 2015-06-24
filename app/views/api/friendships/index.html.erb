@@ -11,6 +11,8 @@
 
 <!-- If this is the current_user, show pending friend requests -->
 
+<%= text_field_tag(:friendSearch, nil, placeholder: 'Search for friends by email!', remote: true) %>
+
 <% if !@in_friend_requests.empty? %>
 	<h2>Your Friend Requests</h2>
 	<ul>
@@ -25,11 +27,9 @@
 
 <% if !@friend_requests.empty? %>
 	<h2>Friend Requests Sent To</h2>
-	<ul>
+	<ul id="my-friend-requests">
 		<% for request in @friend_requests %>
-			<li>
-				Still Waiting to Hear Back From: <%= request.friend.username %>
-			</li>
+			<%= render partial: 'api/friend_requests/waiting_for_friend', locals: {request: request} %>
 		<% end %>
 	</ul>
 <% end %>

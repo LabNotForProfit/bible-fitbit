@@ -27,7 +27,7 @@ class Api::FriendshipsController < ApplicationController
 		# redirect_to api_user_path(current_user)
 
 		current_user.remove_friend(@friend)
-		redirect_to api_user_path(current_user)
+		redirect_to api_friendships_path
 	end
 
 	private

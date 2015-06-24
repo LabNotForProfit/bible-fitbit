@@ -29,7 +29,7 @@ class Api::UsersController < ApplicationController
         if @user.nil?
           render :json => {:status => "false", :error => "No user found with id: #{params[:id]}"}
         else
-          render :json => user.as_json
+          render :json => @user.as_json
         end
       }
       format.html {

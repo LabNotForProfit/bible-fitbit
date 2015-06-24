@@ -12,7 +12,12 @@ class Api::FriendRequestsController < ApplicationController
 
 		if @friend_request.save
 			# render :show, status: :created, location: @friend_request
-			redirect_to api_user_path(friend)
+			if request.xhr?
+				render partial: "waiting_for_friend", locals: {request: @friend_request}
+			else
+				redirect_to api_friendships_path
+			end
+			# redirect_to api_user_path(friend)
 		else
 			render json: @friend_request.errors
 		end
