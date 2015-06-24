@@ -13,9 +13,8 @@ class TimelineController < ApplicationController
 
   def update
     @biblesearch = BibleSearch.new('PPBuBK5LCmR4KLIsbytjtvCPDWbLkoSagxJhzQ6u')
-    @abbreviations = {"Genesis"=>"Gen","Exodus"=>"Exod"}
     get_abbr(params[:book])
-    get_verse(@value)
+    get_verse(@book)
   end
 
   private
@@ -28,7 +27,7 @@ class TimelineController < ApplicationController
   #Get bible abbreviation of book user is editing for API call.
   def get_abbr(book)
     @abbreviations = {"Genesis"=>"Gen","Exodus"=>"Exod"}
-    @abbreviations.each { |key,value| @value = value if key == params[:book] }
+    @abbreviations.each { |key,value| @book = value if key == params[:book] }
   end
 
 end
