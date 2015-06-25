@@ -51,8 +51,15 @@ $(document).ready (function() {
 					jqXHR.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
 				},
 				success: function(data) {
-					$('#my-friend-requests').append(data);
-					$friendSearch.val('')
+					// if the friend requests element exists, we're just going to append the new request
+					if($('#my-friend-requests').length > 0) {
+						$('#my-friend-requests').append(data);
+						$friendSearch.val('')
+					} else {
+						// otherwise, we're starting the list so append it to the body
+						$("body").append(data)
+						$friendSearch.val('')
+					}
 				}
 			})
 		});

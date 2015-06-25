@@ -26,10 +26,5 @@
 <% end %>
 
 <% if !@friend_requests.empty? %>
-	<h2>Friend Requests Sent To</h2>
-	<ul id="my-friend-requests">
-		<% for request in @friend_requests %>
-			<%= render partial: 'api/friend_requests/waiting_for_friend', locals: {request: request} %>
-		<% end %>
-	</ul>
+	<%= render partial: 'api/friend_requests/waiting_for_friend_list', locals: { friend_requests: @friend_requests } %>
 <% end %>
