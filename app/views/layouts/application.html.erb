@@ -23,11 +23,10 @@
 	<h1>Bible FitBit!</h1>
 
 	<%= link_to "Home", root_path %>
-	<%= link_to "Users List", api_users_path %>
 	<% if user_signed_in? %>
 		<%= link_to 'My Profile', api_user_path(current_user) %>
-		<%= link_to 'Sign Out', destroy_api_user_session_path, :method => :delete %>
 		<%= link_to 'Friends', api_friendships_path %>
+		<%= link_to 'Sign Out', destroy_api_user_session_path, :method => :delete %>
 	<% end %>
 
 	<%= yield %>

@@ -40,12 +40,12 @@ class Api::FriendRequestsController < ApplicationController
 
 	def update
 		@friend_request.accept # defined in friend_request model
-		redirect_to api_user_path(@friend_request.friend) # basically stays on your own page as it goes back to the requested user's page
+		redirect_to api_friendships_path # basically stays on your friends page
 	end
 
 	def destroy
 		@friend_request.destroy
-		redirect_to api_user_path(@friend_request.friend)
+		redirect_to api_friendships_path
 	end
 
 	private

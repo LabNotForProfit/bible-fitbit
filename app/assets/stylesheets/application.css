@@ -99,3 +99,7 @@ sup {
 	position: relative;	
 	display: block;
 }
+
+#friendSearch {
+	width: 300px;
+}
