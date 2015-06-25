@@ -1,10 +1,67 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+
 body{
+	margin: 0px !important;
+}
+
+#main{
 	padding-top: 75px;
 }
 
 .navbar-nav > li > a {
     line-height: 50px;
+}
+
+.navbar-nav {
+	background-color: white;
+	padding-bottom: 10px;
+}
+
+.center {
+  text-align: center;
+}
+#main > h1 {
+  color: white;
+}
+
+.datatable-wrapper{
+	margin-left: auto;
+    margin-right: auto;
+    padding-top: 20px;
+    background-color: white;
+}
+
+#home-img-container{
+	background-image: url(https://upload.wikimedia.org/wikipedia/commons/a/a3/Cumulus_clouds_panorama.jpg);
+	background-position: 0px 800px;
+	margin-bottom: 0px;
+}
+
+.ghost-button {
+  display: inline-block;
+  width: 200px;
+  padding: 8px;
+  color: #BA5355;
+  border: 1px solid #BA5355;
+  text-align: center;
+  outline: none;
+  text-decoration: none;
+  background: none;
+}
+
+.ghost-button:hover {
+	color: #fff;
+	border: 1px solid #fff;
+	background: none;
+}
+
+.verse{
+	background-color: white;
+	margin-bottom: 0px;
+}
+
+.page{
+	padding-bottom: 30px;
 }
