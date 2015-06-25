@@ -5,9 +5,9 @@ class Friendship < ActiveRecord::Base
 	belongs_to :user
   belongs_to :friend, :class_name => 'User'
 
-  validate :not_self
   validates :user, presence: true  
   validates :friend, presence: true, uniqueness: { scope: :user } 
+  validate :not_self
 
   private
 

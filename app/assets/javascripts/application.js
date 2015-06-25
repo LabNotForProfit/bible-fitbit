@@ -38,7 +38,7 @@ function saveBadge() {
 	})
 }
 
-$(document).ready (function() {
+$(document).on('page:load', function() {
 	$(function () {
 		var $friendSearch = $('#friendSearch');
 		$friendSearch.bind('enterKey', function(e){
@@ -51,6 +51,12 @@ $(document).ready (function() {
 					jqXHR.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
 				},
 				success: function(data) {
+					
+					// If the no user element is in the data, there was no user found
+					if($(data).attr('id') == "no-user") {
+						$('#friend-search-container').append(data);
+						$friendSearch.val('');
+					} else
 					// if the friend requests element exists, we're just going to append the new request
 					if($('#my-friend-requests').length > 0) {
 						$('#my-friend-requests').append(data);

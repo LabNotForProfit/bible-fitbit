@@ -10,8 +10,9 @@
 </ul>
 
 <!-- If this is the current_user, show pending friend requests -->
-
-<%= text_field_tag(:friendSearch, nil, placeholder: 'Search for friends by username or email!') %>
+<div id="friend-search-container">
+	<%= text_field_tag(:friendSearch, nil, placeholder: 'Search for friends by username or email!') %>
+</div>
 
 <% if !@in_friend_requests.empty? %>
 	<h2>Your Friend Requests</h2>

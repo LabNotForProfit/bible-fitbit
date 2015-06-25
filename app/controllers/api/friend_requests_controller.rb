@@ -11,25 +11,30 @@ class Api::FriendRequestsController < ApplicationController
 		if params[:friend_id] =~ EMAIL_REGEX
 			friend = User.find_by_email(params[:friend_id])
 		else
-			friend = User.friendly.find(params[:friend_id])
+			friend = User.find_by_username(params[:friend_id]) #friendly throws an exception instead of nil, so use find_by
 		end
-		@friend_request = current_user.friend_requests.new(friend: friend)
 
-		if @friend_request.save
-			# render :show, status: :created, location: @friend_request
-			if request.xhr?
-				# See if we have to render the whole list or just the new item
-				if current_user.friend_requests.size > 1
-					render partial: "waiting_for_friend", locals: {request: @friend_request}
+		if friend.nil?
+			render partial: "cant_find_user", locals: {user: params[:friend_id]}
+		else
+
+			@friend_request = current_user.friend_requests.new(friend: friend)
+
+			if @friend_request.save
+				if request.xhr?
+					# See if we have to render the whole list or just the new item
+					if current_user.friend_requests.size > 1
+						render partial: "waiting_for_friend", locals: {request: @friend_request}
+					else
+						# make a list out of our one friend request since the partial expects a list, but this is our only one
+						render partial: "waiting_for_friend_list", locals: {friend_requests: [@friend_request]}
+					end
 				else
-					render partial: "waiting_for_friend_list", locals: {friend_requests: [@friend_request]}
+					redirect_to api_friendships_path
 				end
 			else
-				redirect_to api_friendships_path
+				render json: @friend_request.errors
 			end
-			# redirect_to api_user_path(friend)
-		else
-			render json: @friend_request.errors
 		end
 	end
 
