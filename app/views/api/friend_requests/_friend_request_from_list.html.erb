@@ -1,0 +1,10 @@
+<h2>Your Friend Requests</h2>
+<ul>
+	<% for request in in_friend_requests %>
+	<li>
+		Friend Request From: <%= request.user.username %>
+		<%= link_to "Accept", api_friend_request_path(request), :method => :put %>
+		<%= link_to "Reject", api_friend_request_path(request), :method => :delete %>
+	</li>
+	<% end %>
+</ul>

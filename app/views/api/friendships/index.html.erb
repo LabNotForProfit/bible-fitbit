@@ -15,15 +15,7 @@
 </div>
 
 <% if !@in_friend_requests.empty? %>
-	<h2>Your Friend Requests</h2>
-	<ul>
-		<% for request in @in_friend_requests %>
-			<li>
-				Friend Request From: <%= request.user.username %>
-				<%= link_to "Accept", api_friend_request_path(request), :method => :put %>
-			</li>
-		<% end %>
-	</ul>
+	<%= render partial: 'api/friend_requests/friend_request_from_list', locals: { in_friend_requests: @in_friend_requests} %>
 <% end %>
 
 <% if !@friend_requests.empty? %>
