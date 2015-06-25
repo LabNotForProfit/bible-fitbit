@@ -6,6 +6,7 @@ class Api::RegistrationsController < Devise::RegistrationsController
 
   # POST /api/users
   def create
+    logger.debug sign_up_params
     user = User.new(sign_up_params)
     # user = User.new({:email=>params[:api_user][:email], :password=>params[:api_user][:password], :username => params[:api_user][:username]})
     if user.save
@@ -36,6 +37,8 @@ class Api::RegistrationsController < Devise::RegistrationsController
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up).push(:username)
+    devise_parameter_sanitizer.for(:sign_up).push(:lastname)
+    devise_parameter_sanitizer.for(:sign_up).push(:firstname)
   end
 
 end

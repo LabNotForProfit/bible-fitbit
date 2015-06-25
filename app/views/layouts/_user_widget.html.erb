@@ -1,6 +1,6 @@
 <div id='user-widget'>
 	<% if user_signed_in? %>
-		<p> Hello, <%= current_user.username %></p>
+		<p> Hello, <%= current_user.firstname.downcase.capitalize %> <%= current_user.lastname.downcase.capitalize %></p>
 	<% else %>
 	  	<p>You are not signed in.</p>
 	  	<%= link_to 'Login', new_api_user_session_path %>
