@@ -1,0 +1,10 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body{
+	padding-top: 75px;
+}
+
+.navbar-nav > li > a {
+    line-height: 50px;
+}
