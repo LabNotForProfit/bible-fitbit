@@ -2,6 +2,13 @@ class Api::FriendshipsController < ApplicationController
 
 	before_action :set_friend, only: :destroy
 
+	def index
+		@friendships = current_user.friendships
+		@friends = current_user.friends
+		@friend_requests = current_user.friend_requests
+		@in_friend_requests = current_user.friend_requests_for_me
+	end
+
 	# def create
 	# 	@friendship = current_user.friendships.build(:friend_id => params[:friend_id])
 	# 	if @friendship.save
@@ -20,7 +27,7 @@ class Api::FriendshipsController < ApplicationController
 		# redirect_to api_user_path(current_user)
 
 		current_user.remove_friend(@friend)
-		redirect_to api_user_path(current_user)
+		redirect_to api_friendships_path
 	end
 
 	private
