@@ -74,7 +74,9 @@ $(document).ready(function() {
    });
   }
 });
+
 </script>
+  <%- title "#{@book.name}" %>
 <div id="bookId" style="display:none;"><%= @book.id %></div>
 <p><%= @book.name %></p>
 <h2><%= @passages.collection.first.text.html_safe %></h2>
