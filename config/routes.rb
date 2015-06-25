@@ -70,6 +70,7 @@ Rails.application.routes.draw do
   devise_for :users
   namespace :api do
     resources :badges, controller: 'badges'
+    resources :books, controller: 'books'
     devise_for :users
     # GET    /api/users/show(.:format)          api/registrations#show
     devise_scope :user do 
