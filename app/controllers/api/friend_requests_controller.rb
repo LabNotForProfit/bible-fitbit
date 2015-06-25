@@ -7,7 +7,12 @@ class Api::FriendRequestsController < ApplicationController
 	end
 
 	def create
-		friend = User.friendly.find(params[:friend_id])
+		# Check if :friend_id is username or email
+		if params[:friend_id] =~ EMAIL_REGEX
+			friend = User.find_by_email(params[:friend_id])
+		else
+			friend = User.friendly.find(params[:friend_id])
+		end
 		@friend_request = current_user.friend_requests.new(friend: friend)
 
 		if @friend_request.save
