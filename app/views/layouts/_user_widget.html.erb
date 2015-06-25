@@ -3,6 +3,6 @@
 		<p> Hello, <%= current_user.username %></p>
 	<% else %>
 	  	<p>You are not signed in.</p>
-	  	<%= link_to 'Login', new_api_user_session_path %>
+	  	<%= link_to 'Login', new_api_user_session_path, class: "btn btn-lg btn-primary" %>
 	<% end %>
 </div>

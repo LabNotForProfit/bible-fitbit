@@ -9,28 +9,16 @@
   <%= javascript_include_tag 'allBadges', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'homeIndex', 'data-turbolinks-track' => true %>
 </head>
+<%= render 'layouts/header_navbar' %>
 <body>
-
-<div class="notification-container">
-	<% if flash[:notice] %>
-		<p class="notice"><%= notice %></p>
-	<% end %>
-	<% if flash[:alert] %>
-		<p class="alert"><%= alert %></p>
-	<% end %>
-</div>
-
-	<h1>Bible FitBit!</h1>
-
-	<%= link_to "Home", root_path %>
-	<% if user_signed_in? %>
-		<%= link_to 'My Profile', api_user_path(current_user) %>
-		<%= link_to 'Friends', api_friendships_path %>
-		<%= link_to 'Sign Out', destroy_api_user_session_path, :method => :delete %>
-	<% end %>
-
+	<div id="notification-container">
+		<% if flash[:notice] %>
+			<p class="notice"><%= notice %></p>
+		<% end %>
+		<% if flash[:alert] %>
+			<p class="alert"><%= alert %></p>
+		<% end %>
+	</div>
 	<%= yield %>
-	<%= render 'layouts/user_widget' %>
-
 </body>
 </html>
