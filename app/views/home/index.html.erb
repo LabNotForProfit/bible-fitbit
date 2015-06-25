@@ -1,5 +1,7 @@
 <%= javascript_include_tag 'homeIndex', 'data-turbolinks-track' => true %>
 <%- title "Home" %>
+
+<div class="page">
 <div class="center jumbotron" id="home-img-container">
 	<div id='main'>
 		<% if user_signed_in? %>
@@ -8,8 +10,12 @@
 	</div>
 </div>
 	 	
+<div class="center jumbotron verse">
+	<blockquote><p><%= @passages.collection.first.text.html_safe %></p><footer>John 15:5</footer></blockquote>
+</div>	 	
+
 <div class="datatable-wrapper">
-	<table id="userNames" class="use-datatable">
+	<table id="userNames" class="table use-datatable">
 		<thead>
 			<tr>
 				<th>User Name</th>
@@ -26,7 +32,7 @@
 </div>
 		<% end %>
 
-<div id="verse">
-	<h2><%= @passages.collection.first.text.html_safe %></h2>
-</div>
+	</div>
+
+
 
