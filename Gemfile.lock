@@ -46,12 +46,18 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     arel (6.0.0)
+    autoprefixer-rails (5.2.1)
+      execjs
+      json
     bcrypt (3.1.10)
     bible_gateway (0.0.9)
       nokogiri
       typhoeus
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bootstrap-sass (3.3.5)
+      autoprefixer-rails (>= 5.0.0.1)
+      sass (>= 3.2.19)
     bourbon (4.2.3)
       sass (~> 3.4)
       thor
@@ -191,6 +197,7 @@ PLATFORMS
 DEPENDENCIES
   bible_gateway
   biblesearch-api!
+  bootstrap-sass
   bourbon
   byebug
   coffee-rails (~> 4.1.0)
@@ -210,4 +217,4 @@ DEPENDENCIES
   web-console (~> 2.0)
 
 BUNDLED WITH
-   1.10.3
+   1.10.4
