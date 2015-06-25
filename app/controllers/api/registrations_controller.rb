@@ -64,6 +64,8 @@ class Api::RegistrationsController < Devise::RegistrationsController
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up).push(:username)
+    devise_parameter_sanitizer.for(:sign_up).push(:lastname)
+    devise_parameter_sanitizer.for(:sign_up).push(:firstname)
   end
 
 end

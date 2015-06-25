@@ -2,7 +2,7 @@
 <div class="center jumbotron">
 <div id='body'>
 	<% if user_signed_in? %>
-	  <h1>Welcome <%= current_user.username %>!</h1>
+	  <h1>Welcome <%= current_user.firstname.downcase.capitalize %> <%= current_user.lastname.downcase.capitalize %>!</h1>
 	  <h2>Coming Soon...</h2>
 	  <li><strong>Check your progress at : <%= link_to 'My Progress', timeline_index_path %></strong>
 	  	<strong><%= link_to 'Add Progress', timeline_edit_path %></strong></li>
