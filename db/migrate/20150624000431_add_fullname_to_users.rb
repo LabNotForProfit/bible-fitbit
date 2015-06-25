@@ -4,3 +4,4 @@ class AddFullnameToUsers < ActiveRecord::Migration
     add_column :users, :lastname, :string
   end
 end
+
