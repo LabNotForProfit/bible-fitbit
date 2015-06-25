@@ -6,7 +6,6 @@ class Api::RegistrationsController < Devise::RegistrationsController
 
   # POST /api/users
   def create
-    logger.debug sign_up_params
     user = User.new(sign_up_params)
     # user = User.new({:email=>params[:api_user][:email], :password=>params[:api_user][:password], :username => params[:api_user][:username]})
     if user.save
