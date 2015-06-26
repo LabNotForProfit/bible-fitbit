@@ -1,0 +1,19 @@
+<%= javascript_include_tag 'homeIndex', 'data-turbolinks-track' => true %>
+<%- title "Home" %>
+<div class="page">
+	<div class="center jumbotron" id="home-img-container">
+		<div id='main'>
+			<% if user_signed_in? %>
+			<h1>Welcome <%= current_user.firstname %>!</h1>
+			<h2>
+				<%= link_to content_tag(:button, "My Progress", :class=> ["btn", "btn-default", "btn-lg","ghost-button"]), timeline_index_path %>
+				<%= link_to content_tag(:button, "Add Progress", :class=> ["btn", "btn-default", "btn-lg","ghost-button"]), timeline_edit_path %>
+			</h2>
+		</div>
+	</div>
+	
+	<div class="center jumbotron verse">
+		<blockquote><p><%= @passages.collection.first.text.html_safe %></p><footer>John 15:5</footer></blockquote>
+	</div>
+	<% end %>
+</div>
