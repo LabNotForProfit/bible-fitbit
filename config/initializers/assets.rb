@@ -8,6 +8,7 @@ Rails.application.config.assets.precompile += %w( allBadges.js )
 Rails.application.config.assets.precompile += %w( timelineIndex.js )
 Rails.application.config.assets.precompile += %w( jquery.classywiggle.js )
 Rails.application.config.assets.precompile += %w( jquery.knob.js )
+Rails.application.config.assets.precompile += %w( leaderboardsIndex.js )
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << Emoji.images_path
 
