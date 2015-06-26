@@ -68,7 +68,7 @@ sup {
 	padding: 10px;
 	font-size: 15px;
 	color: rgb(85, 85, 85);
-	border-radius: 0px;
+	border-radius: 6px;
 	margin: 10px;
 	box-shadow: 0 2px 2px rgba(0,0,0,0.3);
 	animation: fadeOut 5s linear forwards;
