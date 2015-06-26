@@ -1,0 +1,23 @@
+<%= javascript_include_tag 'leaderboardsIndex', 'data-turbolinks-track' => true %>
+<div class="datatable-wrapper leaderboard-margin-top">
+	<table id="userNames" class="table use-datatable">
+		<thead>
+			<tr>
+				<th>Friends</th>
+				<th>Points</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><%= current_user.username %></td>
+				<td><%= 10 * current_user.books.length %></td>
+			</tr>
+			<% current_user.friends.each do |friend| %>
+			<tr>
+				<td><%= friend.username %></td>
+				<td><%= 10 * friend.books.length %></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>
