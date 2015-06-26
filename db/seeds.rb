@@ -30,11 +30,14 @@
 			"Gal", "Eph", "Phil", "Col", "1Thess", "2Thess", "1Tim", "2Tim", "Titus", "Phlm", "Heb",
  			"Jas", "1Pet", "2Pet", "1John", "2John", "3John", "Jude", "Rev"]
 
-User.create({username: 'Test1', email: 'test1@test.com', password: 'asdfasdf'})
-User.create({username: 'Test2', email: 'test2@test.com', password: 'asdfasdf'})
-User.create({username: 'Test3', email: 'test3@test.com', password: 'asdfasdf'})
-User.create({username: 'Test4', email: 'test4@test.com', password: 'asdfasdf'})
-User.create({username: 'Test5', email: 'test5@test.com', password: 'asdfasdf'})
+for i in 1..5
+	User.create({firstname: "Test#{i}", lastname: "User", username: "test#{i}", email: "test#{i}@test.com", password: "asdfasdf"})
+end
+# Make some friendships
+User.find(1).friends << User.find(2)
+User.find(1).friends << User.find(3)
+User.find(2).friends << User.find(4)
+User.find(3).friends << User.find(5)
 
 #create Book objects
 for i in 0..65
