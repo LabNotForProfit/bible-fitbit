@@ -4,7 +4,7 @@
 	   </a></li>
     <li><%= link_to content_tag(:span, "", :class=> ["glyphicon glyphicon-home"]), root_path %></li>
     <% if user_signed_in? %>
-        <li><%= link_to 'Leader Board', api_leaderboards_path %></li>
+        <li><%= link_to 'Leaderboard', api_leaderboards_path %></li>
         <li><%= link_to "Friends", api_users_path %></li>
         <li><%= link_to 'My Profile', api_user_path(current_user) %></li>
     <li><%= link_to 'Sign Out', destroy_api_user_session_path, :method => :delete %></li>
