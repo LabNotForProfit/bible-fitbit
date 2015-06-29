@@ -23,12 +23,7 @@ class Api::FriendRequestsController < ApplicationController
 			if @friend_request.save
 				if request.xhr?
 					# See if we have to render the whole list or just the new item
-					if current_user.friend_requests.size > 1
-						render partial: "waiting_for_friend", locals: {request: @friend_request}
-					else
-						# make a list out of our one friend request since the partial expects a list, but this is our only one
-						render partial: "waiting_for_friend_list", locals: {friend_requests: [@friend_request]}
-					end
+					render partial: 'friend_request_sent', locals: { user: friend }
 				else
 					redirect_to api_friendships_path
 				end

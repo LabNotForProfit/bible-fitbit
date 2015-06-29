@@ -14,14 +14,9 @@ $(function() {
 				if($(data).attr('id') == "no-user") {
 					$('#friend-search-container').append(data);
 					$friendSearch.val('');
-				} else
-				// if the friend requests element exists, we're just going to append the new request
-				if($('#my-friend-requests').length > 0) {
-					$('#my-friend-requests').append(data);
-					$friendSearch.val('');
 				} else {
-					// otherwise, we're starting the list so append it to the body
-					$("body").append(data);
+					// make notice that friend request was sent
+					$('#friend-search-container').append(data);
 					$friendSearch.val('');
 				}
 			}
