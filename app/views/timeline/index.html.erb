@@ -4,10 +4,10 @@
 	<%= label_tag(:bookSearch, 'Search: ') %>
 	<%= text_field_tag(:bookSearch, nil, placeholder: 'Book Search') %>
 	<%= content_tag(:header) do %>
-		<%= content_tag(:h1, "Your Progress Page, #{@user.username}") %>
+		<%= content_tag(:h1, "Your Progress Page, #{@user.firstname}") %>
 	<% end %> <!-- header -->
 	<%= content_tag(:section, class: "cd-container", id: "cd-timeline") do %>	
-		<% Book.all.each do |book| %>
+		<% @user.books.each do |book| %>
 			<%= content_tag(:div, id: book.name.split(' ').join(), class: "cd-timeline-block") do %>
 				<%= content_tag(:div, class: ["cd-timeline-img", "cd-picture"]) do %>
 					<%= image_tag("img/book-icon.png") %>
@@ -24,4 +24,3 @@
 		<% end %> <!-- for each block -->
 	<% end %>  <!-- cd-container -->
 <% end %> <!-- timeline -->
-
