@@ -1,4 +1,7 @@
-<%= javascript_include_tag 'leaderboardsIndex', 'data-turbolinks-track' => true %>
+<% content_for :head do %>
+	<%= javascript_include_tag 'leaderboard/leaderboardsIndex', 'data-turbolinks-track' => true %>
+<% end %>
+
 <div class="datatable-wrapper leaderboard-margin-top">
 	<table id="userNames" class="table use-datatable">
 		<thead>

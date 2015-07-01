@@ -11,12 +11,11 @@ $(function() {
 			},
 			success: function(data) {
 				// If the no user element is in the data, there was no user found
-				if($(data).attr('id') == "no-user") {
+				if ($(data).attr('id') == "no-user") {
 					$('#friend-search-container').append(data);
 					$friendSearch.val('');
-				} else
-				// if the friend requests element exists, we're just going to append the new request
-				if($('#my-friend-requests').length > 0) {
+				} else if ($('#my-friend-requests').length > 0) {
+					// if the friend requests element exists, we're just going to append the new request
 					$('#my-friend-requests').append(data);
 					$friendSearch.val('');
 				} else {
@@ -25,7 +24,7 @@ $(function() {
 					$friendSearch.val('');
 				}
 			}
-		})
+		});
 	});
 
 	$friendSearch.keyup(function(e) {

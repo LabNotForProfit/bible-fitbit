@@ -1,4 +1,9 @@
-<%= javascript_include_tag 'timelineIndex', 'data-turbolinks-track' => true %>
+<% content_for :head do %>
+	<%= stylesheet_link_tag 'timeline/timeline', media: 'all', 'data-turbolinks-track' => true %>
+
+	<%= javascript_include_tag 'timeline/index/timelineIndex', 'data-turbolinks-track' => true %>
+<% end %>
+
 <%- title "Timeline" %>
 <%= content_tag(:div, class: "timeline") do %>
 	<%= label_tag(:bookSearch, 'Search: ') %>

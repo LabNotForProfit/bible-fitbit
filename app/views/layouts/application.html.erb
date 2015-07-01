@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <!-- <title>BibleFitbit</title> -->
-  <title><%= content_for?(:title) ? content_for(:title) : "Bible Fitbit" %></title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-  <%= javascript_include_tag 'jquery.dataTables', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'allBadges', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'homeIndex', 'data-turbolinks-track' => true %>
+	<!-- <title>BibleFitbit</title> -->
+	<title><%= content_for?(:title) ? content_for(:title) : "Bible Fitbit" %></title>
+	<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<%= yield :head %>
+	<%= csrf_meta_tags %>
 </head>
 <%= render 'layouts/header_navbar' %>
 <body>

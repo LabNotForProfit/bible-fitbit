@@ -1,15 +1,18 @@
-﻿<%= javascript_include_tag 'jquery.classywiggle', 'data-turbolinks-track' => true %>
-		<style type="text/css">
-		.brick{
-			cursor: pointer;
-		}
-			.free-wall {
-				margin: 10px;
-			}
-			/*[id='1-2']{
-				background-image: url("http://biologos.org/uploads/questions/image-question5-large.jpg");
-			}*/
-		</style>
+﻿<% content_for :head do %>
+	<%= stylesheet_link_tag    'timeline/timeline', media: 'all', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'timeline/edit/timelineEdit', 'data-turbolinks-track' => true %>
+<% end %>
+<style type="text/css">
+	.brick{
+		cursor: pointer;
+	}
+	.free-wall {
+		margin: 10px;
+	}
+	/*[id='1-2']{
+		background-image: url("http://biologos.org/uploads/questions/image-question5-large.jpg");
+	}*/
+</style>
 	</head>
 	<body>
 		<%- title "Edit Progress" %>

@@ -15,7 +15,7 @@ $(function () {
 		var goToDiv = $('#' + $('#bookSearch').val().split(' ').join(''));
 		if (goToDiv.offset().top > 0) {
 			$('html,body').animate({
-          		scrollTop: goToDiv.offset().top - goToDiv.height()
+          		scrollTop: goToDiv.offset().top - goToDiv.height() * 2
         	}, 1000);
         	return false;
 		}
