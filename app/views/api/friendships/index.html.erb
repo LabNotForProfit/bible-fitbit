@@ -1,4 +1,7 @@
-<%= javascript_include_tag 'friendshipsIndex', 'data-turbolinks-track' => true %>
+<% content_for :head do %>
+	<%= javascript_include_tag 'friends/friendshipsIndex', 'data-turbolinks-track' => true %>
+<% end %>
+
 <h2>Friends</h2>
 <ul>
 	<% for friendship in @friendships %>
