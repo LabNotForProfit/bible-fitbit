@@ -2,7 +2,10 @@
 <p>Username: <%= @user.username %></p>
 <h2>Your Friends</h2>
 <p>
-	Go to <%= link_to "Friends", api_friendships_path%> page 
+	Go to <%= link_to "Friends", api_friendships_path %> page 
+</p>
+<p>
+	Go to <%= link_to "Edit Profile", edit_api_user_path(current_user) %> page 
 </p>
 
 <!-- Moved all friends stuff to friends page  -->

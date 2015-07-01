@@ -73,11 +73,8 @@ Rails.application.routes.draw do
     resources :books, controller: 'books'
     resources :leaderboards, controller: 'leaderboards'
     devise_for :users
-    # GET    /api/users/show(.:format)          api/registrations#show
     devise_scope :user do 
-      get "/users" => 'users#index' 
-      # get "/users/show" => 'users#show'
-      resources :users, only: :show, path: 'users/show', controller: 'users'
+      resources :users, only: [:index, :show, :edit, :update], controller: 'users'
       resources :friendships
       resources :friend_requests, :except => [:new, :show, :edit]
     end 

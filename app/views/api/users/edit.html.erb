@@ -1,0 +1,22 @@
+<% content_for :head do %>
+	<%= javascript_include_tag 'users/usersEdit', 'data-turbolinks-track' => true %>
+<% end %>
+<h2>Edit Profile</h2>
+
+<div class="field">
+	<%= hidden_field_tag(:username, current_user.username) %>
+	<%= label_tag(:firstname, 'First Name: ') %></br>
+	<%= text_field_tag(:firstname, current_user.firstname) %>
+</div>
+
+<div class="field">
+	<%= label_tag(:lastname, 'Last Name: ') %></br>
+	<%= text_field_tag(:lastname, current_user.lastname) %>
+</div>
+
+<div class="field">
+	<%= label_tag(:email, 'Email: ') %></br>
+	<%= text_field_tag(:email, current_user.email) %>
+</div>
+
+<button onclick="updateProfile();">Update</button>
