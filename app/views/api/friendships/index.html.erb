@@ -22,6 +22,10 @@
 	<%= render partial: 'api/friend_requests/friend_request_from_list', locals: { in_friend_requests: @in_friend_requests} %>
 <% end %>
 
+<!--
+begin=
 <% if !@friend_requests.empty? %>
 	<%= render partial: 'api/friend_requests/waiting_for_friend_list', locals: { friend_requests: @friend_requests } %>
 <% end %>
+end=
+-->

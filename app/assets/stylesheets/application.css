@@ -97,6 +97,11 @@ sup {
 	display: block;
 }
 
+#friend-request-sent {
+	position: relative;
+	display: block;
+}
+
 .notification {
 	display: inline-block;
 	padding: 10px;
