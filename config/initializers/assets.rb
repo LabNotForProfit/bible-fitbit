@@ -6,6 +6,7 @@ Rails.application.config.assets.precompile += %w( leaderboard/leaderboardsIndex.
 Rails.application.config.assets.precompile += %w( timeline/index/timelineIndex.js )
 Rails.application.config.assets.precompile += %w( timeline/edit/timelineEdit.js )
 Rails.application.config.assets.precompile += %w( friends/friendshipsIndex.js )
+Rails.application.config.assets.precompile += %w( users/usersEdit.js )
 
 # Rails.application.config.assets.precompile += %w( dashboard/dashboard.css )
 Rails.application.config.assets.precompile += %w( timeline/timeline.css )

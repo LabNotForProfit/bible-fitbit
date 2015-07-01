@@ -37,4 +37,19 @@ class Api::UsersController < ApplicationController
       }
     end
   end
+
+    def edit
+    end
+
+    def update
+        current_user.firstname = params[:firstname]
+        current_user.lastname = params[:lastname]
+        current_user.email = params[:email]
+        current_user.save
+        respond_to do |format|
+        format.json {
+            render :json => {:status => "Sucessfully update user."}
+        }
+    end
+    end
 end
