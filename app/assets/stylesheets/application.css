@@ -139,3 +139,7 @@ sup {
 #friendSearch {
 	width: 300px;
 }
+
+.clickable {
+	cursor: pointer !important;
+}

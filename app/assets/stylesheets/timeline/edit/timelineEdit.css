@@ -1,0 +1,7 @@
+.free-wall {
+	margin: 10px;
+}
+
+.brick.completed {
+	background-color: green;
+}
