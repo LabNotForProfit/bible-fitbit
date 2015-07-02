@@ -5,6 +5,7 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.precompile += %w( leaderboard/leaderboardsIndex.js )
 Rails.application.config.assets.precompile += %w( timeline/index/timelineIndex.js )
 Rails.application.config.assets.precompile += %w( timeline/edit/timelineEdit.js )
+Rails.application.config.assets.precompile += %w( timeline/update/timelineUpdate.js )
 Rails.application.config.assets.precompile += %w( friends/friendshipsIndex.js )
 Rails.application.config.assets.precompile += %w( users/usersEdit.js )
 

@@ -1,4 +1,8 @@
-<%= javascript_include_tag 'jquery.knob', 'data-turbolinks-track' => true %>
+<% content_for :head do %>
+    <%= javascript_include_tag 'jquery.knob', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'timeline/update/timelineUpdate', 'data-turbolinks-track' => true %>
+<% end %>
+
 <style>
 .completed-button {
   display: inline-block;
@@ -21,61 +25,6 @@
   text-decoration: none;
 }
 </style>
-<script>
-$(document).ready(function() {
-	// Change button CSS and animate knob on button click
-	$(".completed-button" ).click(function() {
-    	if ($(this).attr('class') == 'completed-button' ) {
-        	$(".completed-button").attr('class', 'completed-button-done');
-            $('.dial').each(function () {
-           		var $this = $(this);
-           		var myVal = $this.attr("rel");
-           		$this.knob({});
-           		$({ value: 0 }).animate({value: myVal}, {
-               	duration: 2500,
-               	easing: 'swing',
-               	step: function () {
-                	$this.val(Math.ceil(this.value)).trigger('change');
-                }
-           	})
-		});
-        var bookId = $('#bookId').remove().html();
-        var requestObject = {
-          bookId: bookId
-        }
-        $.ajax({
-          type: 'POST',
-          url: '/api/books',
-          data: requestObject,
-          beforeSend: function(jqXHR, settings) {
-            jqXHR.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
-          },
-          success: function(data) {
-            console.log('success');
-          }
-        });
-    	} 
-    	else {
-        console.log("already completed");
-    	}
-	});
-  if ($('.completed-button-done').length > 0) {
-    $('.dial').each(function () {
-      var $this = $(this);
-      var myVal = $this.attr("rel");
-      $this.knob({});
-      $({ value: 0 }).animate({value: myVal}, {
-        duration: 2500,
-        easing: 'swing',
-        step: function () {
-          $this.val(Math.ceil(this.value)).trigger('change');
-        }
-      })
-   });
-  }
-});
-
-</script>
 <%- title "#{@book.name}" %>
 <div id="bookId" style="display:none;"><%= @book.id %></div>
 <p><%= @book.name %></p>
