@@ -1,0 +1,8 @@
+.timeline-bar-block {
+	display: inline-block;
+	margin: 10px;
+}
+
+.timeline-bar-block.right {
+	float: right;
+}

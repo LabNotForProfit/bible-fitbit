@@ -5,12 +5,15 @@
 <% end %>
 
 <%- title "Timeline" %>
+<%= content_tag(:div) do %>
+	<button type="button" class="btn btn-default btn-lg">
+		<%= link_to 'Add Progress', timeline_edit_path, class: ['glyphicon', 'glyphicon-plus'] %>
+	</button>
+	<%= content_tag(:div, class: ['timeline-bar-block', 'right']) do %>
+		<%= text_field_tag(:bookSearch, nil, placeholder: 'Book Search', class: 'form-control') %>
+	<% end %>
+<% end %>
 <%= content_tag(:div, class: "timeline") do %>
-	<%= label_tag(:bookSearch, 'Search: ') %>
-	<%= text_field_tag(:bookSearch, nil, placeholder: 'Book Search') %>
-	<%= content_tag(:header) do %>
-		<%= content_tag(:h1, "Your Progress Page, #{@user.firstname}") %>
-	<% end %> <!-- header -->
 	<%= content_tag(:section, class: "cd-container", id: "cd-timeline") do %>	
 		<% @user.books.each do |book| %>
 			<%= content_tag(:div, id: book.name.split(' ').join(), class: "cd-timeline-block") do %>
