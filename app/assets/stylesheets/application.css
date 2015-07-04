@@ -13,6 +13,7 @@
  *= require_tree ./common
  *= require_self
  *= require jquery-ui/autocomplete
+ *= require font-awesome
  */
 
 /* need to change to body .class */
