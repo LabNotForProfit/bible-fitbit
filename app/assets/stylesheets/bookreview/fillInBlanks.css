@@ -36,3 +36,7 @@
 .blanks-padding {
 	padding: 5px;
 }
+
+.blanks-hidden {
+	display: none;
+}
