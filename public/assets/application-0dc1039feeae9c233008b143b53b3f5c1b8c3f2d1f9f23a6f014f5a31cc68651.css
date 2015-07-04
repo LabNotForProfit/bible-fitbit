@@ -7941,7 +7941,7 @@ textarea {
 
 /* line 48, /Users/mlen1990/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/bootstrap-sass-3.3.5/assets/stylesheets/bootstrap/_scaffolding.scss */
 a {
-  color: #337ab7;
+  color: #337ab7 !important;
   text-decoration: none;
 }
 /* line 52, /Users/mlen1990/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/bootstrap-sass-3.3.5/assets/stylesheets/bootstrap/_scaffolding.scss */
