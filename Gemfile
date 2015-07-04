@@ -41,6 +41,8 @@ gem 'bible_gateway'
 # gem 'biblesearch-api'
 gem 'biblesearch-api', :git => 'https://github.com/calvinf/biblesearch-api-ruby.git'
 
+gem "font-awesome-rails"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
