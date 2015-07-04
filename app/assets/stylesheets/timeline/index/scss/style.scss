@@ -21,21 +21,6 @@ html * {
 	@include box-sizing(border-box);
 }
 
-body {
-	font: {
-		size: 100%;
-		family: $primary-font; // variables inside partials > _variables.scss
-	}
-	color: $main-text;
-	background-color: $background;
-}
-
-a {
-	color: $link;
-	text-decoration: none;
-	font-family: $secondary-font;
-}
-
 img {
 	max-width: 100%;
 }

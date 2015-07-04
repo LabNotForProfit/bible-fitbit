@@ -4,8 +4,8 @@ Primary style
 
 -------------------------------- */
 html * {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  /*-webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;*/
 }
 
 *, *:after, *:before {
@@ -19,12 +19,6 @@ body {
   font-family: "Droid Serif", serif;
   color: #7f8c97;
   background-color: #e9f0f5;*/
-}
-
-a {
-  /*color: #acb7c0;
-  text-decoration: none;
-  font-family: "Open Sans", sans-serif;*/
 }
 
 img {
