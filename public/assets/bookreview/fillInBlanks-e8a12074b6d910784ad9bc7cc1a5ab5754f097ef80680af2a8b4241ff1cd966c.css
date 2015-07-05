@@ -1,0 +1,42 @@
+.blanks-page-wrapper {
+	margin-left: 15px;
+	margin-top: 105px;
+}
+
+.blanks-block {
+	display: inline-block;
+	margin-right: 10px;
+}
+
+.show-passages {
+	display: none;
+}
+
+.blanks-line {
+	margin-bottom: 10px;
+}
+
+.blanks-chapter-answer {
+	width: 60px;
+}
+
+.blanks-icon {
+	width: 25px;
+	margin-left: 5px;
+}
+
+.blanks-icon.green {
+	color: green;
+}
+
+.blanks-icon.red {
+	color: red;
+}
+
+.blanks-padding {
+	padding: 5px;
+}
+
+.blanks-hidden {
+	display: none;
+}
