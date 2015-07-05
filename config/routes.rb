@@ -72,6 +72,7 @@ Rails.application.routes.draw do
     resources :badges, controller: 'badges'
     resources :books, controller: 'books'
     resources :leaderboards, controller: 'leaderboards'
+    resources :fill_in_blanks, controller: 'fill_in_blanks'
     devise_for :users
     devise_scope :user do 
       resources :users, only: [:index, :show, :edit, :update], controller: 'users'

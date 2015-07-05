@@ -1,0 +1,16 @@
+<% content_for :head do %>
+	<%= stylesheet_link_tag 'bookreview/fillInBlanks', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'bookreview/fillInBlanksShow', 'data-turbolinks-track' => true %>
+<% end %>
+
+<% @passages.collection.each do |passage| %>
+	<div class="show-passages">
+		<p class="p"><%= passage['display'] %></p>
+		<%= passage.text.html_safe %>
+	</div>
+<% end %>
+
+<div class="blanks-page-wrapper">
+	<h1>Review <%= params[:id] %></h1>
+	<div id="pickChapter"></div>
+</div>
