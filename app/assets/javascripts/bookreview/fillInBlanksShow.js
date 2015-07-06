@@ -1,17 +1,20 @@
 var verses = {};
 
 function checkAnswers() {
+	var score = 0;
 	$('.blanks-chapter-answer').each(function(index, answer) {
 		var $answer = $(answer);
 		var $icon = $answer.next();
 		var chapter = $answer.attr('id').split(' ')[1].split(':')[0];
 		if (chapter == $answer.val()) {
 			$icon.addClass('green fa fa-check');
+			score++;
 		} else {
 			$icon.addClass('red fa fa-close');
 		}
 	});
-	var $checkAnswers = $('#checkAnswers')
+	var $checkAnswers = $('#checkAnswers');
+	$('#score').text(score);
 	$checkAnswers.text('Review Again').attr('onclick', 'reset()');
 	$checkAnswers.after('<button id="showAnswers" class="btn btn-default btn-lg ghost-button-twitter" onclick="showAnswers();">Show Answers</button>');
 }
@@ -44,7 +47,7 @@ function shuffle(array) {
 $(function() {
 	$('.v, .s1, .b').remove();
 	var passages = shuffle($('.show-passages').remove());
-	var byChapter = '<h3>Pick the correct chapter</h3>';
+	var byChapter = '<h3>Pick the correct chapter (e.g. 25)</h3>';
 	$.each(passages, function(index, passage) {
 		var children = $(passage).children();
 		var reference = $(children[0]).html();

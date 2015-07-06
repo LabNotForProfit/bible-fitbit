@@ -40,3 +40,9 @@
 .blanks-hidden {
 	display: none;
 }
+
+.blanks-score {
+	display: inline-block;
+	width: 25px;
+	text-align: right;
+}
