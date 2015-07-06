@@ -3872,6 +3872,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-fixed-top {
   top: 0;
   border-width: 0 0 1px;
+  box-shadow: 3px 3px 5px rgba(0,0,0,0.3);
 }
 .navbar-fixed-bottom {
   bottom: 0;
