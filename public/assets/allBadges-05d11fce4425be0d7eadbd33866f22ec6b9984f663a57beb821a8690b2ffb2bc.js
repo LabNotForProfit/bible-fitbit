@@ -1,3 +1,0 @@
-$(function() {
-	$('.use-datatable').DataTable();
-})
