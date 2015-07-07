@@ -21,8 +21,8 @@ $(function() {
 				}
 				setTimeout(function() {
 					// in 5 seconds, remove the first notification-container
-					$('.notification-container').get(0).remove();
-				}, 5000)
+					$('#friend-search-container > .notification-container').get(0).remove();
+				}, 5001)
 			}
 		});
 	});
