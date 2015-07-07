@@ -1,11 +1,32 @@
-<h1>My Profile</h1>
-<p>Username: <%= @user.username %></p>
-<h2>Your Friends</h2>
-<p>
-	Go to <%= link_to "Friends", api_friendships_path %> page 
-</p>
-<p>
-	Go to <%= link_to "Edit Profile", edit_api_user_path(current_user) %> page 
-</p>
 
-<!-- Moved all friends stuff to friends page  -->
+<div id="profile-name">
+	<h2><%= @user.firstname %> <%= @user.lastname %></h2>
+</div>
+<div id="profile-info">
+	Joined: <%= @user.created_at.to_formatted_s(:long_ordinal) %>
+</div>
+
+<% if @user == current_user %>
+	<p>
+		Go to <%= link_to "Edit Profile", edit_api_user_path(current_user) %> page 
+	</p>
+<% end %>
+
+<% if current_user.friends.include? @user %>
+	<!-- If this user is in the current_users friend list make a link to unfriend -->
+	<%= link_to "Unfriend", api_friendship_path(friendship), :method => :delete %>
+<% elsif @user != current_user %>
+	<!-- Otherwise, as long as this is not the current_user make alink to add friend -->
+	<%= link_to "Add Friend", api_friend_request_path(@user), :method => :post %>
+<% end %>
+<% if (@user == current_user || current_user.friends.include?(@user)) %>
+	<!-- If this is the current user or a friend of the current user, we can see their progress -->
+	<div class="container-fluid">
+		<div class="row">
+			<h3>Finished Books</h3>
+			<% @user.books.each do |book| %>
+				<p><%= book.name %></p>
+			<% end %>
+		</div>
+	</div>
+<% end %>
