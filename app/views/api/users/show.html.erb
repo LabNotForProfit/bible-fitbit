@@ -1,3 +1,9 @@
+<% content_for :head do %>
+	<%= stylesheet_link_tag 'users/users', media: 'all', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'users/userShow', 'data-turbolinks-track' => true %>
+
+<% end %>
+
 
 <div id="profile-name">
 	<h2><%= @user.firstname %> <%= @user.lastname %></h2>
@@ -8,16 +14,17 @@
 
 <% if @user == current_user %>
 	<p>
-		Go to <%= link_to "Edit Profile", edit_api_user_path(current_user) %> page 
+		<%= link_to "Edit Your Profile", edit_api_user_path(current_user) , class: "btn btn-default" %>
 	</p>
 <% end %>
 
 <% if current_user.friends.include? @user %>
 	<!-- If this user is in the current_users friend list make a link to unfriend -->
-	<%= link_to "Unfriend", api_friendship_path(friendship), :method => :delete %>
+	<!-- To get the friendship we would delete, find by friend_id with this user -->
+	<%= link_to content_tag(:span, "Friends", class: "glyphicon glyphicon-ok"), api_friendship_path(current_user.friendships.find_by_friend_id(@user.id)), :method => :delete, class: "btn btn-default friend" %>
 <% elsif @user != current_user %>
 	<!-- Otherwise, as long as this is not the current_user make alink to add friend -->
-	<%= link_to "Add Friend", api_friend_request_path(@user), :method => :post %>
+	<%= link_to "Add Friend", api_friend_request_path(@user), :method => :post, class: "btn btn-default add-friend" %>
 <% end %>
 <% if (@user == current_user || current_user.friends.include?(@user)) %>
 	<!-- If this is the current user or a friend of the current user, we can see their progress -->

@@ -1,0 +1,13 @@
+/* CSS for users page */
+
+.friend {
+	background-color: #87e6d0;
+}
+
+.friend:hover {
+	background-color: #e87d7d;
+}
+
+.add-friend {
+	
+}
