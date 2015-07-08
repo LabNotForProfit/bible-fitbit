@@ -45,7 +45,7 @@ gem "font-awesome-rails"
 
 # Paperclip for image upload
 gem 'paperclip'
-gem 'aws-sdk'
+gem 'aws-sdk', '~> 1.6'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
