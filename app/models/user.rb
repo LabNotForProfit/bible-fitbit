@@ -25,7 +25,8 @@ class User < ActiveRecord::Base
   }
 
   # Validate the attached image is image/jpg, image/png, etc
-  validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+  validates_attachment_content_type :avatar, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
+  validates_attachment_file_name :avatar, :matches => [/png\Z/, /jpe?g\Z/, /gif\Z/]
   validates_attachment_size :avatar, :in => 0..4.megabytes
 
   # Include default devise modules. Others available are:
