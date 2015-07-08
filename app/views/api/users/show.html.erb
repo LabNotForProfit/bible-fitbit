@@ -29,7 +29,7 @@
 				<%= link_to content_tag(:span, " Friends", class: "glyphicon glyphicon-ok"), api_friendship_path(current_user.friendships.find_by_friend_id(@user.id)), :method => :delete, class: "btn btn-default friend" %>
 			<% elsif @user != current_user %>
 				<!-- Otherwise, as long as this is not the current_user make alink to add friend -->
-				<%= link_to "Add Friend", api_friend_request_path(@user), :method => :post, class: "btn btn-default add-friend" %>
+				<%= link_to "Add Friend", api_friend_requests_path(:friend_id => @user), :method => :post, class: "btn btn-default add-friend" %>
 			<% end %>
 		</div>
 	</div>
