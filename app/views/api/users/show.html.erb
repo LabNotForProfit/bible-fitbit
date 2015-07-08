@@ -33,10 +33,9 @@
 		</div>
 	</div>
 
-</div>
-<% if (@user == current_user || current_user.friends.include?(@user)) %>
+	<% if (@user == current_user || current_user.friends.include?(@user)) %>
 	<!-- If this is the current user or a friend of the current user, we can see their progress -->
-	<div class="container">
+
 		<div class="row">
 			<div class="col-md-8">
 				<h3>Finished Books</h3>
@@ -49,5 +48,5 @@
 				<% end %>
 			</div>
 		</div>
-	</div>
-<% end %>
+	<% end %>
+</div>
