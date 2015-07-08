@@ -66,6 +66,7 @@ class Api::RegistrationsController < Devise::RegistrationsController
     devise_parameter_sanitizer.for(:sign_up).push(:username)
     devise_parameter_sanitizer.for(:sign_up).push(:lastname)
     devise_parameter_sanitizer.for(:sign_up).push(:firstname)
+    devise_parameter_sanitizer.for(:sign_up).push(:avatar)
   end
 
 end

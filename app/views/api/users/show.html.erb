@@ -6,18 +6,19 @@
 
 <div class="container">
 	<div class="row">
+		<%= image_tag @user.avatar.url(:medium), class: "col-md-2" %>
 		<div id="profile-name" class="col-md-4">
 			<h2><%= @user.firstname %> <%= @user.lastname %></h2>
 		</div>
 	</div>
 	<div class="row">
-		<div id="profile-info" class="col-md-4">
+		<div id="profile-info" class="col-md-4 col-md-offset-2">
 			Joined: <%= @user.created_at.to_formatted_s(:long_ordinal) %>
 		</div>
 	</div>
 
 	<div class="row">
-		<div class="col-md-4">
+		<div class="col-md-4 col-md-offset-2">
 			<% if @user == current_user %>
 				<p>
 					<%= link_to "Edit Your Profile", edit_api_user_path(current_user) , class: "btn btn-default" %>
