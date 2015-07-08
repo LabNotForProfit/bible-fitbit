@@ -23,10 +23,16 @@
 	<!-- If this is the current user or a friend of the current user, we can see their progress -->
 	<div class="container-fluid">
 		<div class="row">
-			<h3>Finished Books</h3>
-			<% @user.books.each do |book| %>
-				<p><%= book.name %></p>
-			<% end %>
+			<div class="col-md-8">
+				<h3>Finished Books</h3>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-8">
+				<% @user.books.each do |book| %>
+					<p><%= book.name %></p>
+				<% end %>
+			</div>
 		</div>
 	</div>
 <% end %>
