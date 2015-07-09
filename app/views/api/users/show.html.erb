@@ -6,7 +6,7 @@
 
 <div class="container">
 	<div class="row">
-		<%= image_tag @user.avatar.url(:medium), class: "col-md-2" %>
+		<%= image_tag @user.avatar.url(:square), class: "col-md-2", id: "profile-avatar" %>
 		<div id="profile-name" class="col-md-4">
 			<h2><%= @user.firstname %> <%= @user.lastname %></h2>
 		</div>
