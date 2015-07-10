@@ -6,9 +6,9 @@
 
 <%- title "Timeline" %>
 <%= content_tag(:div) do %>
-	<button type="button" class="btn btn-default btn-lg">
-		<%= link_to 'Add Progress', timeline_edit_path, class: ['glyphicon', 'glyphicon-plus'] %>
-	</button>
+	<%= content_tag(:div, class: 'timeline-bar-block') do %>
+		<%= link_to 'Add Progress', timeline_edit_path, class: ['fa', 'fa-plus'] %>
+	<% end %>
 	<%= content_tag(:div, class: ['timeline-bar-block', 'right']) do %>
 		<%= text_field_tag(:bookSearch, nil, placeholder: 'Book Search', class: 'form-control') %>
 	<% end %>
