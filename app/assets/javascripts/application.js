@@ -36,3 +36,12 @@ function saveBadge() {
 		}
 	})
 }
+
+$(document).ready(function() {
+	$("img").load(function() {
+    	$(this).wrap(function(){
+    		return '<span class="image-wrap ' + $(this).attr('class') + '" style="position:relative; display:inline-block; background:url(' + $(this).attr('src') + ') no-repeat center center; " />';
+    	});
+    $(this).css("opacity","0");
+  	});
+})
