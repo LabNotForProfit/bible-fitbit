@@ -23,15 +23,17 @@
 		<div class="col-md-4 col-md-offset-2">
 			<% if @user == current_user %>
 				<p>
-					<%= link_to "Edit Your Profile", edit_api_user_path(current_user) , class: "btn btn-default" %>
+					<%= link_to "Edit Your Profile", edit_api_user_path(current_user) , class: "btn btn-primary" %>
 				</p>
 			<% elsif current_user.friends.include? @user %>
 				<!-- If this user is in the current_users friend list make a link to unfriend -->
 				<!-- To get the friendship we would delete, find by friend_id with this user -->
-				<%= link_to content_tag(:span, " Friends", class: "glyphicon glyphicon-ok"), api_friendship_path(current_user.friendships.find_by_friend_id(@user.id)), :method => :delete, class: "btn btn-default friend" %>
-			<% elsif @user != current_user %>
-				<!-- Otherwise, as long as this is not the current_user make alink to add friend -->
-				<%= link_to "Add Friend", api_friend_requests_path(:friend_id => @user), :method => :post, class: "btn btn-default add-friend" %>
+				<%= link_to content_tag(:span, " Friends", class: "glyphicon glyphicon-ok"), api_friendship_path(current_user.friendships.find_by_friend_id(@user.id)), :method => :delete, class: "btn btn-success friend" %>
+			<% elsif current_user.pending_friends.include? @user %>
+				<%= content_tag(:span, "Friend Request Sent", class: "btn btn-info disabled") %>
+			<% else %>
+				<!-- Otherwise, make a link to add friend -->
+				<%= link_to content_tag(:span, " Add Friend", class: "glyphicon glyphicon-send"), api_friend_requests_path(:friend_id => @user), :method => :post, class: "btn btn-success add-friend" %>
 			<% end %>
 		</div>
 	</div>
