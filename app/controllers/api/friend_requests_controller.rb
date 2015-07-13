@@ -25,7 +25,7 @@ class Api::FriendRequestsController < ApplicationController
 					# See if we have to render the whole list or just the new item
 					render partial: 'friend_request_sent', locals: { user: friend }
 				else
-					redirect_to api_friendships_path
+					redirect_to api_user_path(friend)
 				end
 			else
 				render json: @friend_request.errors

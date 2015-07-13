@@ -8,6 +8,7 @@ Rails.application.config.assets.precompile += %w( timeline/edit/timelineEdit.js 
 Rails.application.config.assets.precompile += %w( timeline/update/timelineUpdate.js )
 Rails.application.config.assets.precompile += %w( friends/friendshipsIndex.js )
 Rails.application.config.assets.precompile += %w( users/usersEdit.js )
+Rails.application.config.assets.precompile += %w( users/userShow.js )
 
 # Rails.application.config.assets.precompile += %w( dashboard/dashboard.css )
 Rails.application.config.assets.precompile += %w( timeline/timeline.css )
@@ -15,6 +16,7 @@ Rails.application.config.assets.precompile += %w( timeline/index/timelineIndex.c
 Rails.application.config.assets.precompile += %w( bookreview/fillInBlanks.css )
 Rails.application.config.assets.precompile += %w( bookreview/fillInBlanksIndex.js )
 Rails.application.config.assets.precompile += %w( bookreview/fillInBlanksShow.js )
+Rails.application.config.assets.precompile += %w( users/users.css )
 # Rails.application.config.assets.precompile += %w( homeIndex.js )
 # Rails.application.config.assets.precompile += %w( allBadges.js )
 # Rails.application.config.assets.precompile += %w( jquery.classywiggle.js )

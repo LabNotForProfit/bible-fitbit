@@ -1,4 +1,5 @@
 <% content_for :head do %>
+	<%= stylesheet_link_tag 'users/users', media: 'all', 'data-turbolinks-track' => true %>
 	<%= javascript_include_tag 'friends/friendshipsIndex', 'data-turbolinks-track' => true %>
 <% end %>
 
@@ -6,8 +7,10 @@
 <ul>
 	<% for friendship in @friendships %>
 		<li>
-			<%= h friendship.friend.username %>
-			<%=  link_to "Unfriend", api_friendship_path(friendship), :method => :delete %>
+			<span class="avatar-container">
+				<%= image_tag friendship.friend.avatar.url(:thumb) %>
+			</span>
+			<%=  link_to friendship.friend.username, api_user_path(friendship.friend) %>
 			<!-- Because of api namespace we can't just use friendship model for path, but need to specify -->
 		</li>
 	<% end %>
@@ -21,11 +24,3 @@
 <% if !@in_friend_requests.empty? %>
 	<%= render partial: 'api/friend_requests/friend_request_from_list', locals: { in_friend_requests: @in_friend_requests} %>
 <% end %>
-
-<!--
-begin=
-<% if !@friend_requests.empty? %>
-	<%= render partial: 'api/friend_requests/waiting_for_friend_list', locals: { friend_requests: @friend_requests } %>
-<% end %>
-end=
--->

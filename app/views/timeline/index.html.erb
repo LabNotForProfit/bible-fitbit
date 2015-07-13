@@ -1,8 +1,4 @@
-<% content_for :head do %>
-	<%= stylesheet_link_tag 'timeline/timeline', media: 'all', 'data-turbolinks-track' => true %>
-
-	<%= javascript_include_tag 'timeline/index/timelineIndex', 'data-turbolinks-track' => true %>
-<% end %>
+<!-- Timeline css included in timeline partial -->
 
 <%- title "Timeline" %>
 <%= content_tag(:div) do %>
@@ -13,22 +9,4 @@
 		<%= text_field_tag(:bookSearch, nil, placeholder: 'Book Search', class: 'form-control') %>
 	<% end %>
 <% end %>
-<%= content_tag(:div, class: "timeline") do %>
-	<%= content_tag(:section, class: "cd-container", id: "cd-timeline") do %>	
-		<% @user.books.each do |book| %>
-			<%= content_tag(:div, id: book.name.split(' ').join(), class: "cd-timeline-block") do %>
-				<%= content_tag(:div, class: ["cd-timeline-img", "cd-picture"]) do %>
-					<%= image_tag("img/book-icon.png") %>
-				<% end %>
-				<%= content_tag(:div, class: "cd-timeline-content") do %>
-					<%= content_tag(:h2, "Title goes here") %>
-					<%= content_tag(:p, "Content goes here") %>
-					<%= content_tag :a, :href => "#0" do %>
-        				<%= "Click here" %>
-      				<% end %>
-      				<%= content_tag(:span, book.name, class: "cd-date")%>
-				<% end %> <!-- cd-timeline-content -->
-			<% end %> <!-- cd-timeline-block -->
-		<% end %> <!-- for each block -->
-	<% end %>  <!-- cd-container -->
-<% end %> <!-- timeline -->
+<%= render partial: 'timeline', locals: { user: @user } %>

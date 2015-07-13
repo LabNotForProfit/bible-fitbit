@@ -62,7 +62,7 @@ sup {
 /* Notice and Alert */
 .notification-container {
 	z-index: 10000;
-	position: absolute;
+	position: fixed;
 	left: 50%;
 	-webkit-animation: seconds 1.0s forwards;
 	-webkit-animation-iteration-count: 1;

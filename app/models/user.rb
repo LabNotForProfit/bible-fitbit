@@ -16,6 +16,19 @@ class User < ActiveRecord::Base
   EMAIL_REGEX = /\A([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})\z/i
   validates :username, :presence => true, :uniqueness => true, :length => {:in => 1..20}, :format => UNAME_REGEX
 
+  # Paperclip
+  # This method associates the attribute ":avatar" with a file attachment
+  has_attached_file :avatar, styles: {
+    thumb: '100x100>',
+    square: '200x200#',
+    medium: '300x300>'
+  }, :default_url => "img/book-icon-:style.png"
+
+  # Validate the attached image is image/jpg, image/png, etc
+  validates_attachment_content_type :avatar, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
+  validates_attachment_file_name :avatar, :matches => [/png\Z/, /jpe?g\Z/, /gif\Z/]
+  validates_attachment_size :avatar, :in => 0..4.megabytes
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
