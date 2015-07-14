@@ -1,4 +1,5 @@
 <% content_for :head do %>
+	<%= stylesheet_link_tag 'users/users', media: 'all', 'data-turbolinks-track' => true %>
 	<%= javascript_include_tag 'leaderboard/leaderboardsIndex', 'data-turbolinks-track' => true %>
 <% end %>
 
@@ -6,17 +7,24 @@
 	<table id="userNames" class="table use-datatable table-striped table-hover table-responsive">
 		<thead>
 			<tr>
+				<th></th>
 				<th>Friends</th>
 				<th>Points</th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr class="info">
+				<td>
+					<span class="avatar-container"><%= image_tag current_user.avatar.url(:thumb) %></span>
+				</td>
 				<td><%= current_user.username %></td>
 				<td><%= 10 * current_user.books.length %></td>
 			</tr>
 			<% current_user.friends.each do |friend| %>
 			<tr>
+				<td>
+					<span class="avatar-container"><%= image_tag friend.avatar.url(:thumb) %></span>
+				</td>
 				<td><%= friend.username %></td>
 				<td><%= 10 * friend.books.length %></td>
 			</tr>
