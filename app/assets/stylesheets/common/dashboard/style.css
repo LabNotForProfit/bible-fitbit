@@ -990,7 +990,7 @@ PANELS CONFIGURATIONS
 /*Panel Size*/
 
 .pn {
-	height: 250px;
+	height: 350px;
 	box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
 }
 
@@ -1085,7 +1085,6 @@ PANELS CONFIGURATIONS
 	text-align: center;
 	background: #ffffff;
 	color: #ccd1d9;
-    overflow: scroll;
 }
 
 .white-panel p {
@@ -1279,7 +1278,7 @@ PANELS CONFIGURATIONS
 
 #first-panel-header{
     color: #FF3F85;
-    padding-top: 70px;
+    padding-top: 50px;
 }
 
 #twitter-buttons{

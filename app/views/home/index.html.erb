@@ -17,9 +17,9 @@
 								<div class="row">
 									<!-- TWITTER PANEL -->
 									<div class="col-lg-4 col-md-4 col-sm-4 mb">
-										<div class="twitter-panel pn">
-											<div class="center">
-												<h2 id="first-panel-header">What's your progress?</h2>
+										<div class="white-panel pn">
+											<div class="white-header">
+												<h2>What's your progress?</h2>
 											</div>
 											<div class="center" id="twitter-buttons">
 												<h2>
@@ -30,170 +30,111 @@
 										</div>
 									</div><!-- /col-md-4 -->
 										
-										<div class="col-lg-4 col-md-4 col-sm-4 mb">
-											<!-- WHITE PANEL - TOP USER -->
-											<div class="white-panel pn">
-												<div class="white-header">
-													<h5>Leaderboard</h5>
-												</div>
-												
-												<%= render partial: 'api/leaderboards/min_leaderboard' %>
+									<div class="col-lg-4 col-md-4 col-sm-4 mb">
+										<!-- WHITE PANEL - TOP USER -->
+										<div class="white-panel pn leaderboard">
+											<div class="white-header">
+												<h2>Leaderboard</h2>
 											</div>
-										</div><!-- /col-md-4 -->
+											
+											<%= render partial: 'api/leaderboards/min_leaderboard' %>
+										</div>
+									</div><!-- /col-md-4 -->
 										
-										<div class="col-lg-4 col-md-4 col-sm-4 mb">
-											<div class="twitter-panel pn">
-												<div class="center">
-													<h2 id="first-panel-header">Want to review a book?</h2>
-												</div>
-												<div class="center" id="twitter-buttons">
-													<h2>
-													<%= link_to content_tag(:button, "Pick a book!", :class=> ["btn", "btn-default", "btn-lg","ghost-button-twitter"]), api_fill_in_blanks_path %>
-													</h2>
-												</div>
+									<div class="col-lg-4 col-md-4 col-sm-4 mb">
+										<div class="white-panel pn">
+											<div class="white-header">
+												<h2>Want to review a book?</h2>
 											</div>
-											</div><!-- /col-md-4 -->
-										</div><! --/END 1ST ROW OF PANELS -->
+											<div class="center" id="twitter-buttons">
+												<h2>
+												<%= link_to content_tag(:button, "Pick a book!", :class=> ["btn", "btn-default", "btn-lg","ghost-button-twitter"]), api_fill_in_blanks_path %>
+												</h2>
+											</div>
+										</div>
+									</div><!-- /col-md-4 -->
+								</div><!--/END 1ST ROW OF PANELS -->
 										
-										<! -- 2ND ROW OF PANELS -->
-										<div class="row">
-											<! -- TODO PANEL -->
+								<!-- 2ND ROW OF PANELS -->
+								<div class="row">			
+									<!-- PROFILE 01 PANEL -->
+									<div class="col-lg-4 col-md-4 col-sm-4 mb">
+										<div class="content-panel pn">
+											<div id="profile-01">
+												<h3>Optimus Prime</h3>
+												<h6>OVERLORD OF ALL AUTOBOTS</h6>
+											</div>
+											<div class="profile-01 centered">
+												<p>ADD TO CONTACT LIST</p>
+											</div>
+											<div class="centered">
+												<h6><i class="fa fa-envelope"></i><br/>SHARON@DASHGUMTHEME.COM</h6>
+											</div>
+										</div><!--/content-panel -->
+									</div><!--/col-md-4 -->
 											
-											
-											<! -- PROFILE 01 PANEL -->
-											<div class="col-lg-4 col-md-4 col-sm-4 mb">
-												<div class="content-panel pn">
-													<div id="profile-01">
-														<h3>Optimus Prime</h3>
-														<h6>OVERLORD OF ALL AUTOBOTS</h6>
-													</div>
-													<div class="profile-01 centered">
-														<p>ADD TO CONTACT LIST</p>
-													</div>
-													<div class="centered">
-														<h6><i class="fa fa-envelope"></i><br/>SHARON@DASHGUMTHEME.COM</h6>
-													</div>
-												</div><! --/content-panel -->
-											</div><! --/col-md-4 -->
-											
-											<! -- PROFILE 02 PANEL -->
-											<div class="col-lg-4 col-md-4 col-sm-4 mb">
-												<div class="content-panel pn">
-													<div id="profile-02">
-														<div class="user">
-															<img src="assets/img/friends/fr-06.jpg" class="img-circle" width="80">
-															<h4>DJ SHERMAN</h4>
-														</div>
-													</div>
-													<div class="pr2-social centered">
-														<a href="#"><i class="fa fa-twitter"></i></a>
-														<a href="#"><i class="fa fa-facebook"></i></a>
-														<a href="#"><i class="fa fa-dribbble"></i></a>
-													</div>
-												</div><! --/panel -->
-												</div><!--/ col-md-4 -->
-												<div class="col-md-4 col-sm-4 mb">
-													<div class="stock card">
-														<div class="stock-chart">
-															<div id="chart"></div>
-														</div>
-														<div class="stock current-price">
-															<div class="row">
-															<div class="info col-sm-6 col-xs-6"><abbr>AAPL</abbr>
-															<time>Yesterday</time>
-														</div>
-														<div class="changes col-sm-6 col-xs-6">
-															<div class="value up"><i class="fa fa-caret-up hidden-sm hidden-xs"></i> 694.00</div>
-															<div class="change hidden-sm hidden-xs">+4.95 (3.49%)</div>
-														</div>
-													</div>
-												</div>
-												<div class="summary">
-													<strong>18.3 M</strong> <span>SHARES TRADED</span>
+									<!-- PROFILE 02 PANEL -->
+									<div class="col-lg-4 col-md-4 col-sm-4 mb">
+										<div class="content-panel pn">
+											<div id="profile-02">
+												<div class="user">
+													<img src="assets/img/friends/fr-06.jpg" class="img-circle" width="80">
+													<h4>DJ SHERMAN</h4>
 												</div>
 											</div>
-										</div><! -- /col-md-4 -->
-									</div><! --/END 2ND ROW OF PANELS -->
+											<div class="pr2-social centered">
+												<a href="#"><i class="fa fa-twitter"></i></a>
+												<a href="#"><i class="fa fa-facebook"></i></a>
+												<a href="#"><i class="fa fa-dribbble"></i></a>
+											</div>
+										</div><!--/panel -->
+									</div><!--/ col-md-4 -->
+									<div class="col-md-4 col-sm-4 mb">
+										<div class="stock card">
+											<div class="stock-chart">
+												<div id="chart"></div>
+											</div>
+											<div class="stock current-price">
+												<div class="row">
+													<div class="info col-sm-6 col-xs-6"><abbr>AAPL</abbr>
+														<time>Yesterday</time>
+													</div>
+													<div class="changes col-sm-6 col-xs-6">
+														<div class="value up"><i class="fa fa-caret-up hidden-sm hidden-xs"></i> 694.00</div>
+														<div class="change hidden-sm hidden-xs">+4.95 (3.49%)</div>
+													</div>
+												</div>
+											</div>
+											<div class="summary">
+												<strong>18.3 M</strong> <span>SHARES TRADED</span>
+											</div>
+										</div>
+									</div><!-- /col-md-4 -->
+								</div><!--/END 2ND ROW OF PANELS -->
 									
-									<! -- 3RD ROW OF PANELS -->
-									<div class="row">
-										
-										
-										<! -- Spotify Panel -->
-										<div class="col-lg-4 col-md-4 col-sm-4 mb">
-											<div class="content-panel pn">
-												<div id="spotify">
-													<div class="col-xs-4 col-xs-offset-8">
-														<button class="btn btn-sm btn-clear-g">FOLLOW</button>
-													</div>
-													<div class="sp-title">
-														<h3>David</h3>
-													</div>
-													<div class="play">
-														<i class="fa fa-play-circle"></i>
-													</div>
-												</div>
-												<p class="followers"><i class="fa fa-user"></i> 576,000 FOLLOWERS</p>
-											</div>
-										</div><! --/col-md-4-->
-										<div class="col-md-4 col-sm-4 mb">
-											<div class="green-panel pn">
-												<div class="green-header">
-													<h5>Progress</h5>
-												</div>
-												<canvas id="serverstatus03" height="120" width="120"></canvas>
-												<script>
-												var doughnutData = [
-												{
-												value: 60,
-												color:"#2b2b2b"
-												},
-												{
-												value : 40,
-												color : "#fffffd"
-												}
-												];
-												var myDoughnut = new Chart(document.getElementById("serverstatus03").getContext("2d")).Doughnut(doughnutData);
-												</script>
-												<h3>60%</h3>
-											</div>
-										</div><! --/col-md-4 -->
-										
-										<! -- Blog Panel -->
-										<div class="col-lg-4 col-md-4 col-sm-4 mb">
-											<div class="content-panel pn">
-												<div id="blog-bg">
-													<div class="badge badge-popular">POPULAR</div>
-													<div class="blog-title">Incredible Title</div>
-												</div>
-												<div class="blog-text">
-													<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. <a href="#">Read More</a></p>
-												</div>
-											</div>
-											</div><!-- /col-md-4-->
-										</div><! -- END 3RD ROW OF PANELS -->
-									</div>
+							</div>
+						</div>
 									
-								</section><! --/wrapper -->
-								</section><!-- /MAIN CONTENT -->
-								<!--main content end-->
-								<!--footer start-->
-								<footer class="site-footer">
-									<div class="text-center">
-										2015 - Via Bahia Development
-										<a href="panels.html#" class="go-top">
-											<i class="fa fa-angle-up"></i>
-										</a>
-									</div>
-								</footer>
-								<!--footer end-->
-							</section>
-							<script>
-							//custom select box
-							$(function(){
-							$('select.styled').customSelect();
-							});
-							</script>
+					</section><!--/wrapper -->
+				</section><!-- /MAIN CONTENT -->
+				<!--main content end-->
+				<!--footer start-->
+				<footer class="site-footer">
+					<div class="text-center">
+						2015 - Via Bahia Development
+						<a href="panels.html#" class="go-top">
+							<i class="fa fa-angle-up"></i>
+						</a>
+					</div>
+				</footer>
+				<!--footer end-->
+			</section>
+			<script>
+				//custom select box
+				$(function(){
+				$('select.styled').customSelect();
+				});
+			</script>
 		<% else %>
 			<%= image_tag "http://cbcnh.net/wp-content/uploads/2011/05/Big-Bible.jpg" %>
 		<% end %>
