@@ -11,10 +11,11 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
-//= require turbolinks
 //= require jquery-ui/autocomplete
 //= require_tree ./common
+//= require turbolinks
 
 function saveBadge() {
 	var name = $('#badgeName').val();
