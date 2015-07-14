@@ -1,0 +1,34 @@
+<% content_for :head do %>
+	<%= stylesheet_link_tag 'leaderboards/leaderboard', media: 'all', 'data-turbolinks-track' => true %>
+	<%= stylesheet_link_tag 'users/users', media: 'all', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'leaderboard/leaderboardsIndex', 'data-turbolinks-track' => true %>
+<% end %>
+
+<table id="userNames" class="table table-striped table-hover table-responsive">
+	<thead>
+		<tr>
+			<th></th>
+			<th>Friends</th>
+			<th>Points</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% users = current_user.friends
+		   users = users.to_a # turn it into an array
+		   users << current_user # Add the current user to the users list
+		   users = users.sort_by { |user| user.books.length } # sort the list by the users' number of books
+		   users.reverse! # reverse the list since we want big numbers first
+		   index = users.index(current_user) # get the index of the current user in the sorted list
+		%>
+		<% for i in 0..users.length-1 %>
+			<% user = users[i] %>
+			<tr class=<%= user == current_user ? "info" : "" %>>
+				<td>
+					<span class="avatar-container"><%= image_tag user.avatar.url(:thumb) %></span>
+				</td>
+				<td><%= user.username %></td>
+				<td><%= 10 * user.books.length %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>

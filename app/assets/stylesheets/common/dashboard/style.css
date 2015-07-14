@@ -1085,6 +1085,7 @@ PANELS CONFIGURATIONS
 	text-align: center;
 	background: #ffffff;
 	color: #ccd1d9;
+    overflow: scroll;
 }
 
 .white-panel p {
