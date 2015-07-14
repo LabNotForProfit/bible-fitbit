@@ -8,7 +8,7 @@
 	<% for friendship in @friendships %>
 		<li>
 			<span class="avatar-container">
-				<%= image_tag friendship.friend.avatar.url(:thumb) %>
+				<%= render partial: "api/users/avatar", locals: { size: :thumb, user: friendship.friend }%>
 			</span>
 			<%=  link_to friendship.friend.username, api_user_path(friendship.friend) %>
 			<!-- Because of api namespace we can't just use friendship model for path, but need to specify -->

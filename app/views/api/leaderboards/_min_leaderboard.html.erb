@@ -24,7 +24,7 @@
 			<% user = users[i] %>
 			<tr class=<%= user == current_user ? "info" : "" %>>
 				<td>
-					<span class="avatar-container"><%= image_tag user.avatar.url(:thumb) %></span>
+					<%= render partial: "api/users/avatar", locals: { size: :thumb, user: user }%>
 				</td>
 				<td><%= user.username %></td>
 				<td><%= 10 * user.books.length %></td>

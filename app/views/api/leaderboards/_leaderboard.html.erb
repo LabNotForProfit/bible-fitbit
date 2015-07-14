@@ -15,7 +15,7 @@
 	<tbody>
 		<tr class="info">
 			<td>
-				<span class="avatar-container"><%= image_tag current_user.avatar.url(:thumb) %></span>
+				<%= render partial: "api/users/avatar", locals: { size: :thumb, user: current_user } %>
 			</td>
 			<td><%= current_user.username %></td>
 			<td><%= 10 * current_user.books.length %></td>
@@ -23,7 +23,7 @@
 		<% current_user.friends.each do |friend| %>
 			<tr>
 				<td>
-					<span class="avatar-container"><%= image_tag friend.avatar.url(:thumb) %></span>
+					<%= render partial: "api/users/avatar", locals: { size: :thumb, user: friend }%>
 				</td>
 				<td><%= friend.username %></td>
 				<td><%= 10 * friend.books.length %></td>
