@@ -30,12 +30,13 @@
 			"Gal", "Eph", "Phil", "Col", "1Thess", "2Thess", "1Tim", "2Tim", "Titus", "Phlm", "Heb",
  			"Jas", "1Pet", "2Pet", "1John", "2John", "3John", "Jude", "Rev"]
 
-for i in 1..5
+for i in 1..20
 	User.create({firstname: "Test#{i}", lastname: "User", username: "test#{i}", email: "test#{i}@test.com", password: "asdfasdf"})
 end
 # Make some friendships
-User.find(1).friends << User.find(2)
-User.find(1).friends << User.find(3)
+for i in 2..15
+	User.find(1).friends << User.find(i)
+end
 User.find(2).friends << User.find(4)
 User.find(3).friends << User.find(5)
 
