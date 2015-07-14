@@ -3,7 +3,7 @@
 <% end %>
 
 <div class="datatable-wrapper leaderboard-margin-top">
-	<table id="userNames" class="table use-datatable">
+	<table id="userNames" class="table use-datatable table-striped table-hover table-responsive">
 		<thead>
 			<tr>
 				<th>Friends</th>
@@ -11,7 +11,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
+			<tr class="info">
 				<td><%= current_user.username %></td>
 				<td><%= 10 * current_user.books.length %></td>
 			</tr>
