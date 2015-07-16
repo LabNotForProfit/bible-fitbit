@@ -11,7 +11,7 @@
 		<select id="books" onchange="updateGo();">
 			<option value=""></option>
 			<% @books.each do |book| %>
-				<option value="<%= book.name %>"><%= book.name %></option>
+				<option value="<%= book.name.gsub(' ', '') %>"><%= book.name %></option>
 			<% end %>
 		</select>
 	</div>
