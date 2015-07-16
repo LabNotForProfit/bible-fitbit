@@ -5,7 +5,8 @@ function checkAnswers() {
 	$('.blanks-chapter-answer').each(function(index, answer) {
 		var $answer = $(answer);
 		var $icon = $answer.next();
-		var chapter = $answer.attr('id').split(' ')[1].split(':')[0];
+		var reference = $answer.attr('id').split(':')[0].split(' ');
+		var chapter = reference[reference.length - 1];
 		if (chapter == $answer.val()) {
 			$icon.addClass('green fa fa-check');
 			score++;
