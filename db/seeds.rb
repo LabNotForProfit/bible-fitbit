@@ -30,6 +30,10 @@
 			"Gal", "Eph", "Phil", "Col", "1Thess", "2Thess", "1Tim", "2Tim", "Titus", "Phlm", "Heb",
  			"Jas", "1Pet", "2Pet", "1John", "2John", "3John", "Jude", "Rev"]
 
+@book_order_nums = [2, 7, 13, 12, 100, 14, 15, 44, 21, 21, 30, 30, 43, 43, 31, 32, 33, 51, 39, 100, 34, 51, 35, 36, 
+										37, 38, 40, 41, 50, 42, 50, 45, 46, 50, 47, 50, 50, 48, 49, 11, 1, 10, 9, 8, 3, 4, 6, 18, 16,
+										17, 19, 26, 26, 24, 5, 25, 28, 20, 23, 27, 27, 22, 28, 28, 28, 29]
+
 for i in 1..20
 	User.create({firstname: "Test#{i}", lastname: "User", username: "test#{i}", email: "test#{i}@test.com", password: "asdfasdf"})
 end
@@ -42,5 +46,5 @@ User.find(3).friends << User.find(5)
 
 #create Book objects
 for i in 0..65
-	Book.create({name: @books[i], key_verse: @key_verses[i], abbr: @book_abbr[i]})
+	Book.create({name: @books[i], key_verse: @key_verses[i], abbr: @book_abbr[i], order_num: @book_order_nums[i]})
 end
