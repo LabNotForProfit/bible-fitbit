@@ -2,7 +2,7 @@ class Api::FillInBlanksController < ApplicationController
 
 	def index
 		puts "Calling index"
-		@books = Book.all
+		@books = Book.all.order(:order_num)
 	end
 
 	def create
