@@ -11,3 +11,39 @@
 // about supported directives.
 //
 //= require_tree .
+
+function changeOrder() {
+
+}
+
+$(document).ready(function() {
+	var wall = new Freewall("#freewall");
+	wall.reset({
+		selector: '.brick',
+		animate: true,
+		cellW: 200,
+		cellH: 160,
+		onResize: function() {
+			wall.refresh();
+		}
+	});
+	wall.addCustomEvent('onBlockLoad', function(setting){
+		console.log(setting);
+	});
+	wall.fitWidth();
+
+	$("#book-order-select").change(function() {
+		var order = "";
+		order = $("#book-order-select option:selected").get(0).value;
+		$.ajax({
+			type: "GET",
+			url: "/timeline/edit",
+			data: { sort_order: order }, 
+			success: function(data) {
+				$("#freewall").html(data);
+				wall.fitWidth();
+			}
+		})
+
+	})
+});

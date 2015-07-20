@@ -9,7 +9,21 @@ class TimelineController < ApplicationController
 
   def edit
   	@user = current_user
-    @books = Book.all
+
+    # default sort order to study-order, which uses the order_num column
+    @sort_order = :order_num
+
+    unless params[:sort_order].nil?
+      if params[:sort_order] == "Book Order"
+        @sort_order = :id # Book order is just the database id order as well
+      end
+    end
+
+    @books = Book.all.order(@sort_order)
+
+    if request.xhr?
+      render partial: "book_wall"
+    end
   end
 
   def update
