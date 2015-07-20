@@ -24,7 +24,7 @@ $(document).ready(function() {
 		cellW: 200,
 		cellH: 160,
 		onResize: function() {
-			wall.refresh();
+			wall.fitWidth();
 		}
 	});
 	wall.addCustomEvent('onBlockLoad', function(setting){

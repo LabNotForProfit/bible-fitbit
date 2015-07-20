@@ -13,6 +13,7 @@ class TimelineController < ApplicationController
     # default sort order to study-order, which uses the order_num column
     @sort_order = :order_num
 
+    # check if there's a different book order in the params
     unless params[:sort_order].nil?
       if params[:sort_order] == "Book Order"
         @sort_order = :id # Book order is just the database id order as well

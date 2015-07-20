@@ -1,5 +1,5 @@
 
-<% @books.order(:order_num).each do |book| %>
+<% @books.each do |book| %>
 	<%
 	@completed = ''
 	if current_user.books.include?(book)
