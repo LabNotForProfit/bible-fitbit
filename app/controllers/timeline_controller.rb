@@ -9,7 +9,7 @@ class TimelineController < ApplicationController
 
   def edit
   	@user = current_user
-    @books = Book.order(:id)
+    @books = Book.all
   end
 
   def update

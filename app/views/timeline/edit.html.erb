@@ -10,7 +10,7 @@
 	<% end %>
 	<%- title "Edit Progress" %>
 	<div id="freewall" class="free-wall">
-		<% @books.each do |book| %>
+		<% @books.order(:order_num).each do |book| %>
 			<%
 			@completed = ''
 			if current_user.books.include?(book)
