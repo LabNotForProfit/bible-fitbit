@@ -43,6 +43,12 @@ class User < ActiveRecord::Base
     FriendRequest.where(friend: self)
   end
 
+  # the book this user is working on
+  def current_book
+    num = self.books.last.order_num
+    return Book.find_by_order_num(num+1)
+  end
+
   # "Class method" # User.get_users
   # To be used if we want to return a more limited hash than User.all.as_json
   def self.get_users

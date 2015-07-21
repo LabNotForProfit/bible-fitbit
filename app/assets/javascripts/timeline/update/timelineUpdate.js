@@ -13,8 +13,13 @@ $(function() {
                 type: 'POST',
                 url: '/api/books',
                 data: requestObject,
-                beforeSend: function(jqXHR, settings) {
-                    jqXHR.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
+                error: function(data) {
+                    console.log(data)
+                    $("body").prepend(data.responseText);
+                    setTimeout(function() {
+                        // in 5 seconds, remove the first notification-container
+                        $('body > .notification-container').get(0).remove();
+                    }, 5001)
                 },
                 success: function(data) {
                     window.location.href = '/timeline/edit';
