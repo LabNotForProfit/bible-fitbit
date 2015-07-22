@@ -1,142 +1,148 @@
-<!DOCTYPE html>
-<html lang="en">
-	<body>
-		<% if user_signed_in? %>
-			<section id="container" >
-				<!-- **********************************************************************************************************************************************************
-				MAIN CONTENT
-				*********************************************************************************************************************************************************** -->
-				<!--main content start-->
-				<section id="main-content">
-					<section class="wrapper site-min-height">
-						<h3 id="dashboard-header"><i class="fa fa-angle-right"></i> Home Dashboard</h3>
-						<div class="row mt">
-							<div class="col-lg-12">
+<% content_for :head do %>
+    <%= javascript_include_tag 'jquery.knob', 'data-turbolinks-track' => true %>
+<% end %>
+<% if user_signed_in? %>
+	<section id="container" >
+		<!-- **********************************************************************************************************************************************************
+		MAIN CONTENT
+		*********************************************************************************************************************************************************** -->
+		<!--main content start-->
+		<section id="main-content">
+			<section class="wrapper site-min-height">
+				<h3 id="dashboard-header"><i class="fa fa-angle-right"></i> Home Dashboard</h3>
+				<div class="row mt">
+					<div class="col-lg-12">
+						
+						<!-- 1st ROW OF PANELS -->
+						<div class="row">
+							<!-- TWITTER PANEL -->
+							<div class="col-lg-4 col-md-4 col-sm-4 mb">
+								<div class="white-panel pn">
+									<div class="white-header">
+										<h2>What's your progress?</h2>
+									</div>
+									<div class="center" id="twitter-buttons">
+										<h2>
+										<%= link_to content_tag(:button, "My Progress", :class=> ["btn", "btn-default", "btn-lg","ghost-button-twitter"]), timeline_index_path %>
+										<%= link_to content_tag(:button, "Add Progress", :class=> ["btn", "btn-default", "btn-lg","ghost-button-twitter"]), timeline_edit_path %>
+										</h2>
+									</div>
+								</div>
+							</div><!-- /col-md-4 -->
 								
-								<!-- 1st ROW OF PANELS -->
-								<div class="row">
-									<!-- TWITTER PANEL -->
-									<div class="col-lg-4 col-md-4 col-sm-4 mb">
-										<div class="white-panel pn">
-											<div class="white-header">
-												<h2>What's your progress?</h2>
-											</div>
-											<div class="center" id="twitter-buttons">
-												<h2>
-												<%= link_to content_tag(:button, "My Progress", :class=> ["btn", "btn-default", "btn-lg","ghost-button-twitter"]), timeline_index_path %>
-												<%= link_to content_tag(:button, "Add Progress", :class=> ["btn", "btn-default", "btn-lg","ghost-button-twitter"]), timeline_edit_path %>
-												</h2>
-											</div>
-										</div>
-									</div><!-- /col-md-4 -->
-										
-									<div class="col-lg-4 col-md-4 col-sm-4 mb">
-										<!-- WHITE PANEL - TOP USER -->
-										<div class="white-panel pn leaderboard">
-											<div class="white-header">
-												<h2>Leaderboard</h2>
-											</div>
-											
-											<%= render partial: 'api/leaderboards/min_leaderboard' %>
-										</div>
-									</div><!-- /col-md-4 -->
-										
-									<div class="col-lg-4 col-md-4 col-sm-4 mb">
-										<div class="white-panel pn">
-											<div class="white-header">
-												<h2>Want to review a book?</h2>
-											</div>
-											<div class="center" id="twitter-buttons">
-												<h2>
-												<%= link_to content_tag(:button, "Pick a book!", :class=> ["btn", "btn-default", "btn-lg","ghost-button-twitter"]), api_fill_in_blanks_path %>
-												</h2>
-											</div>
-										</div>
-									</div><!-- /col-md-4 -->
-								</div><!--/END 1ST ROW OF PANELS -->
-										
-								<!-- 2ND ROW OF PANELS -->
-								<div class="row">			
-									<!-- PROFILE 01 PANEL -->
-									<div class="col-lg-4 col-md-4 col-sm-4 mb">
-										<div class="content-panel pn">
-											<div id="profile-01">
-												<h3>Optimus Prime</h3>
-												<h6>OVERLORD OF ALL AUTOBOTS</h6>
-											</div>
-											<div class="profile-01 centered">
-												<p>ADD TO CONTACT LIST</p>
-											</div>
-											<div class="centered">
-												<h6><i class="fa fa-envelope"></i><br/>SHARON@DASHGUMTHEME.COM</h6>
-											</div>
-										</div><!--/content-panel -->
-									</div><!--/col-md-4 -->
-											
-									<!-- PROFILE 02 PANEL -->
-									<div class="col-lg-4 col-md-4 col-sm-4 mb">
-										<div class="content-panel pn">
-											<div id="profile-02">
-												<div class="user">
-													<img src="assets/img/friends/fr-06.jpg" class="img-circle" width="80">
-													<h4>DJ SHERMAN</h4>
-												</div>
-											</div>
-											<div class="pr2-social centered">
-												<a href="#"><i class="fa fa-twitter"></i></a>
-												<a href="#"><i class="fa fa-facebook"></i></a>
-												<a href="#"><i class="fa fa-dribbble"></i></a>
-											</div>
-										</div><!--/panel -->
-									</div><!--/ col-md-4 -->
-									<div class="col-md-4 col-sm-4 mb">
-										<div class="stock card">
-											<div class="stock-chart">
-												<div id="chart"></div>
-											</div>
-											<div class="stock current-price">
-												<div class="row">
-													<div class="info col-sm-6 col-xs-6"><abbr>AAPL</abbr>
-														<time>Yesterday</time>
-													</div>
-													<div class="changes col-sm-6 col-xs-6">
-														<div class="value up"><i class="fa fa-caret-up hidden-sm hidden-xs"></i> 694.00</div>
-														<div class="change hidden-sm hidden-xs">+4.95 (3.49%)</div>
-													</div>
-												</div>
-											</div>
-											<div class="summary">
-												<strong>18.3 M</strong> <span>SHARES TRADED</span>
-											</div>
-										</div>
-									</div><!-- /col-md-4 -->
-								</div><!--/END 2ND ROW OF PANELS -->
+							<div class="col-lg-4 col-md-4 col-sm-4 mb">
+								<!-- WHITE PANEL - TOP USER -->
+								<div class="white-panel pn leaderboard">
+									<div class="white-header">
+										<h2>Leaderboard</h2>
+									</div>
 									
-							</div>
-						</div>
+									<%= render partial: 'api/leaderboards/min_leaderboard' %>
+								</div>
+							</div><!-- /col-md-4 -->
+								
+							<div class="col-lg-4 col-md-4 col-sm-4 mb">
+								<div class="white-panel pn">
+									<div class="white-header">
+										<h2>Want to review a book?</h2>
+									</div>
+									<div class="center" id="twitter-buttons">
+										<h2>
+										<%= link_to content_tag(:button, "Pick a book!", :class=> ["btn", "btn-default", "btn-lg","ghost-button-twitter"]), api_fill_in_blanks_path %>
+										</h2>
+									</div>
+								</div>
+							</div><!-- /col-md-4 -->
+						</div><!--/END 1ST ROW OF PANELS -->
+								
+						<!-- 2ND ROW OF PANELS -->
+						<div class="row">			
+							<!-- PROFILE 01 PANEL -->
+							<div class="col-lg-4 col-md-4 col-sm-4 mb">
+								<div class="white-panel pn">
+									<div class="white-header">
+										<h2>Current Book</h2>
+									</div>
+									<div class="center">
+										<h3><%= current_user.current_book.name %></h3>
+									</div>
+								</div><!--/content-panel -->
+							</div><!--/col-md-4 -->
 									
-					</section><!--/wrapper -->
-				</section><!-- /MAIN CONTENT -->
-				<!--main content end-->
-				<!--footer start-->
-				<footer class="site-footer">
-					<div class="text-center">
-						2015 - Via Bahia Development
-						<a href="panels.html#" class="go-top">
-							<i class="fa fa-angle-up"></i>
-						</a>
+							<!-- PROFILE 02 PANEL -->
+							<div class="col-lg-4 col-md-4 col-sm-4 mb">
+								<div class="white-panel pn">
+									<div class="white-header">
+										<h2>Progress</h2>
+									</div>
+									<div id="progress-dial" class="center">
+										<input class="dial" value="0" rel="100">
+									</div>
+
+								</div><!--/panel -->
+							</div><!--/ col-md-4 -->
+							<div class="col-md-4 col-sm-4 mb">
+								<div class="stock card">
+									<div class="stock-chart">
+										<div id="chart"></div>
+									</div>
+									<div class="stock current-price">
+										<div class="row">
+											<div class="info col-sm-6 col-xs-6"><abbr>AAPL</abbr>
+												<time>Yesterday</time>
+											</div>
+											<div class="changes col-sm-6 col-xs-6">
+												<div class="value up"><i class="fa fa-caret-up hidden-sm hidden-xs"></i> 694.00</div>
+												<div class="change hidden-sm hidden-xs">+4.95 (3.49%)</div>
+											</div>
+										</div>
+									</div>
+									<div class="summary">
+										<strong>18.3 M</strong> <span>SHARES TRADED</span>
+									</div>
+								</div>
+							</div><!-- /col-md-4 -->
+						</div><!--/END 2ND ROW OF PANELS -->
+							
 					</div>
-				</footer>
-				<!--footer end-->
-			</section>
-			<script>
-				//custom select box
-				$(function(){
-				$('select.styled').customSelect();
-				});
-			</script>
-		<% else %>
-			<%= image_tag "http://cbcnh.net/wp-content/uploads/2011/05/Big-Bible.jpg" %>
-		<% end %>
-	</body>
-</html>
+				</div>
+							
+			</section><!--/wrapper -->
+		</section><!-- /MAIN CONTENT -->
+		<!--main content end-->
+		<!--footer start-->
+		<footer class="site-footer">
+			<div class="text-center">
+				2015 - Via Bahia Development
+				<a href="panels.html#" class="go-top">
+					<i class="fa fa-angle-up"></i>
+				</a>
+			</div>
+		</footer>
+		<!--footer end-->
+	</section>
+	<script>
+		//custom select box
+		$(function(){
+			$('select.styled').customSelect();
+		});
+		$(".dial").knob({
+		    'min':0,
+		    'max':100,
+		});
+		$('.dial').each(function () {
+            var $this = $(this);
+            var myVal = <%= current_user.books.length / 66.0 * 100.0 %>
+            $this.knob({});
+            $({ value: 0 }).animate({value: myVal}, {
+                duration: 2500,
+                easing: 'swing',
+                step: function () {
+                    $this.val(Math.ceil(this.value)).trigger('change');
+                }
+            });
+        });
+	</script>
+<% else %>
+	<%= image_tag "http://cbcnh.net/wp-content/uploads/2011/05/Big-Bible.jpg" %>
+<% end %>

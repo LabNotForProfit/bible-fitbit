@@ -48,7 +48,7 @@
 		</div>
 		<div class="row">
 			<div class="col-md-8">
-				<% @user.books.each do |book| %>
+				<% @user.books.order(:order_num).each do |book| %>
 					<p><%= book.name %></p>
 				<% end %>
 			</div>

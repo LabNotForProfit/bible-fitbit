@@ -5,44 +5,18 @@
 <body>
 	<%= content_tag(:div) do %>
 		<%= content_tag(:div, class: 'timeline-bar-block') do %>
-			<%= link_to 'My Progress', timeline_index_path %>
+			<%= link_to content_tag(:span, " My Progress", class: "glyphicon glyphicon-arrow-left"), timeline_index_path, class: "btn btn-default" %>
+			<%= select_tag "Order", options_for_select(["Study Order", "Book Order"], "Study Order"), id: "book-order-select", class: "form-control" %>
 		<% end %>
 	<% end %>
+
 	<%- title "Edit Progress" %>
 	<div id="freewall" class="free-wall">
-		<% @books.each do |book| %>
-			<%
-			@completed = ''
-			if current_user.books.include?(book)
-				@completed = "completed"
-			end
-			%>
-			<%= content_tag(:div, class: ['brick', 'size12', 'clickable', @completed]) do %>
-				<%= content_tag(:div, class: "cover") do %>
-					<%= content_tag(:h2, book.name) %>
-					<%= content_tag(:p, "Content goes here") %>
-				<% end %>
-			<% end %>
-		<% end %>
+		<%= render partial: "book_wall" %>
 	</div>
 	
 	<script type="text/javascript">
-		$(function() {
-			var wall = new Freewall("#freewall");
-			wall.reset({
-				selector: '.brick',
-				animate: true,
-				cellW: 160,
-				cellH: 160,
-				onResize: function() {
-					wall.fitWidth();
-				}
-			});
-			wall.addCustomEvent('onBlockLoad', function(setting){
-				console.log(setting);
-			});
-			wall.fitWidth();
-		});
+		
 	</script>
 	<script type="text/javascript">
 		$( ".brick" ).click(function() {

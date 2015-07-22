@@ -4,25 +4,35 @@ $(function() {
     bookId = $('#bookId').remove().html();
 	// Change button CSS and animate knob on button click
 	$(".completed-button").click(function() {
-    	if ($(this).attr('class') == 'completed-button') {
-        	$(".completed-button").attr('class', 'completed-button-done');
-            var requestObject = {
-                bookId: bookId
+        $.ajax({
+            type: 'POST',
+            url: '/api/books',
+            data: { bookId: bookId },
+            error: function(data) {
+                // if completing the book failed, make a notification
+                $("body").prepend(data.responseText);
+                setTimeout(function() {
+                    // in 5 seconds, remove the first notification-container
+                    $('body > .notification-container').get(0).remove();
+                }, 5001)
+            },
+            success: function(data) {
+                $(".completed-button").attr('class', 'completed-button-done btn btn-success btn-lg disabled');
+                $('.dial').each(function () {
+                    var $this = $(this);
+                    var myVal = $this.attr("rel");
+                    $this.knob({});
+                    $({ value: 0 }).animate({value: myVal}, {
+                        duration: 2500,
+                        easing: 'swing',
+                        step: function () {
+                            $this.val(Math.ceil(this.value)).trigger('change');
+                        }
+                    });
+                });
+                window.location.href = '/timeline/edit';
             }
-            $.ajax({
-                type: 'POST',
-                url: '/api/books',
-                data: requestObject,
-                beforeSend: function(jqXHR, settings) {
-                    jqXHR.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
-                },
-                success: function(data) {
-                    window.location.href = '/timeline/edit';
-                }
-            });
-        } else {
-            console.log("already completed");
-    	}
+        });
 	});
     if ($('.completed-button-done').length > 0) {
         $('.dial').each(function () {
@@ -30,7 +40,7 @@ $(function() {
             var myVal = $this.attr("rel");
             $this.knob({});
             $({ value: 0 }).animate({value: myVal}, {
-                duration: 2500,
+                duration: 2000,
                 easing: 'swing',
                 step: function () {
                     $this.val(Math.ceil(this.value)).trigger('change');
@@ -38,4 +48,12 @@ $(function() {
             });
         });
     }
+
+    $(".completed-button").hover(function() {
+        $(".completed-button").removeClass("btn-danger");
+        $(".completed-button").addClass("btn-success");
+    }, function() {
+        $(".completed-button").removeClass("btn-success");
+        $(".completed-button").addClass("btn-danger");
+    })
 });
