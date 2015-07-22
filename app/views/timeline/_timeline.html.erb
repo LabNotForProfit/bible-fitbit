@@ -12,8 +12,8 @@
 					<%= image_tag("img/book-icon.png") %>
 				<% end %>
 				<%= content_tag(:div, class: "cd-timeline-content") do %>
-					<%= content_tag(:h2, "Title goes here") %>
-					<%= content_tag(:p, "Content goes here") %>
+					<%= content_tag(:h2, book.name) %>
+					<%= content_tag(:p, book.key_verse) %>
 					<%= content_tag :a, :href => "#0" do %>
         				<%= "Click here" %>
       				<% end %>
