@@ -39,7 +39,7 @@ function saveBadge() {
 }
 
 $(document).ready(function() {
-	$("img").load(function() {
+	$(".avatar-container img").load(function() {
     	$(this).wrap(function(){
     		return '<span class="image-wrap ' + $(this).attr('class') + '" style="position:relative; display:inline-block; background: #F3F3F3 url(' + $(this).attr('src') + ') no-repeat center center; " />';
     	});
