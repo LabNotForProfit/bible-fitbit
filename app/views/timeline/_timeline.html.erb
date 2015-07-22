@@ -6,7 +6,7 @@
 
 <%= content_tag(:div, class: "timeline") do %>
 	<%= content_tag(:section, class: "cd-container", id: "cd-timeline") do %>	
-		<% user.books.each do |book| %>
+		<% user.books.order(:order_num).each do |book| %>
 			<%= content_tag(:div, id: book.name.split(' ').join(), class: "cd-timeline-block") do %>
 				<%= content_tag(:div, class: ["cd-timeline-img", "cd-picture"]) do %>
 					<%= image_tag("img/book-icon.png") %>
