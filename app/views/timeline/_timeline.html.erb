@@ -5,7 +5,7 @@
 <% end %>
 
 <%= content_tag(:div, class: "timeline") do %>
-	<%= content_tag(:section, class: "cd-container", id: "cd-timeline") do %>	
+	<%= content_tag(:section, class: "cd-container", id: "cd-timeline") do %>
 		<% user.books.order(:order_num).each do |book| %>
 			<%= content_tag(:div, id: book.name.split(' ').join(), class: "cd-timeline-block") do %>
 				<%= content_tag(:div, class: ["cd-timeline-img", "cd-picture"]) do %>
@@ -17,7 +17,7 @@
 					<%= content_tag :a, :href => "#0" do %>
         				<%= "Click here" %>
       				<% end %>
-      				<%= content_tag(:span, book.name, class: "cd-date")%>
+      				<%= content_tag(:span, user.studied_books.find_by_book_id(book.id).created_at.strftime("%B %-d, %Y"), class: "cd-date")%>
 				<% end %> <!-- cd-timeline-content -->
 			<% end %> <!-- cd-timeline-block -->
 		<% end %> <!-- for each block -->
