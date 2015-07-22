@@ -9,7 +9,9 @@ class User < ActiveRecord::Base
   has_many :pending_friends, through: :friend_requests, source: :friend
 
 
-  has_and_belongs_to_many :books
+  # has_and_belongs_to_many :books
+  has_many :studied_books, dependent: :destroy
+  has_many :books, through: :studied_books
 
 
   UNAME_REGEX = /\A(\w|\.)+\z/
@@ -45,8 +47,8 @@ class User < ActiveRecord::Base
 
   # the book this user is working on
   def current_book
-    num = self.books.order(:order_num).last.order_num
-    return Book.find_by_order_num(num+1)
+    # num = self.books.order(:order_num).last.order_num
+    return Book.find_by_order_num(self.books.length+1)
   end
 
   # "Class method" # User.get_users

@@ -5,8 +5,13 @@
 	<%= content_tag(:div, class: 'timeline-bar-block') do %>
 		<%= link_to content_tag(:span, " Add Progress", class: "glyphicon glyphicon-plus"), timeline_edit_path, class: "btn btn-default" %>
 	<% end %>
-	<%= content_tag(:div, class: ['timeline-bar-block', 'right']) do %>
+	<%= content_tag(:div, class: ['timeline-bar-block', 'left']) do %>
 		<%= text_field_tag(:bookSearch, nil, placeholder: 'Book Search', class: 'form-control') %>
 	<% end %>
 <% end %>
-<%= render partial: 'timeline', locals: { user: @user } %>
+
+<% if @user.books.empty? %>
+	<h2 class="center">You Haven't Started Yet!</h2>
+<% else %>
+	<%= render partial: 'timeline', locals: { user: @user } %>
+<% end %>
