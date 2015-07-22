@@ -3,35 +3,20 @@
     <%= javascript_include_tag 'timeline/update/timelineUpdate', 'data-turbolinks-track' => true %>
 <% end %>
 
-<style>
-  .completed-button {
-    display: inline-block;
-    width: 200px;
-    padding: 8px;
-    color: #E74C3C;
-    border: 1px solid #E74C3C;
-    text-align: center;
-    outline: none;
-    text-decoration: none;
-  }
-  .completed-button-done {
-    display: inline-block;
-    width: 200px;
-    padding: 8px;
-    color: #2ECC71;
-    border: 1px solid #2ECC71;
-    text-align: center;
-    outline: none;
-    text-decoration: none;
-  }
-</style>
 <%- title "#{@book.name}" %>
 <div id="bookId" style="display:none;"><%= @book.id %></div>
-<p><%= @book.name %></p>
-<h2><%= @passages.collection.first.text.html_safe %></h2>
-<input class="dial" value="0" rel="100">
-<a class="completed-button<%= if current_user.books.include? @book then '-done' else '' end %>" href="#">COMPLETED</a>
 
+<div class="container">
+  <h1><%= @book.name %></h1>
+  <h2><%= @passages.collection.first.text.html_safe %></h2>
+  <input class="dial" value="0" rel="100">
+
+  <% if current_user.books.include? @book %>
+    <div class="completed-button-done btn btn-success btn-lg disabled">COMPLETED</div>
+  <% else %>
+    <div class="completed-button btn btn-danger btn-lg">COMPLETED</div>
+  <% end %>
+</div>
 <script>
 $(".dial").knob({
     'min':0,
