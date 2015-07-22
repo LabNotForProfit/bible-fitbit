@@ -45,7 +45,7 @@ class User < ActiveRecord::Base
 
   # the book this user is working on
   def current_book
-    num = self.books.last.order_num
+    num = self.books.order(:order_num).last.order_num
     return Book.find_by_order_num(num+1)
   end
 
