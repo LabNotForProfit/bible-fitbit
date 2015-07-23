@@ -30,7 +30,9 @@ $(function() {
                         }
                     });
                 });
-                window.location.href = '/timeline/edit';
+                setTimeout(function() {
+                    window.location.href = '/timeline/edit';
+                }, 2600);
             }
         });
 	});
