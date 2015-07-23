@@ -126,10 +126,7 @@
 		$(function(){
 			$('select.styled').customSelect();
 		});
-		$(".dial").knob({
-		    'min':0,
-		    'max':100,
-		});
+		createDial();
 		$('.dial').each(function () {
             var $this = $(this);
             var myVal = <%= current_user.books.length / 66.0 * 100.0 %>

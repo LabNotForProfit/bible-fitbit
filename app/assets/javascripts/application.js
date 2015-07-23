@@ -45,4 +45,22 @@ $(document).ready(function() {
     	});
     $(this).css("opacity","0");
   	});
+
+  	// Workaround to prevent input cursor from appear on dial
+	// Also means you can't select the dial number
+	$('.dial').mousedown(function(e) {
+		e.preventDefault();
+		$(this).blur();
+		return false;
+	})
 })
+
+function createDial() {
+	$(".dial").knob({
+	    'min':0,
+	    'max':100,
+	    'fgColor': '#337AB7',
+	    'font': 'Ruda',
+	    'readOnly':true
+	});
+}
