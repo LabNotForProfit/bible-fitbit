@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   #devise_for :users
   get 'home/index'
+  get 'home/tools' => 'home#tools'
   # get 'api/users/show' => 'api/registrations#show'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

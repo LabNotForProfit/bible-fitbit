@@ -1,12 +1,10 @@
-<div id="tools">
-    <!-- Unfortunately, partials can't start with a number so we need to move numebers in book name to the end -->
-    <!-- First lowercase then remove any spaces -->
-    <!-- Then if the first character is an integer, move it to the end -->
-    <!-- numeric? is defined in the application_helper -->
-    <% string = book.name.downcase.remove(" ")
-       if numeric?(string[0])
-            string = string[1..-1] << string[0]
-        end
-        %>
-    <%= render partial: "tools/books/#{string}" %>
-</div>
+<!-- Unfortunately, partials can't start with a number so we need to move numebers in book name to the end -->
+<!-- First lowercase then remove any spaces -->
+<!-- Then if the first character is an integer, move it to the end -->
+<!-- numeric? is defined in the application_helper -->
+<% string = book.name.downcase.remove(" ")
+   if numeric?(string[0])
+        string = string[1..-1] << string[0]
+    end
+    %>
+<%= render partial: "tools/books/#{string}" rescue nil%>

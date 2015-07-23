@@ -24,7 +24,9 @@
     <% end %>
 
     <h2>Useful Study Tools</h2>
-    <%= render partial: 'tools/tools', locals: { book: @book } %>
+    <div id="tools">
+        <%= render partial: 'tools/tools', locals: { book: @book } %>
+    </div>
 </div>
 <script>
     $(".dial").knob({

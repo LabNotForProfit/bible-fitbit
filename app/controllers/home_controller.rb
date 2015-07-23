@@ -7,4 +7,8 @@ class HomeController < ApplicationController
 		@book = @biblesearch.book('eng-ESV:Mark')
 		@passages = @biblesearch.passages('John 15:5', :version => "eng-ESV")
 	end
+
+	def tools
+		@books = Book.all.order(:order_num)
+	end
 end

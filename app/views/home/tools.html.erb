@@ -1,0 +1,6 @@
+<div class="container">
+	<% @books.each do |book| %>
+		<h3><%=book.name%></h3>
+		<%= render partial: 'tools/tools', locals: {book: book} %>
+	<% end %>
+</div>
