@@ -2,6 +2,7 @@
     <%= javascript_include_tag 'jquery.knob', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'timeline/update/timelineUpdate', 'data-turbolinks-track' => true %>
     <%= stylesheet_link_tag 'timeline/index/timelineIndex', media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag 'timeline/update/timelineUpdate', media: 'all', 'data-turbolinks-track' => true %>
 <% end %>
 
 <%- title "#{@book.name}" %>
@@ -21,6 +22,11 @@
     <% else %>
         <div class="completed-button btn btn-danger btn-lg">COMPLETED</div>
     <% end %>
+
+    <h2>Useful Study Tools</h2>
+    <div id="tools">
+        <%= render partial: 'tools/tool', locals: { book: @book } %>
+    </div>
 </div>
 <script>
     $(".dial").knob({
@@ -28,3 +34,5 @@
         'max':100,
     });
 </script>
+
+
