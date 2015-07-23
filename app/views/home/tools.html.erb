@@ -1,6 +1,9 @@
+<% content_for :head do %>
+    <%= stylesheet_link_tag 'timeline/update/timelineUpdate', media: 'all', 'data-turbolinks-track' => true %>
+<% end %>
 <div class="container">
 	<% @books.each do |book| %>
-		<h3><%=book.name%></h3>
-		<%= render partial: 'tools/tools', locals: {book: book} %>
+		<h2><%=book.name%></h2>
+		<%= render partial: 'tools/tool', locals: {book: book} %>
 	<% end %>
 </div>
