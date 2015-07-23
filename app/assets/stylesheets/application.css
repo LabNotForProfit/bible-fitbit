@@ -145,3 +145,9 @@ sup {
 .clickable {
 	cursor: pointer !important;
 }
+
+
+#home-image {
+	transform: scaleX(-1);
+	width: 100%;
+}
