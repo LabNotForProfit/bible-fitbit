@@ -129,7 +129,17 @@
 		$(".dial").knob({
 		    'min':0,
 		    'max':100,
+		    'fgColor': '#337AB7',
+		    'font': 'Ruda',
+		    'readOnly':true
 		});
+		// Workaround to prevent input cursor from appear on dial
+		// Also means you can't select the dial number
+		$('.dial').mousedown(function(e) {
+			e.preventDefault();
+			$(this).blur();
+			return false;
+		})
 		$('.dial').each(function () {
             var $this = $(this);
             var myVal = <%= current_user.books.length / 66.0 * 100.0 %>
