@@ -11,6 +11,9 @@
 <div class="timeline-bar-block">
     <%= link_to content_tag(:span, " Book List", class: "glyphicon glyphicon-arrow-left"), timeline_edit_path, class: "btn btn-default" %>
 </div>
+<div class="timeline-bar-block">
+    <%= link_to content_tag(:span, "Review Book"), api_fill_in_blank_path(@book.name), class: "btn btn-default" %>
+</div>
 
 <div class="container">
     <h1><%= @book.name %></h1>
