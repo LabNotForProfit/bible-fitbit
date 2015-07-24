@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
   # has_and_belongs_to_many :books
   has_many :studied_books, dependent: :destroy
   has_many :books, through: :studied_books
+  has_many :quiz_scores
 
 
   UNAME_REGEX = /\A(\w|\.)+\z/
