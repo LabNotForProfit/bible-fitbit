@@ -42,16 +42,44 @@
 	<!-- If this is the current user or a friend of the current user, we can see their progress -->
 
 		<div class="row">
-			<div class="col-md-8">
+			<div class="col-md-4">
 				<h3>Finished Books</h3>
+			</div>
+			<div class="col-md-4">
+				<h3>Current Book</h3>
+			</div>
+			<div class="col-md-4">
+				<h3>Total Progress</h3>
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-md-8">
+			<div class="col-md-4">
 				<% @user.books.order(:order_num).each do |book| %>
 					<p><%= book.name %></p>
 				<% end %>
 			</div>
+			<div class="col-md-4">
+				<%= @user.current_book.name %>
+			</div>
+			<div class="col-md-4">
+				<input class="dial" value="0" rel="100">
+			</div>
 		</div>
 	<% end %>
 </div>
+
+<script>
+	createDial();
+	$('.dial').each(function () {
+        var $this = $(this);
+        var myVal = <%= @user.books.length / 66.0 * 100.0 %>
+        $this.knob({});
+        $({ value: 0 }).animate({value: myVal}, {
+            duration: 2500,
+            easing: 'swing',
+            step: function () {
+                $this.val(Math.ceil(this.value)).trigger('change');
+            }
+        });
+    });
+</script>
