@@ -1,5 +1,5 @@
 var verses = {};
-var book = '';
+var bookId = '';
 
 function checkAnswers() {
 	var score = 0;
@@ -25,7 +25,7 @@ function checkAnswers() {
 function saveScore(score) {
 	var requestObject = {
 		score: score,
-		book: book
+		bookId: bookId
 	};
 	$.ajax({
 		type: 'POST',
@@ -38,9 +38,9 @@ function saveScore(score) {
 	});
 }
 
-function getBook() {
+function getBookId() {
 	var url = window.location.href.split('/');
-	book = url[url.length - 1].split('?')[0];
+	bookId = url[url.length - 1].split('?')[0];
 }
 
 function showAnswers() {
@@ -70,7 +70,7 @@ function shuffle(array) {
 
 $(function() {
 	$('.v, .s1, .b').remove();
-	getBook();
+	getBookId();
 	var passages = shuffle($('.show-passages').remove());
 	var byChapter = '<h3>Pick the correct chapter (e.g. 25)</h3>';
 	var count = 0;
