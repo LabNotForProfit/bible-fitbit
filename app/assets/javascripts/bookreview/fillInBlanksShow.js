@@ -82,7 +82,7 @@ $(function() {
 		for (var i = 1; i < children.length; i++) {
 			verse.push($(children[i]).text());
 		};
-		verses[reference] = verse.join(' ').replace(/”/g, '" ').replace(/“/g, '"').replace(/‘/g, "'").replace(/’/g, "'").replace(/\./g, '. ').replace(/\. "/g, '."').replace(/\?/g, '? ').replace(/ +/g, ' ').trim();
+		verses[reference] = verse.join(' ').replace(/”/g, '" ').replace(/“/g, '"').replace(/‘/g, "'").replace(/’/g, "'").replace(/([.,!])/g, '$1 ').replace(/([,.]) "/g, '$1"').replace(/ +/g, ' ').trim();
 		byChapter += '<div class="row blanks-padding">';
 		byChapter += '<div class="col-md-2"><div class="row"><div class="col-md-2">' + count + '.</div><div class="col-md-10"><input id="' + reference + '" class="blanks-chapter-answer"><div class="blanks-icon"></div></div></div></div>';
 		byChapter += '<div class="col-md-8">' + verses[reference] + '</div>';
