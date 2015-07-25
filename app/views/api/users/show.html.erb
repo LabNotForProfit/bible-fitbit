@@ -7,20 +7,20 @@
 <div class="container">
 	<div class="row">
 		<div class="avatar-container">
-			<%= image_tag @user.avatar.url(:square), class: "col-md-2 avatar", id: "profile-avatar" %>
+			<%= image_tag @user.avatar.url(:square), class: "col-md-offset-1 col-md-2 avatar", id: "profile-avatar" %>
 		</div>
 		<div id="profile-name" class="col-md-4">
 			<h2><%= @user.firstname %> <%= @user.lastname %></h2>
 		</div>
 	</div>
 	<div class="row">
-		<div id="profile-info" class="col-md-4 col-md-offset-2">
+		<div id="profile-info" class="col-md-4 col-md-offset-3">
 			Joined: <%= @user.created_at.to_formatted_s(:long_ordinal) %>
 		</div>
 	</div>
 
 	<div class="row">
-		<div class="col-md-4 col-md-offset-2">
+		<div class="col-md-4 col-md-offset-3">
 			<% if @user == current_user %>
 				<p>
 					<%= link_to "Edit Your Profile", edit_api_user_path(current_user) , class: "btn btn-primary" %>
@@ -40,30 +40,37 @@
 
 	<% if (@user == current_user || current_user.friends.include?(@user)) %>
 	<!-- If this is the current user or a friend of the current user, we can see their progress -->
-
-		<div class="row">
-			<div class="col-md-4">
-				<h3>Finished Books</h3>
-			</div>
-			<div class="col-md-4">
-				<h3>Current Book</h3>
-			</div>
-			<div class="col-md-4">
-				<h3>Total Progress</h3>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-4">
-				<% @user.books.order(:order_num).each do |book| %>
-					<p><%= book.name %></p>
-				<% end %>
-			</div>
-			<div class="col-md-4">
-				<%= @user.current_book.name %>
-			</div>
-			<div class="col-md-4">
-				<input class="dial" value="0" rel="100">
-			</div>
+		<div class="row profile-data-container">
+			<table class="table">
+				<thead>
+					<tr>
+						<th class="profile-data-title">
+							<h3>Finished Books</h3>
+						</th>
+						<th class="profile-data-title">
+							<h3>Current Book</h3>
+						</th>
+						<th class="profile-data-title">
+							<h3>Total Progress</h3>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="profile-data">
+							<% @user.books.order(:order_num).each do |book| %>
+								<p><%= book.name %></p>
+							<% end %>
+						</td>
+						<td class="profile-data">
+							<%= @user.current_book.name %>
+						</td>
+						<td class="profile-data center">
+							<input class="dial" value="0" rel="100">
+						</td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
 	<% end %>
 </div>
