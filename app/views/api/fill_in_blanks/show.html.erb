@@ -3,26 +3,36 @@
 	<%= javascript_include_tag 'bookreview/fillInBlanksShow', 'data-turbolinks-track' => true %>
 <% end %>
 
-<%
-if @passages.length != 0
-	@passages.collection.each do |passage| %>
-		<div class="show-passages">
-			<p class="p"><%= passage['display'] %></p>
-			<%= passage.text.html_safe %>
+<div class="container">
+	<%
+	@count = 0
+	if @passages.length != 0
+		@passages.collection.each do |passage|
+			if params[:count] != "All"
+				if @count == params[:count].to_i
+					break
+				end
+			end
+			@count += 1
+			%>
+			<div class="show-passages">
+				<p class="p"><%= passage['display'] %></p>
+				<%= passage.text.html_safe %>
+			</div>
+		<% end %>
+
+		<div>
+			<div class="row">
+				<div class="col-lg-9">
+					<h1>Review <%= params[:id] %></h1>
+				</div>
+				<div class="col-xs-2">Score: <div id="score" class="blanks-score"></div>/<%= params[:count] %></div>
+			</div>
+			<div id="pickChapter"></div>
+		</div>
+	<% else %>
+		<div class="blanks-page-wrapper">
+			<h2>Please go to fillInBlanksController and add some questions.</h2>
 		</div>
 	<% end %>
-
-	<div class="blanks-page-wrapper">
-		<div class="row">
-			<div class="col-lg-9">
-				<h1>Review <%= params[:id] %></h1>
-			</div>
-			<div class="col-xs-2">Score: <div id="score" class="blanks-score"></div>/<%= @passages.collection.length %></div>
-		</div>
-		<div id="pickChapter"></div>
-	</div>
-<% else %>
-	<div class="blanks-page-wrapper">
-		<h2>Please go to fillInBlanksController and add some questions.</h2>
-	</div>
-<% end %>
+</div>
