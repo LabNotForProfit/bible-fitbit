@@ -1,5 +1,9 @@
 var bookId;
 
+function reviewBook(url) {
+    window.location.href = url + '?count=' + $('#questionNumber option:selected').val();
+}
+
 $(function() {
     bookId = $('#bookId').remove().html();
 	// Change button CSS and animate knob on button click

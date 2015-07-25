@@ -40,11 +40,11 @@ function saveScore(score) {
 
 function getBook() {
 	var url = window.location.href.split('/');
-	book = url[url.length - 1];
+	book = url[url.length - 1].split('?')[0];
 }
 
 function showAnswers() {
-	$('.blanks-hidden').removeClass();
+	$('.blanks-hidden').removeClass('blanks-hidden');
 }
 
 function reset() {
@@ -73,7 +73,9 @@ $(function() {
 	getBook();
 	var passages = shuffle($('.show-passages').remove());
 	var byChapter = '<h3>Pick the correct chapter (e.g. 25)</h3>';
+	var count = 0;
 	$.each(passages, function(index, passage) {
+		count++;
 		var children = $(passage).children();
 		var reference = $(children[0]).html();
 		var verse = [];
@@ -82,9 +84,9 @@ $(function() {
 		};
 		verses[reference] = verse.join(' ').replace(/”/g, '" ').replace(/“/g, '"').replace(/‘/g, "'").replace(/’/g, "'").replace(/\./g, '. ').replace(/\. "/g, '."').replace(/\?/g, '? ').replace(/ +/g, ' ').trim();
 		byChapter += '<div class="row blanks-padding">';
-		byChapter += '<div class="col-xs-1"><input id="' + reference + '" class="blanks-chapter-answer"><div class="blanks-icon"></div></div>';
-		byChapter += '<div class="col-lg-9">' + verses[reference] + '</div>';
-		byChapter += '<div class="col-xs-2 blanks-hidden">' + reference + '</div>';
+		byChapter += '<div class="col-md-2"><div class="row"><div class="col-md-2">' + count + '.</div><div class="col-md-10"><input id="' + reference + '" class="blanks-chapter-answer"><div class="blanks-icon"></div></div></div></div>';
+		byChapter += '<div class="col-md-8">' + verses[reference] + '</div>';
+		byChapter += '<div class="col-md-2 blanks-hidden">' + reference + '</div>';
 		byChapter += '</div>';
 	});
 	byChapter += '<div class="row blanks-padding">';
