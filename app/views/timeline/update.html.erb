@@ -13,7 +13,7 @@
 </div>
 <div class="timeline-bar-block">
     <div class="dropdown form-control">
-        <select id="questionNumber" onchange="reviewBook('<%= api_fill_in_blank_path(@book.name) %>')">
+        <select id="questionNumber" onchange="reviewBook('<%= api_fill_in_blank_path(@book.id) %>')">
             <option disabled selected>Review Book</option>
             <option value="10">10</option>
             <option value="20">20</option>

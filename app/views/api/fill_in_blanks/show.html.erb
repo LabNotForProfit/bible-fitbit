@@ -5,6 +5,11 @@
 
 <div class="container">
 	<%
+	if params[:count] == 'All'
+		@total = @passages.collection.length
+	else
+		@total = params[:count]
+	end
 	@count = 0
 	if @passages.length != 0
 		@passages.collection.each do |passage|
@@ -24,9 +29,9 @@
 		<div>
 			<div class="row">
 				<div class="col-lg-9">
-					<h1>Review <%= params[:id] %></h1>
+					<h1>Review <%= @book.name %></h1>
 				</div>
-				<div class="col-xs-2">Score: <div id="score" class="blanks-score"></div>/<%= params[:count] %></div>
+				<div class="col-xs-2">Score: <div id="score" class="blanks-score"></div>/<%= @total %></div>
 			</div>
 			<div id="pickChapter"></div>
 		</div>
