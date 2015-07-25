@@ -94,4 +94,17 @@ $(function() {
 	byChapter += '<div class="col-lg-10 text-right">' + '<button id="checkAnswers" class="btn btn-default btn-lg ghost-button-twitter" onclick="checkAnswers();">Check Answers</button>' + '</div>';
 	byChapter += '</div>';
 	$('#pickChapter').html(byChapter);
+	$('input').focus(function() {
+    	$('.blanks-padding').removeClass('white');
+        $(this).parent('div').parent('div').parent('div').parent('div').addClass('white');
+    }).blur(
+    function(){
+        $(this).parent('div').parent('div').parent('div').parent('div').removeClass('white');
+    });
+    $('.blanks-padding').hover(function() {
+    	$('.blanks-padding').removeClass('white');
+    	$(this).addClass('white');
+    }, function() {
+    	$(this).removeClass('white');
+    });
 });
