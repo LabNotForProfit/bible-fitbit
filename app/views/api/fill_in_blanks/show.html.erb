@@ -6,13 +6,13 @@
 <div class="container">
 	<%
 	if params[:count] == 'All'
-		@total = @passages.collection.length
+		@total = @passages.length
 	else
 		@total = params[:count]
 	end
 	@count = 0
 	if @passages.length != 0
-		@passages.collection.each do |passage|
+		@passages.each do |passage|
 			if params[:count] != "All"
 				if @count == params[:count].to_i
 					break
@@ -21,8 +21,8 @@
 			@count += 1
 			%>
 			<div class="show-passages">
-				<p class="p"><%= passage['display'] %></p>
-				<%= passage.text.html_safe %>
+				<p class="p"><%= passage.reference %></p>
+				<%= passage.verse.html_safe %>
 			</div>
 		<% end %>
 
