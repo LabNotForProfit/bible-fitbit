@@ -31,3 +31,31 @@
 a .avatar:hover {
 	box-shadow: 0px 0px 10px #337AB7;
 }
+
+.profile-data-container table {
+	border:15px solid #CDCDCD;
+}
+
+.profile-data-container td {
+	border:15px solid #CDCDCD;
+}
+
+.profile-data-container th {
+	border:15px solid #CDCDCD;
+}
+
+.profile-data-container {
+	margin: 20px;
+}
+
+.profile-data-title {
+	/*border: 10px solid lightgray;*/
+	background-color: #666666;
+	color: white;
+	margin: 5px;
+}
+
+.profile-data {
+	background-color: white;
+	margin: 5px;
+}
