@@ -1,4 +1,4 @@
 class QuizScore < ActiveRecord::Base
 	belongs_to :user
-	has_one :book
+	belongs_to :book
 end
