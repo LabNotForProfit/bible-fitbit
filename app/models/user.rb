@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
   # Paperclip
   # This method associates the attribute ":avatar" with a file attachment
   has_attached_file :avatar, styles: {
-    thumb: '50x50>',
+    thumb: '50x50#',
     small: '100x100>',
     square: '200x200#',
     medium: '300x300>'
