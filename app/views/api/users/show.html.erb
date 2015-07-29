@@ -72,6 +72,14 @@
 				</tbody>
 			</table>
 		</div>
+
+		<div class="row">
+			<div class="col-md-12">
+				<% current_user.quiz_scores.each do |score| %>
+					<p><%= score.book.name %> <%= score.score %></p>
+				<% end %>
+			</div>
+		</div>
 	<% end %>
 </div>
 

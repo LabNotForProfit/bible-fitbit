@@ -32,8 +32,18 @@ a .avatar:hover {
 	box-shadow: 0px 0px 10px #337AB7;
 }
 
-.profile-data-container table, th, td{
+.profile-data-container table {
 	background-color: #CDCDCD;
+	border:15px solid #CDCDCD;
+}
+
+.profile-data-container td {
+	/*background-color: #CDCDCD;*/
+	border:15px solid #CDCDCD;
+}
+
+.profile-data-container th {
+	/*background-color: #CDCDCD;*/
 	border:15px solid #CDCDCD;
 }
 
