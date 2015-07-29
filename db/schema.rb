@@ -32,14 +32,6 @@ ActiveRecord::Schema.define(version: 20150724042936) do
     t.integer  "order_num"
   end
 
-  create_table "books_users", id: false, force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "book_id"
-  end
-
-  add_index "books_users", ["book_id"], name: "index_books_users_on_book_id", using: :btree
-  add_index "books_users", ["user_id"], name: "index_books_users_on_user_id", using: :btree
-
   create_table "friend_requests", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "friend_id"
