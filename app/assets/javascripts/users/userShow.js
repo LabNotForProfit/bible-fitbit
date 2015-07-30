@@ -11,5 +11,17 @@ $(document).ready(function() {
 
 		$(".friend").removeClass("btn-danger");
 		$(".friend").addClass("btn-success");
+	});
+
+	$("#bookSelect").change(function() {
+		$.ajax({
+			url: 'api/users/quiz-graph',
+			type: 'GET',
+			data: { book_id: $(this).val() },
+			success: function(data) {
+				console.out('success')
+			}
+		})
 	})
 })
+

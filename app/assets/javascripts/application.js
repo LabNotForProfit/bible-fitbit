@@ -15,6 +15,8 @@
 //= require jquery_ujs
 //= require jquery-ui/autocomplete
 //= require_tree ./common
+//= require highcharts
+//= require highcharts/highcharts-more
 //= require turbolinks
 
 function saveBadge() {

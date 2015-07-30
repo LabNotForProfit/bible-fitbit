@@ -23,6 +23,9 @@ class Api::UsersController < ApplicationController
   def show
     # change to User.friendly.find to use the friendly username param
     @user = User.friendly.find(params[:id])
+    @books = Book.all.order(:order_num)
+    @book = @user.current_book
+    @scores = @user.scores_past_week(@book)
 
     respond_to do |format|
       format.json {
@@ -38,18 +41,28 @@ class Api::UsersController < ApplicationController
     end
   end
 
-    def edit
-    end
+  def edit
+  end
 
-    def update
-        current_user.firstname = params[:firstname]
-        current_user.lastname = params[:lastname]
-        current_user.email = params[:email]
-        current_user.save
-        respond_to do |format|
-        format.json {
-            render :json => {:status => "Sucessfully update user."}
-        }
+  def update
+    current_user.firstname = params[:firstname]
+    current_user.lastname = params[:lastname]
+    current_user.email = params[:email]
+    current_user.save
+    respond_to do |format|
+      format.json {
+        render :json => {:status => "Sucessfully update user."}
+      }
     end
-    end
+  end
+
+  def quiz_graph
+    @user = User.friendly.find(params[:id])
+    @book = Book.find(params[:book_id])
+
+    @scores = @user.scores_past_week(@book)
+    byebug
+
+  end
+
 end

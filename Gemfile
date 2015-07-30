@@ -47,6 +47,9 @@ gem "font-awesome-rails"
 gem 'paperclip'
 gem 'aws-sdk', '~> 1.6'
 
+# Highcharts
+gem "highcharts-rails", "~> 3.0.0"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
