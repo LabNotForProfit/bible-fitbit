@@ -2,7 +2,9 @@
 <% for request in in_friend_requests %>
 	<div>
 		<%= render partial: "api/users/avatar", locals: { size: :thumb, user: request.user }%>
-		<%= request.user.username %>
+		<span style="padding: 10px">
+			<%= request.user.username %>
+		</span>
 		<div class="accept-reject-links">
 			<%= link_to "Accept", api_friend_request_path(request), :method => :put, class: "btn btn-success" %>
 			<%= link_to "Reject", api_friend_request_path(request), :method => :delete, class: "btn btn-danger" %>
