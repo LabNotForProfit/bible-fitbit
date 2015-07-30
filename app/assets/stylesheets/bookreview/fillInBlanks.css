@@ -41,6 +41,10 @@
 	background-color: white;
 }
 
+.blanks-padding.grey {
+	background-color: #CFCFCF;
+}
+
 .blanks-hidden {
 	display: none;
 }

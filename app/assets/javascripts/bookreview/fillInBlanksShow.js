@@ -95,16 +95,16 @@ $(function() {
 	byChapter += '</div>';
 	$('#pickChapter').html(byChapter);
 	$('input').focus(function() {
-    	$('.blanks-padding').removeClass('white');
-        $(this).parent('div').parent('div').parent('div').parent('div').addClass('white');
+    	$('.blanks-padding').removeClass('grey');
+        $(this).parent('div').parent('div').parent('div').parent('div').addClass('grey');
     }).blur(
     function(){
-        $(this).parent('div').parent('div').parent('div').parent('div').removeClass('white');
+        $(this).parent('div').parent('div').parent('div').parent('div').removeClass('grey');
     });
     $('.blanks-padding').hover(function() {
-    	$('.blanks-padding').removeClass('white');
-    	$(this).addClass('white');
+    	$('.blanks-padding').removeClass('grey');
+    	$(this).addClass('grey');
     }, function() {
-    	$(this).removeClass('white');
+    	$(this).removeClass('grey');
     });
 });
