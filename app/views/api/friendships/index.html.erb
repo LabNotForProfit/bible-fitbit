@@ -3,24 +3,29 @@
 	<%= javascript_include_tag 'friends/friendshipsIndex', 'data-turbolinks-track' => true %>
 <% end %>
 
-<h2>Friends</h2>
-<ul>
-	<% for friendship in @friendships %>
-		<li>
-			<span class="avatar-container">
-				<%= render partial: "api/users/avatar", locals: { size: :thumb, user: friendship.friend }%>
-			</span>
-			<%=  link_to friendship.friend.username, api_user_path(friendship.friend) %>
-			<!-- Because of api namespace we can't just use friendship model for path, but need to specify -->
-		</li>
+<div class="container">
+	<div class="row">
+		<div class="col-md-8">
+			<h2>Friends</h2>
+			<div class="datatable-wrapper">
+				<%= render partial: 'api/leaderboards/leaderboard' %>
+			</div>
+		</div>
+
+		<div class="col-md-4" id="friend-side-bar">
+			<!-- If this is the current_user, show pending friend requests -->
+			<h3>Add Friends</h3>
+			<div id="friend-search-container">
+				<%= text_field_tag(:friendSearch, nil, placeholder: 'Search for friends by username or email!', class: "form-control") %>
+			</div>
+
+			<% if !@in_friend_requests.empty? %>
+				<%= render partial: 'api/friend_requests/friend_request_from_list', locals: { in_friend_requests: @in_friend_requests} %>
 	<% end %>
-</ul>
+		</div>
+	</div>
 
-<!-- If this is the current_user, show pending friend requests -->
-<div id="friend-search-container">
-	<%= text_field_tag(:friendSearch, nil, placeholder: 'Search for friends by username or email!') %>
+	
+
+	
 </div>
-
-<% if !@in_friend_requests.empty? %>
-	<%= render partial: 'api/friend_requests/friend_request_from_list', locals: { in_friend_requests: @in_friend_requests} %>
-<% end %>

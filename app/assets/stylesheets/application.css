@@ -158,7 +158,14 @@ sup {
 
 .container {
 	background-color: white;
-	/*box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);*/
 	border-left: 1px solid #CCCCCE;
 	border-right: 1px solid #CCCCCE;
+}
+
+
+#friend-search-container {
+	height: 100px;
+}
+#friend-side-bar {
+	border-left: 2px solid #F2F2F2;
 }

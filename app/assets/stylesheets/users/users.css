@@ -22,6 +22,7 @@
 
 /* For every image within #avatar-container */
 .avatar-container .image-wrap {
+	margin:5px;
 	border-radius: 50%;
 	/*box-shadow: 0 1px 0 rgba(255,255,255,.2), inset 0 4px 5px rgba(0,0,0,.6), inset 0 1px 0 rgba(0,0,0,.6);*/
 	box-shadow: 1px 1px 5px rgba(0,0,0,0.3);
@@ -58,4 +59,9 @@ a .avatar:hover {
 .profile-data {
 	background-color: white;
 	margin: 5px;
+}
+
+.accept-reject-links  {
+	display: inline-block;
+	margin-left: 30px;
 }

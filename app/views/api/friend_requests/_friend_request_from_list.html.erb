@@ -1,10 +1,11 @@
-<h2>Your Friend Requests</h2>
-<ul>
-	<% for request in in_friend_requests %>
-	<li>
-		Friend Request From: <%= request.user.username %>
-		<%= link_to "Accept", api_friend_request_path(request), :method => :put %>
-		<%= link_to "Reject", api_friend_request_path(request), :method => :delete %>
-	</li>
-	<% end %>
-</ul>
+<h3>Friend Requests</h3>
+<% for request in in_friend_requests %>
+	<div>
+		<%= render partial: "api/users/avatar", locals: { size: :thumb, user: request.user }%>
+		<%= request.user.username %>
+		<div class="accept-reject-links">
+			<%= link_to "Accept", api_friend_request_path(request), :method => :put, class: "btn btn-success" %>
+			<%= link_to "Reject", api_friend_request_path(request), :method => :delete, class: "btn btn-danger" %>
+		</div>
+	</div>
+<% end %>
