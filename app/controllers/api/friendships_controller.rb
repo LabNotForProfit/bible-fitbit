@@ -7,6 +7,10 @@ class Api::FriendshipsController < ApplicationController
 		@friends = current_user.friends
 		@friend_requests = current_user.friend_requests
 		@in_friend_requests = current_user.friend_requests_for_me
+
+		@friends_plus_me = @friends.to_a << current_user
+		@friends_plus_me.sort_by { |user| user.books.length }
+		@friends_plus_me.reverse! 
 	end
 
 	# def create
