@@ -7,27 +7,29 @@
 <table id="userNames" class="table use-datatable table-striped table-hover table-responsive">
 	<thead>
 		<tr>
+			<th>Rank</th>
 			<th></th>
 			<th>Friends</th>
 			<th>Points</th>
 		</tr>
 	</thead>
 	<tbody>
-		<tr class="info">
-			<td>
-				<%= render partial: "api/users/avatar", locals: { size: :thumb, user: current_user } %>
-			</td>
-			<td><%= current_user.username %></td>
-			<td><%= 10 * current_user.books.length %></td>
-		</tr>
-		<% current_user.friends.each do |friend| %>
+		<% rank = 1 %>
+		<% @friends_plus_me.each do |user| %>
+			<% if user == current_user %>
+			<tr class="info">
+			<% else %>
 			<tr>
+			<% end %>
+				<td><h2 class="center"><%= rank %></h2></td>
 				<td>
-					<%= render partial: "api/users/avatar", locals: { size: :thumb, user: friend }%>
+					<%= render partial: "api/users/avatar", locals: { size: :thumb, user: user }%>
 				</td>
-				<td><%= friend.username %></td>
-				<td><%= 10 * friend.books.length %></td>
+				<td><%= user.username %></td>
+				<td><%= 10 * user.books.length %></td>
 			</tr>
+
+			<% rank += 1 %>
 		<% end %>
 	</tbody>
 </table>

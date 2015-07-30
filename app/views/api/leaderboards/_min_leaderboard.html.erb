@@ -19,8 +19,10 @@
 		   users = users.sort_by { |user| user.books.length } # sort the list by the users' number of books
 		   users.reverse! # reverse the list since we want big numbers first
 		   index = users.index(current_user) # get the index of the current user in the sorted list
+		   start_index = [0,index-3].max #set our start index to either 2 before the current_user or 0 if that ends up negative
+		   end_index = [users.length-1, index+3].min #set our end index to either 2 after the current_user or the length of users if that ends up greater
 		%>
-		<% for i in 0..users.length-1 %>
+		<% for i in start_index..end_index %>
 			<% user = users[i] %>
 			<tr class=<%= user == current_user ? "info" : "" %>>
 				<td>

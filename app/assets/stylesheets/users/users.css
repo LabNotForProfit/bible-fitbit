@@ -59,3 +59,8 @@ a .avatar:hover {
 	background-color: white;
 	margin: 5px;
 }
+
+.accept-reject-links  {
+	display: inline-block;
+	margin-left: 30px;
+}
