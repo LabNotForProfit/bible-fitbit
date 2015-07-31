@@ -57,12 +57,16 @@ class Api::UsersController < ApplicationController
   end
 
   def quiz_graph
-    @user = User.friendly.find(params[:id])
+    @user = User.find(params[:user_id])
     @book = Book.find(params[:book_id])
-
+    @books = Book.all.order(:order_num)
     @scores = @user.scores_past_week(@book)
-    byebug
+    puts "Book: #{@book.name}"
+    puts "User: #{@user.username}"
 
+    if request.xhr?
+    	render partial: 'quiz_graph'
+    end
   end
 
 end

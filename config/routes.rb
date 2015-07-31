@@ -6,8 +6,7 @@ Rails.application.routes.draw do
   #devise_for :users
   get 'home/index'
   get 'home/tools' => 'home#tools'
-
-  get '/api/users/quiz-graph' => 'users#quiz_graph'
+ 
   # get 'api/users/show' => 'api/registrations#show'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -78,7 +77,11 @@ Rails.application.routes.draw do
     resources :fill_in_blanks, controller: 'fill_in_blanks'
     devise_for :users
     devise_scope :user do 
-      resources :users, only: [:index, :show, :edit, :update], controller: 'users'
+      resources :users, only: [:index, :show, :edit, :update] do
+        collection do
+          get 'quiz-graph'
+        end
+      end
       resources :friendships
       resources :friend_requests, :except => [:new, :show, :edit]
     end 

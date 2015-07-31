@@ -123,7 +123,6 @@
     		days[i] = (7-i).days().ago().toString('MMMM dS');
     	};
     	scores = <%= @scores %>
-    	console.log(scores)
 
 	    $('#score-graph').highcharts({
 	        chart: {
@@ -150,7 +149,7 @@
 	        },
 	        series: [{
 	        	name: '<%= @book.name %> Scores',
-	            data: scores,
+	            data: <%= @scores %>,
 	            minPointLength: 2,
 	            pointRange: 3600 * 1000,
 	            pointWidth: 20,
@@ -158,4 +157,16 @@
 	        }]
 	    });
 	});
+
+	$("#bookSelect").change(function() {
+		$.ajax({
+			url: '/api/users/quiz-graph',
+			type: 'GET',
+			data: { book_id: $(this).val(), user_id: <%= @user.id %>},
+			success: function(data) {
+				console.out('success')
+			}
+		})
+	})
+
 </script>

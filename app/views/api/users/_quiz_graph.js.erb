@@ -1,0 +1,10 @@
+var chart = $('#score-graph').highcharts();
+chart.series[0].remove();
+chart.addSeries({
+	name: '<%= @book.name %> Scores',
+    data: <%= @scores %>,
+    minPointLength: 2,
+    pointRange: 3600 * 1000,
+    pointWidth: 20,
+    borderColor: "#CFCFCF"
+})
