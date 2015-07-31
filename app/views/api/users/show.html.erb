@@ -83,7 +83,7 @@
 				<tbody>
 					<tr>
 						<td>
-							<%= select_tag "Book", options_from_collection_for_select(@books, "id", "name"), {default: @user.current_book, id: 'bookSelect', class: "form-control"} %>
+							<%= select_tag "Book", options_from_collection_for_select(@books, "id", "name", @user.current_book.id), {id: 'bookSelect', class: "form-control"} %>
 						</td>
 					</td>
 					<tr>
