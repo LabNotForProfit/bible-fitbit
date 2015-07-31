@@ -90,7 +90,7 @@
 						<td>
 							<div id="score-graph">
 							<% current_user.quiz_scores.each do |score| %>
-								<p><%= score.book.name %> <%= "#{(score.score * 100).to_i}%" %> <%= score.created_at.strftime("%B %-d, %Y") %></p>
+								<p><%= score.book.name %> <%= "#{score.score.to_i}%" %> <%= score.created_at.strftime("%B %-d, %Y") %></p>
 							<% end %>
 						</td>
 					</tr>
@@ -104,7 +104,7 @@
 	createDial();
 	$('.dial').each(function () {
         var $this = $(this);
-        var myVal = <%= @user.books.length / 66.0 * 100.0 %>
+        var myVal = <%= @user.books.length / 66.0 * 100%>
         $this.knob({});
         $({ value: 0 }).animate({value: myVal}, {
             duration: 2500,
@@ -117,12 +117,11 @@
 </script>
 
 <script>
-	$(function () { 
-		days = [];
-    	for (var i = 0; i < 7; i++) {
-    		days[i] = (7-i).days().ago().toString('MMMM dS');
-    	};
-    	scores = <%= @scores %>
+	$(function () {
+		// these are all parallel arrays, by the default order of created_at
+		score_nums = <%= @score_nums %>
+		num_questions = <%= @num_questions %>
+		num_correct = <%= @num_correct %>
 
 	    $('#score-graph').highcharts({
 	        chart: {
@@ -148,16 +147,21 @@
 	                text: 'Score'
 	            }
 	        },
+	        tooltip: {
+            	useHTML: true,
+            	formatter: function() {
+            		return '<span style="font-size: 10px">Quiz attempt '+this.key+'</span><br/>' +
+            				'<span style="color:#337AB7">Score: </span> <b>'+this.y+'%</b><br/>' +
+            				'<span style="color:#337AB7">Num Correct: </span> <b>' + num_correct[this.x-1] + '</b><br/>' +
+            				'<span style="color:#337AB7">Num Questions: </span> <b>' + num_questions[this.x-1] + '</b><br/>';
+            	}
+            },
 	        series: [{
 	        	name: '<%= @book.name %> Quiz Scores',
-	            data: <%= @scores %>,
+	            data: score_nums,
 	            minPointLength: 2,
 	            pointStart: 1,
-	            borderColor: "#CFCFCF",
-	            tooltip: {
-	            	headerFormat: '<span style="font-size: 10px">Quiz attempt {point.key}</span><br/>',
-	            	pointFormat: '<span style="color:#337AB7">Score: </span> <b>{point.y}%</b><br/>'
-	            }
+	            borderColor: "#CFCFCF"
 	        }]
 	    });
 
