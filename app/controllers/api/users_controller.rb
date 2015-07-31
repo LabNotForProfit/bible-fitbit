@@ -70,7 +70,7 @@ class Api::UsersController < ApplicationController
   def setup_quiz_vars
     @books = Book.all.order(:order_num)
     @score_nums = @user.score_nums(@book)
-    @num_questions = @user.quiz_scores.pluck(:num_questions)
-    @num_correct = @user.quiz_scores.pluck(:num_correct)
+    @num_questions = @user.quiz_scores.where(book:@book).pluck(:num_questions)
+    @num_correct = @user.quiz_scores.where(book: @book).pluck(:num_correct)
   end
 end
