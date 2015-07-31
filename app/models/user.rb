@@ -48,13 +48,13 @@ class User < ActiveRecord::Base
 
   # returns an array of key value pairs [date, quiz score]
   def scores_past_week(book)
-    scores = self.quiz_scores.where(book: book, created_at: 6.days.ago.beginning_of_day..0.days.ago.end_of_day)
-    score_nums_by_date = []
+    scores = self.quiz_scores.where(book: book)
+    score_nums = []
     scores.each do |score|
-      score_nums_by_date << [score.created_at.to_datetime.to_i*1000, score.score * 100]
+      score_nums <<  score.score * 100
     end
 
-    return score_nums_by_date
+    return score_nums
   end
 
   # the book this user is working on

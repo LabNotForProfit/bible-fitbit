@@ -1,10 +1,13 @@
 var chart = $('#score-graph').highcharts();
 chart.series[0].remove();
 chart.addSeries({
-	name: '<%= @book.name %> Scores',
+	name: '<%= @book.name %> Quiz Scores',
     data: <%= @scores %>,
     minPointLength: 2,
-    pointRange: 3600 * 1000,
-    pointWidth: 20,
-    borderColor: "#CFCFCF"
+    pointStart: 1,
+    borderColor: "#CFCFCF",
+    tooltip: {
+    	headerFormat: '<span style="font-size: 10px">Quiz attempt {point.key}</span><br/>',
+    	pointFormat: '<span style="color:#337AB7">Score: </span> <b>{point.y}%</b><br/>'
+    }
 })
