@@ -137,25 +137,27 @@
 	            dateTimeLabelFormats: {
 	            	day: '%B %e'
 	            },
-	            minRange: 60*60*24*7*1000, //number of milliseconds in a week
-	            minTickInterval: 24*60*60*1000
+	            // minRange: 60*60*24*7*1000, //number of milliseconds in a week
+	            // minTickInterval: 24*60*60*1000
 	        },
 	        yAxis: {
 	        	min: 0,
 	        	max: 100,
 	            title: {
-	                text: 'Score'
+	                text: 'Score %'
 	            }
 	        },
 	        series: [{
 	        	name: '<%= @book.name %> Scores',
 	            data: <%= @scores %>,
 	            minPointLength: 2,
-	            pointRange: 3600 * 1000,
+	            // pointRange: 3600 * 1000,
 	            pointWidth: 20,
 	            borderColor: "#CFCFCF"
 	        }]
 	    });
+
+	    $("#highcharts-0 > svg").children().last().hide();
 	});
 
 	$("#bookSelect").change(function() {
