@@ -37,6 +37,7 @@
 for i in 1..20
 	User.create({firstname: "Test#{i}", lastname: "User", username: "test#{i}", email: "test#{i}@test.com", password: "asdfasdf"})
 end
+
 # Make some friendships
 for i in 2..15
 	User.find(1).friends << User.find(i)
@@ -65,4 +66,13 @@ end
 @passages = @biblesearch.passages(('2Tim 1:6, 1:7, 1:13-14, 1:15, 1:16-18, 2:1-2, 2:3-4, 2:5-6, 2:8-9, 2:11-13, 2:15, 2:16-18, 2:19, 2:20-21, 2:22, 2:23, 2:24-26, 3:1, 3:2-5, 3:7, 3:8-9, 3:10-11, 3:12-13, 3:14-15, 3:16-17, 4:2, 4:3-4, 4:5, 4:6-8, 4:16-18'), :version => "eng-ESV")
 @passages.collection.each do |passage|
 	@question = Question.create({book_id: 55, reference: passage['display'], verse: passage.text, questionType: "Pick Chapter"})
+end
+
+# Add sample quiz scores
+for user in User.all
+	rand_num = rand(10)+5
+	(0..rand_num).each do |num|
+		num_questions = rand(31)+10
+		QuizScore.create({user: user, book: Book.all.order(:order_num)[rand(4)+1], num_questions: num_questions, num_correct: num_questions-rand(11)})
+	end
 end
