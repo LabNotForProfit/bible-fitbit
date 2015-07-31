@@ -135,10 +135,14 @@
 	        xAxis: {
 	            type: 'datetime',
 	            dateTimeLabelFormats: {
-	            	day: '%B %e'
+	            	day: '%B %e',
+	            	hour: '%l%P on %B %e',
+	            	minute: '%l%P on %B %e',
+	            	second: '%l%P on %B %e',
+	            	millisecond: '%l%P on %B %e'
 	            },
 	            // minRange: 60*60*24*7*1000, //number of milliseconds in a week
-	            // minTickInterval: 24*60*60*1000
+	            minTickInterval: 60*60*1000
 	        },
 	        yAxis: {
 	        	min: 0,
