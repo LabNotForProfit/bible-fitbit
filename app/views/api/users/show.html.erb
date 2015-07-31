@@ -165,6 +165,8 @@
 	    $("#highcharts-0 > svg").children().last().hide();
 	});
 
+	$("#bookSelect").val(<%= @user.current_book.id %>)
+
 	$("#bookSelect").change(function() {
 		$.ajax({
 			url: '/api/users/quiz-graph',
