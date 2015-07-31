@@ -7,7 +7,7 @@ class Api::FillInBlanksController < ApplicationController
 
 	def create
 		puts "Calling create"
-		@quizScore = QuizScore.new(:user_id => current_user.id, :book_id => params[:bookId], :score => params[:score])
+		@quizScore = QuizScore.new(:user_id => current_user.id, :book_id => params[:bookId], :num_correct => params[:num_correct], :num_questions => params[:num_questions])
 		@quizScore.save
 		respond_to do |format|
 	        format.json {
@@ -30,7 +30,12 @@ class Api::FillInBlanksController < ApplicationController
 	def show
 		puts "Calling show"
 		@book = Book.find(params[:id])
-		@passages = @book.questions
+		if params[:count] == 'All'
+			@passages = @book.questions.shuffle
+		else
+			# shuffle questions and get the the number that we want
+			@passages = @book.questions.shuffle[0..params[:count].to_i-1]
+		end
 	end
 
 	def update

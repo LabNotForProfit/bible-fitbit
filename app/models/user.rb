@@ -46,12 +46,12 @@ class User < ActiveRecord::Base
     FriendRequest.where(friend: self)
   end
 
-  # returns an array of key value pairs [date, quiz score]
-  def scores_past_week(book)
-    scores = self.quiz_scores.where(book: book)
+  # returns an array of all the quiz scores for a given book for this user
+  def score_nums(book)
+    scores = quiz_scores.where(book: book)
     score_nums = []
     scores.each do |score|
-      score_nums <<  score.score * 100
+      score_nums <<  score.score
     end
 
     return score_nums

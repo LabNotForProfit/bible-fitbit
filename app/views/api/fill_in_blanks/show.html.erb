@@ -4,22 +4,8 @@
 <% end %>
 
 <div class="container">
-	<%
-	if params[:count] == 'All'
-		@total = @passages.length
-	else
-		@total = params[:count]
-	end
-	@count = 0
-	if @passages.length != 0
-		@passages.each do |passage|
-			if params[:count] != "All"
-				if @count == params[:count].to_i
-					break
-				end
-			end
-			@count += 1
-			%>
+	<% unless @passages.empty? %>
+		<% @passages.each do |passage| %>
 			<div class="show-passages">
 				<p class="p"><%= passage.reference %></p>
 				<%= passage.verse.html_safe %>
@@ -31,7 +17,7 @@
 				<div class="col-lg-9">
 					<h1>Review <%= @book.name %></h1>
 				</div>
-				<div class="col-xs-2">Score: <div id="score" class="blanks-score"></div>/<%= @total %></div>
+				<div class="col-xs-2">Score: <div id="score" class="blanks-score"></div>/<%= @passages.length %></div>
 			</div>
 			<div id="pickChapter"></div>
 		</div>

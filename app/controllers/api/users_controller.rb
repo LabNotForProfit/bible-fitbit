@@ -23,9 +23,9 @@ class Api::UsersController < ApplicationController
   def show
     # change to User.friendly.find to use the friendly username param
     @user = User.friendly.find(params[:id])
-    @books = Book.all.order(:order_num)
     @book = @user.current_book
-    @scores = @user.scores_past_week(@book)
+
+    setup_quiz_vars
 
     respond_to do |format|
       format.json {
@@ -59,14 +59,18 @@ class Api::UsersController < ApplicationController
   def quiz_graph
     @user = User.find(params[:user_id])
     @book = Book.find(params[:book_id])
-    @books = Book.all.order(:order_num)
-    @scores = @user.scores_past_week(@book)
-    puts "Book: #{@book.name}"
-    puts "User: #{@user.username}"
 
+    setup_quiz_vars
     if request.xhr?
     	render partial: 'quiz_graph'
     end
   end
 
+
+  def setup_quiz_vars
+    @books = Book.all.order(:order_num)
+    @score_nums = @user.score_nums(@book)
+    @num_questions = @user.quiz_scores.pluck(:num_questions)
+    @num_correct = @user.quiz_scores.pluck(:num_correct)
+  end
 end
