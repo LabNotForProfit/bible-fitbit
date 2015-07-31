@@ -46,6 +46,17 @@ class User < ActiveRecord::Base
     FriendRequest.where(friend: self)
   end
 
+  # returns an array of all the quiz scores for a given book for this user
+  def score_nums(book)
+    scores = quiz_scores.where(book: book)
+    score_nums = []
+    scores.each do |score|
+      score_nums <<  score.score
+    end
+
+    return score_nums
+  end
+
   # the book this user is working on
   def current_book
     # num = self.books.order(:order_num).last.order_num

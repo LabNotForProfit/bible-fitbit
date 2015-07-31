@@ -11,5 +11,8 @@ $(document).ready(function() {
 
 		$(".friend").removeClass("btn-danger");
 		$(".friend").addClass("btn-success");
-	})
+	});
+
+	
 })
+

@@ -62,4 +62,6 @@ $(function() {
         $(".completed-button").removeClass("btn-success");
         $(".completed-button").addClass("btn-danger");
     })
+
+    $("#questionNumber").val("default")
 });

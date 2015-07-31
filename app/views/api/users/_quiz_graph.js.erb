@@ -1,0 +1,14 @@
+var chart = $('#score-graph').highcharts();
+
+score_nums = <%= @score_nums %>
+num_questions = <%= @num_questions %>
+num_correct = <%= @num_correct %>
+
+chart.series[0].remove();
+chart.addSeries({
+	name: '<%= @book.name %> Quiz Scores',
+    data: <%= @score_nums %>,
+    minPointLength: 2,
+    pointStart: 1,
+    borderColor: "#CFCFCF",
+})

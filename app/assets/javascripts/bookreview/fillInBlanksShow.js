@@ -19,12 +19,13 @@ function checkAnswers() {
 	$('#score').text(score);
 	$checkAnswers.text('Review Again').attr('onclick', 'reset()');
 	$checkAnswers.after('<button id="showAnswers" class="btn btn-default btn-lg ghost-button-twitter" onclick="showAnswers();">Show Answers</button>');
-	saveScore(score / Object.keys(verses).length);
+	saveScore(score, Object.keys(verses).length); // Now send the score (num correct) and total questions separately
 }
 
-function saveScore(score) {
+function saveScore(num_correct, num_questions) {
 	var requestObject = {
-		score: score,
+		num_correct: num_correct,
+		num_questions: num_questions,
 		bookId: bookId
 	};
 	$.ajax({
