@@ -34,19 +34,19 @@
 										37, 38, 40, 41, 50, 42, 50, 45, 46, 50, 47, 50, 50, 48, 49, 11, 1, 10, 9, 8, 3, 4, 6, 18, 16,
 										17, 19, 26, 26, 24, 5, 25, 28, 20, 23, 27, 27, 22, 28, 28, 28, 29]
 
-for i in 1..20
+(1..20).each do |i|
 	User.create({firstname: "Test#{i}", lastname: "User", username: "test#{i}", email: "test#{i}@test.com", password: "asdfasdf"})
 end
 
 # Make some friendships
-for i in 2..15
+(2..15).each do |i|
 	User.find(1).friends << User.find(i)
 end
 User.find(2).friends << User.find(4)
 User.find(3).friends << User.find(5)
 
 #create Book objects
-for i in 0..65
+(0..65).each do |i|
 	Book.create({name: @books[i], key_verse: @key_verses[i], abbr: @book_abbr[i], order_num: @book_order_nums[i]})
 end
 
@@ -69,9 +69,9 @@ end
 end
 
 # Add sample quiz scores
-for user in User.all
-	rand_num = rand(10)+5
-	(0..rand_num).each do |num|
+User.all.each do |user|
+	rand_num = rand(20)+20
+	rand_num.times do
 		num_questions = rand(31)+10
 		QuizScore.create({user: user, book: Book.all.order(:order_num)[rand(4)+1], num_questions: num_questions, num_correct: num_questions-rand(11)})
 	end
