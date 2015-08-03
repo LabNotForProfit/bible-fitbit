@@ -8,21 +8,19 @@
 <%- title "#{@book.name}" %>
 <div id="bookId" style="display:none;"><%= @book.id %></div>
 
-<div class="timeline-bar-block">
+<div class="timeline-bar-block form-inline">
     <%= link_to content_tag(:span, " Book List", class: "glyphicon glyphicon-arrow-left"), timeline_edit_path, class: "btn btn-default" %>
-</div>
-<div class="timeline-bar-block">
-    <div class="dropdown">
-        <select id="questionNumber" onchange="reviewBook('<%= api_fill_in_blank_path(@book.id) %>')" class="form-control">
+
+    <select id="questionNumber" onchange="reviewBook('<%= api_fill_in_blank_path(@book.id) %>')" class="form-control">
             <option value="default" disabled selected>Review Book</option>
             <option value="10">10</option>
             <option value="20">20</option>
             <option value="30">30</option>
             <option value="40">40</option>
             <option value="All">All</option>
-        </select>
-    </div>
+    </select>
 </div>
+
 
 <div class="container">
     <h1><%= @book.name %></h1>

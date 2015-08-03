@@ -6,13 +6,9 @@
 <!-- Timeline css included in timeline partial -->
 
 <%- title "Timeline" %>
-<%= content_tag(:div) do %>
-	<%= content_tag(:div, class: 'timeline-bar-block') do %>
+<%= content_tag(:div, class: "timeline-bar-block form-inline") do %>
 		<%= link_to content_tag(:span, " Add Progress", class: "glyphicon glyphicon-plus"), timeline_edit_path, class: "btn btn-default" %>
-	<% end %>
-	<%= content_tag(:div, class: 'timeline-bar-block') do %>
 		<%= text_field_tag(:bookSearch, nil, placeholder: 'Book Search', class: 'form-control') %>
-	<% end %>
 <% end %>
 
 <% if @user.books.empty? %>

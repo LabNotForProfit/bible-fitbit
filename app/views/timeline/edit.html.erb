@@ -4,7 +4,7 @@
 <% end %>
 <body>
 	<%= content_tag(:div) do %>
-		<%= content_tag(:div, class: 'timeline-bar-block') do %>
+		<%= content_tag(:div, class: 'timeline-bar-block form-inline') do %>
 			<%= link_to content_tag(:span, " My Progress", class: "glyphicon glyphicon-arrow-left"), timeline_index_path, class: "btn btn-default" %>
 			<%= select_tag "Order", options_for_select(["Study Order", "Book Order"], "Study Order"), id: "book-order-select", class: "form-control" %>
 		<% end %>
