@@ -50,8 +50,12 @@ body{
 	padding-bottom: 30px;
 }
 
-.form-control {
-	width: inherit;
-	display: inline;
-	margin: 5px;
+.checkbox input[type="checkbox"] {
+	margin-left: 0px;
 }
+
+// .form-control {
+// 	width: inherit;
+// 	display: inline;
+// 	margin: 5px;
+// }

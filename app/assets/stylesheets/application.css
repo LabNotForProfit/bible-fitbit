@@ -169,3 +169,15 @@ sup {
 #friend-side-bar {
 	border-left: 2px solid #F2F2F2;
 }
+
+
+.form-signin {
+	max-width: 330px;
+	padding: 15px;
+	margin: 0px auto;
+}
+
+/*.form-signin .form-control {
+	width: 100%;
+	height: auto;
+}*/
