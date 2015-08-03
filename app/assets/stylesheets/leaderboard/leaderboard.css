@@ -14,4 +14,8 @@
 
  */
 
- 
+ #num-friend-select {
+	width: inherit;
+	display: inline;
+	margin: 5px;
+}
