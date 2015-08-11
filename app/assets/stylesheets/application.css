@@ -147,9 +147,14 @@ sup {
 }
 
 
-#home-image {
-	transform: scaleX(-1);
+.home-image {
+	background: url(Big-Bible.jpg) no-repeat center center fixed;
+	background-size: cover;
+	background-position: 0px 90px;
+	height: 85vh;
 	width: 100%;
+	/*translateX(-100px);
+	translateY(100px);*/
 }
 
 .dial {
@@ -169,3 +174,15 @@ sup {
 #friend-side-bar {
 	border-left: 2px solid #F2F2F2;
 }
+
+
+.form-signin {
+	max-width: 330px;
+	padding: 15px;
+	margin: 0px auto;
+}
+
+/*.form-signin .form-control {
+	width: 100%;
+	height: auto;
+}*/
