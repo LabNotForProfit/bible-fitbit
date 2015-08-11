@@ -55,6 +55,14 @@ $(document).ready(function() {
 		$(this).blur();
 		return false;
 	})
+
+	// blur background
+	$(".blur").blurjs({
+		source: ".home-image",
+		radius: 200,
+		overlay: 'rgba(0,0,0,0.1)',
+		cache: true
+	})
 })
 
 function createDial() {

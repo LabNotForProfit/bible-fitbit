@@ -147,9 +147,14 @@ sup {
 }
 
 
-#home-image {
-	transform: scaleX(-1);
+.home-image {
+	background: url(Big-Bible.jpg) no-repeat center center fixed;
+	background-size: cover;
+	background-position: 0px 90px;
+	height: 85vh;
 	width: 100%;
+	/*translateX(-100px);
+	translateY(100px);*/
 }
 
 .dial {
