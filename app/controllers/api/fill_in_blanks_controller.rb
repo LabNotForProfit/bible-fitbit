@@ -36,6 +36,15 @@ class Api::FillInBlanksController < ApplicationController
 			# shuffle questions and get the the number that we want
 			@passages = @book.questions.shuffle[0..params[:count].to_i-1]
 		end
+
+		@passages.each do |passage|
+			html = Nokogiri::HTML(passage.verse)
+			html.css(".s1").remove
+			html.css("sup").remove
+			passage.verse = html.text
+			passage.verse.strip!
+		end
+
 	end
 
 	def update

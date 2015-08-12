@@ -6,9 +6,21 @@ function checkAnswers() {
 	$('.blanks-chapter-answer').each(function(index, answer) {
 		var $answer = $(answer);
 		var $icon = $answer.next();
-		var reference = $answer.attr('id').split(':')[0].split(' ');
+		var reference = $answer.attr('id').split(':')[0].split('_');
 		var chapter = reference[reference.length - 1];
 		if (chapter == $answer.val()) {
+			$icon.addClass('green fa fa-check');
+			score++;
+		} else {
+			$icon.addClass('red fa fa-close');
+		}
+	});
+
+	$('.blanks-fill-answer').each(function(index, answer) {
+		var $icon = $(answer).next();
+		var correctAnswer = $(answer).attr('id')
+		var givenAnswer = $(answer).val();
+		if(givenAnswer.trim().toLowerCase() == correctAnswer.trim().toLowerCase()) {
 			$icon.addClass('green fa fa-check');
 			score++;
 		} else {
@@ -69,32 +81,36 @@ function shuffle(array) {
 	return array;
 }
 
-$(function() {
-	$('.v, .s1, .b').remove();
-	getBookId();
-	var passages = shuffle($('.show-passages').remove());
-	var byChapter = '<h3>Pick the correct chapter (e.g. 25)</h3>';
-	var count = 0;
-	$.each(passages, function(index, passage) {
-		count++;
-		var children = $(passage).children();
-		var reference = $(children[0]).html();
-		var verse = [];
-		for (var i = 1; i < children.length; i++) {
-			verse.push($(children[i]).text());
-		};
-		verses[reference] = verse.join(' ').replace(/”/g, '" ').replace(/“/g, '"').replace(/‘/g, "'").replace(/’/g, "'").replace(/([.,!])/g, '$1 ').replace(/([,.]) "/g, '$1"').replace(/ +/g, ' ').trim();
-		byChapter += '<div class="row blanks-padding">';
-		byChapter += '<div class="col-md-2"><div class="row"><div class="col-md-2">' + count + '.</div><div class="col-md-10"><input id="' + reference + '" class="blanks-chapter-answer"><div class="blanks-icon"></div></div></div></div>';
-		byChapter += '<div class="col-md-8">' + verses[reference] + '</div>';
-		byChapter += '<div class="col-md-2 blanks-hidden">' + reference + '</div>';
-		byChapter += '</div>';
-	});
-	byChapter += '<div class="row blanks-padding">';
-	byChapter += '<div class="col-xs-1"></div>';
-	byChapter += '<div class="col-lg-10 text-right">' + '<button id="checkAnswers" class="btn btn-default btn-lg ghost-button-twitter" onclick="checkAnswers();">Check Answers</button>' + '</div>';
-	byChapter += '</div>';
-	$('#pickChapter').html(byChapter);
+ $(function() {
+	// $('.v, .s1, .b').remove();
+	// getBookId();
+	// var passages = $('.show-passages').remove();
+	// var byChapter = '<h3>Pick the correct chapter (e.g. 25)</h3>';
+	// var count = 0;
+	// $.each(passages, function(index, passage) {
+	// 	count++;
+	// 	var children = $(passage).children();
+	// 	var reference = $(children[0]).html();
+	// 	var answer = $(children[1]).html();
+	// 	if(reference == "Romans Test:Test") {
+	// 		console.log("Test Question")
+	// 	}
+	// 	var verse = [];
+	// 	for (var i = 2; i < children.length; i++) {
+	// 		verse.push($(children[i]).text());
+	// 	};
+	// 	verses[reference] = verse.join(' ').replace(/”/g, '" ').replace(/“/g, '"').replace(/‘/g, "'").replace(/’/g, "'").replace(/([.,!])/g, '$1 ').replace(/([,.]) "/g, '$1"').replace(/ +/g, ' ').trim();
+	// 	byChapter += '<div class="row blanks-padding">';
+	// 	byChapter += '<div class="col-md-2"><div class="row"><div class="col-md-2">' + count + '.</div><div class="col-md-10"><input id="' + reference + '" class="blanks-chapter-answer"><div class="blanks-icon"></div></div></div></div>';
+	// 	byChapter += '<div class="col-md-8">' + verses[reference] + '</div>';
+	// 	byChapter += '<div class="col-md-2 blanks-hidden">' + answer + '</div>';
+	// 	byChapter += '</div>';
+	// });
+	// byChapter += '<div class="row blanks-padding">';
+	// byChapter += '<div class="col-xs-1"></div>';
+	// byChapter += '<div class="col-lg-10 text-right">' + '<button id="checkAnswers" class="btn btn-default btn-lg ghost-button-twitter" onclick="checkAnswers();">Check Answers</button>' + '</div>';
+	// byChapter += '</div>';
+	// $('#pickChapter').html(byChapter);
 	$('input').focus(function() {
     	$('.blanks-padding').removeClass('grey');
         $(this).parent('div').parent('div').parent('div').parent('div').addClass('grey');

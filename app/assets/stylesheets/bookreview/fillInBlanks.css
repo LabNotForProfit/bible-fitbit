@@ -16,8 +16,15 @@
 	margin-bottom: 10px;
 }
 
+.answer-field {
+	display: inline-block;
+	width: 95px;
+}
 .blanks-chapter-answer {
-	width: 90px;
+	/*width: 50px;*/
+}
+.blanks-fill-answer {
+	/*width: 90%;*/
 }
 
 .blanks-icon {

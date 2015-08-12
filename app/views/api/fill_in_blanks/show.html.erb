@@ -5,13 +5,6 @@
 
 <div class="container">
 	<% unless @passages.empty? %>
-		<% @passages.each do |passage| %>
-			<div class="show-passages">
-				<p class="p"><%= passage.reference %></p>
-				<%= passage.verse.html_safe %>
-			</div>
-		<% end %>
-
 		<div>
 			<div class="row">
 				<div class="col-lg-9">
@@ -19,7 +12,51 @@
 				</div>
 				<div class="col-xs-2">Score: <div id="score" class="blanks-score"></div>/<%= @passages.length %></div>
 			</div>
-			<div id="pickChapter"></div>
+			<div id="questions">
+				<h3>Pick the correct chapter or fill in the correct word for the verse</h3>
+
+				<% @passages.each_with_index do |passage, num| %>
+					<div class="row blanks-padding">
+						<div class="col-md-2">
+							<div class="row">
+								<div class="col-md-2">
+									<%= "#{num+1}." %>
+								</div>
+								<div class="col-md-10">
+									<% if passage.questionType == "Pick Chapter" %>
+										<%= text_field_tag "#{passage.reference}", nil, class: "answer-field blanks-chapter-answer form-control" %>
+									<% elsif passage.questionType == "Fill In Blank" %>
+										<%= text_field_tag "#{passage.answer}", nil, class: "answer-field blanks-fill-answer form-control" %>
+									<% end %>										
+									<div class="blanks-icon">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-8">
+							<%= passage.verse %>
+						</div>
+						<div class="col-md-2 blanks-hidden">
+							<% if passage.questionType == "Pick Chapter" %>
+								<%= passage.reference %>
+							<% elsif passage.questionType == "Fill In Blank" %>
+								<%= "#{passage.answer}"%><br/>
+								<%= "#{passage.reference}" %>
+							<% end %>
+						</div>
+					</div>
+				<% end %>
+
+				<div class="row blanks-padding">
+					<div class="col-xs-1">
+					</div>
+					<div class="col-lg-10 text-right">
+						<button id="checkAnswers" class="btn btn-default btn-lg ghost-button-twitter" onclick="checkAnswers();">
+							Check Answers
+						</button>
+					</div>
+				</div>
+			</div>
 		</div>
 	<% else %>
 		<div class="blanks-page-wrapper">
