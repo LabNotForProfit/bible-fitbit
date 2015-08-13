@@ -12,8 +12,9 @@
 	display: none;
 }
 
-.blanks-line {
-	margin-bottom: 10px;
+.answer-word {
+	/*border-bottom: 2px solid black;*/
+	/*visibility: hidden;*/
 }
 
 .answer-field {

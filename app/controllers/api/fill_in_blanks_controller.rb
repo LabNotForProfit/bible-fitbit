@@ -43,6 +43,11 @@ class Api::FillInBlanksController < ApplicationController
 			html.css("sup").remove
 			passage.verse = html.text
 			passage.verse.strip!
+
+			if passage.questionType == "Fill In Blank"
+				# passage.verse.gsub!(/#{passage.answer}/i, "<span class=\"answer-word\">\\0</span>")
+				passage.verse.gsub!(/#{passage.answer}/i, "_______")
+			end
 		end
 
 	end

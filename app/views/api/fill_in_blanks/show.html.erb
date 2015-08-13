@@ -34,7 +34,7 @@
 							</div>
 						</div>
 						<div class="col-md-8">
-							<%= passage.verse %>
+							<%= passage.verse.html_safe %>
 						</div>
 						<div class="col-md-2 blanks-hidden">
 							<% if passage.questionType == "Pick Chapter" %>
