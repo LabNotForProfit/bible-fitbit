@@ -3,7 +3,12 @@
 	<%= javascript_include_tag 'bookreview/fillInBlanksShow', 'data-turbolinks-track' => true %>
 <% end %>
 
+
 <div class="container">
+
+	<div class="form-inline">
+		<%= link_to content_tag(:span, " Back to Book (Cancels Quiz)", class: "glyphicon glyphicon-arrow-left"), :back, class: "btn btn-default" %>
+	</div>
 	<% unless @passages.empty? %>
 		<div>
 			<div class="row">
@@ -13,7 +18,11 @@
 				<div class="col-xs-2">Score: <div id="score" class="blanks-score"></div>/<%= @passages.length %></div>
 			</div>
 			<div id="questions">
-				<h3>Pick the correct chapter or fill in the correct word for the verse</h3>
+				<% if @type == "Pick Chapter" %>
+					<h3>Pick the correct chapter that the verse is from</h3>
+				<% elsif @type == "Fill In Blank" %>
+					<h3>Type the word that is missing in the verse</h3>
+				<% end %>
 
 				<% @passages.each_with_index do |passage, num| %>
 					<div class="row blanks-padding">
