@@ -62,9 +62,18 @@ end
 @passages.collection.each do |passage|
 	Question.create({book_id: 45, reference: passage['display'], verse: passage.text, answer: passage['display'].split(':').first.split(' ').last, questionType: "Pick Chapter"})
 end
-# test
-Question.create({book_id: 45, reference: "Romans Test:Test", verse: "What is life?", answer: "Something", questionType: "Fill In Blank"})
 
+# Not sure the best way to add fill in the blank questions
+@fill = @biblesearch.passages('Rom 1:18', :version => "eng-ESV").collection.first
+Question.create({book_id: 45, reference: @fill['display'], verse: @fill.text, answer: "unrighteousness", questionType: "Fill In Blank"})
+@fill = @biblesearch.passages('Rom 1:21', :version => "eng-ESV").collection.first
+Question.create({book_id: 45, reference: @fill['display'], verse: @fill.text, answer: "honor", questionType: "Fill In Blank"})
+@fill = @biblesearch.passages('Rom 2:1', :version => "eng-ESV").collection.first
+Question.create({book_id: 45, reference: @fill['display'], verse: @fill.text, answer: "judge", questionType: "Fill In Blank"})
+@fill = @biblesearch.passages('Rom 2:9-11', :version => "eng-ESV").collection.first
+Question.create({book_id: 45, reference: @fill['display'], verse: @fill.text, answer: "partiality", questionType: "Fill In Blank"})
+@fill = @biblesearch.passages('Rom 3:1-2', :version => "eng-ESV").collection.first
+Question.create({book_id: 45, reference: @fill['display'], verse: @fill.text, answer: "advantage", questionType: "Fill In Blank"})
 # 1 Corinthians
 @passages = @biblesearch.passages(('1Cor 9:22, 10:31, 6:12, 1:26, 8:9, 15:19, 14:20, 2:2, 3:1-2, 15:58, 3:16, 12:18, 4:15, 12:26, 5:12, 13:4, 3:6-7, 1:18, 11:3, 6:19-20, 4:20, 8:1, 1:31, 14:19, 4:7, 9:27, 10:13, 1:12, 11:1, 14:12, 12:4-5, 9:19, 15:1-2, 6:11, 13:12, 3:10, 15:3, 1:27, 7:29-31, 6:18'), :version => "eng-ESV")
 @passages.collection.each do |passage|
