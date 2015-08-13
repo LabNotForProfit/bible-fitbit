@@ -239,6 +239,7 @@ DEPENDENCIES
   jquery-rails
   jquery-turbolinks
   jquery-ui-rails
+  nokogiri
   paperclip
   pg
   rails (= 4.2.1)

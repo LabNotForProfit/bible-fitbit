@@ -12,12 +12,20 @@
 	display: none;
 }
 
-.blanks-line {
-	margin-bottom: 10px;
+.answer-word {
+	/*border-bottom: 2px solid black;*/
+	/*visibility: hidden;*/
 }
 
+.answer-field {
+	display: inline-block;
+	width: 95px;
+}
 .blanks-chapter-answer {
-	width: 90px;
+	/*width: 50px;*/
+}
+.blanks-fill-answer {
+	/*width: 90%;*/
 }
 
 .blanks-icon {
@@ -35,6 +43,7 @@
 
 .blanks-padding {
 	padding: 5px;
+	transition: background-color 0.2s ease-in-out 0s;
 }
 
 .blanks-padding.white {
@@ -42,7 +51,7 @@
 }
 
 .blanks-padding.grey {
-	background-color: #CFCFCF;
+	background-color: #D5D5D5;
 }
 
 .blanks-hidden {

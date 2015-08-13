@@ -1,7 +1,7 @@
 var bookId;
 
 function reviewBook(url) {
-    window.location.href = url + '?count=' + $('#questionNumber option:selected').val();
+    window.location.href = url + '?count=' + $('#question-number option:selected').val() + '&type=' + $('#question-type option:selected').val();
 }
 
 $(function() {
@@ -62,6 +62,4 @@ $(function() {
         $(".completed-button").removeClass("btn-success");
         $(".completed-button").addClass("btn-danger");
     })
-
-    $("#questionNumber").val("default")
 });

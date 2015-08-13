@@ -30,12 +30,29 @@ class Api::FillInBlanksController < ApplicationController
 	def show
 		puts "Calling show"
 		@book = Book.find(params[:id])
+		@type = params[:type]
+		@passages = @book.questions.where(questionType: @type)
+
 		if params[:count] == 'All'
-			@passages = @book.questions.shuffle
+			@passages = @passages.shuffle
 		else
 			# shuffle questions and get the the number that we want
-			@passages = @book.questions.shuffle[0..params[:count].to_i-1]
+			@passages = @passages.shuffle[0..params[:count].to_i-1]
 		end
+
+		@passages.each do |passage|
+			html = Nokogiri::HTML(passage.verse)
+			html.css(".s1").remove
+			html.css("sup").remove
+			passage.verse = html.text
+			passage.verse.strip!
+
+			if passage.questionType == "Fill In Blank"
+				# passage.verse.gsub!(/#{passage.answer}/i, "<span class=\"answer-word\">\\0</span>")
+				passage.verse.gsub!(/\b#{passage.answer}\b/i, "_______")
+			end
+		end
+
 	end
 
 	def update

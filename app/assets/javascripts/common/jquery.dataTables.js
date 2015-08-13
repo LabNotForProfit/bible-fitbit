@@ -3386,7 +3386,8 @@
 		var select = $('<select/>', {
 			'name':          tableId+'_length',
 			'aria-controls': tableId,
-			'class':         'form-control'
+			'class':         'form-control',
+			'id': 			 'num-friend-select'
 		} );
 	
 		for ( var i=0, ien=lengths.length ; i<ien ; i++ ) {
@@ -9851,7 +9852,7 @@
 		 *      } );
 		 *    } );
 		 */
-		"aLengthMenu": [ 10, 25, 50, 100 ],
+		"aLengthMenu": [[ 10, 25, 50, -1 ], [ 10, 25, 50, "All"]],
 	
 	
 		/**
@@ -11152,7 +11153,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sInfo": "Showing _START_ to _END_ of _TOTAL_ entries",
+			"sInfo": "Showing Friends _START_ to _END_",
 	
 	
 			/**
@@ -11173,7 +11174,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sInfoEmpty": "Showing 0 to 0 of 0 entries",
+			"sInfoEmpty": "You have no friends!",
 	
 	
 			/**
@@ -11195,7 +11196,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sInfoFiltered": "(filtered from _MAX_ total entries)",
+			"sInfoFiltered": "(filtering friends)",
 	
 	
 			/**
@@ -11313,7 +11314,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sLengthMenu": "Show _MENU_ entries",
+			"sLengthMenu": "Show _MENU_ friends",
 	
 	
 			/**

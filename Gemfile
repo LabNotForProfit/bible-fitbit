@@ -61,6 +61,9 @@ gem "highcharts-rails", "~> 3.0.0"
 gem 'rails_log_stdout',           github: 'heroku/rails_log_stdout'
 # gem 'rails3_serve_static_assets', github: 'heroku/rails3_serve_static_assets'
 
+# Nokogiri for html parsing
+gem 'nokogiri'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

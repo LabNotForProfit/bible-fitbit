@@ -8,21 +8,19 @@
 <%- title "#{@book.name}" %>
 <div id="bookId" style="display:none;"><%= @book.id %></div>
 
-<div class="timeline-bar-block">
+<div class="timeline-bar-block form-inline">
     <%= link_to content_tag(:span, " Book List", class: "glyphicon glyphicon-arrow-left"), timeline_edit_path, class: "btn btn-default" %>
+
+    <%= select_tag "question-number", options_for_select(["10 Questions", "20 Questions", "30 Questions", "40 Questions", "All Questions"].collect { |q| [q, q.split(' ').first]}, "10"), id: "question-number", class: "form-control" %>
+
+    <%= select_tag "question-type", options_for_select(["Pick Chapter", "Fill In Blank"], "Pick Chapter"), class: "form-control", id: "question-type" %>
+
+    <%= button_tag(type: 'button', class: 'btn btn-default', onclick:"reviewBook('#{api_fill_in_blank_path(@book.id)}')") do
+            content_tag(:span, " Take Quiz", class: "glyphicon glyphicon-education")
+        end
+    %>
 </div>
-<div class="timeline-bar-block">
-    <div class="dropdown">
-        <select id="questionNumber" onchange="reviewBook('<%= api_fill_in_blank_path(@book.id) %>')" class="form-control">
-            <option value="default" disabled selected>Review Book</option>
-            <option value="10">10</option>
-            <option value="20">20</option>
-            <option value="30">30</option>
-            <option value="40">40</option>
-            <option value="All">All</option>
-        </select>
-    </div>
-</div>
+
 
 <div class="container">
     <h1><%= @book.name %></h1>
