@@ -46,7 +46,7 @@ class Api::FillInBlanksController < ApplicationController
 
 			if passage.questionType == "Fill In Blank"
 				# passage.verse.gsub!(/#{passage.answer}/i, "<span class=\"answer-word\">\\0</span>")
-				passage.verse.gsub!(/#{passage.answer}/i, "_______")
+				passage.verse.gsub!(/\b#{passage.answer}\b/i, "_______")
 			end
 		end
 
