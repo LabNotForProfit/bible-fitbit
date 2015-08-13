@@ -11,14 +11,21 @@
 <div class="timeline-bar-block form-inline">
     <%= link_to content_tag(:span, " Book List", class: "glyphicon glyphicon-arrow-left"), timeline_edit_path, class: "btn btn-default" %>
 
-    <select id="questionNumber" onchange="reviewBook('<%= api_fill_in_blank_path(@book.id) %>')" class="form-control">
-            <option value="default" disabled selected>Review Book</option>
+    <select id="questionNumber" class="form-control">
+            <option value="default" disabled selected>Number of Questions</option>
             <option value="10">10</option>
             <option value="20">20</option>
             <option value="30">30</option>
             <option value="40">40</option>
             <option value="All">All</option>
     </select>
+
+    <%= select_tag "question_type", options_for_select(["Pick Chapter", "Fill In Blank"], "Pick Chapter"), class: "form-control", id: "questionType" %>
+
+    <%= button_tag(type: 'button', class: 'btn btn-default', onclick:"reviewBook('#{api_fill_in_blank_path(@book.id)}')") do
+            content_tag(:span, " Take Quiz", class: "glyphicon glyphicon-education")
+        end
+    %>
 </div>
 
 

@@ -1,7 +1,7 @@
 var bookId;
 
 function reviewBook(url) {
-    window.location.href = url + '?count=' + $('#questionNumber option:selected').val();
+    window.location.href = url + '?count=' + $('#questionNumber option:selected').val() + '&type=' + $('#questionType option:selected').val();
 }
 
 $(function() {

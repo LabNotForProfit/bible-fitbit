@@ -30,11 +30,14 @@ class Api::FillInBlanksController < ApplicationController
 	def show
 		puts "Calling show"
 		@book = Book.find(params[:id])
+
+		@passages = @book.questions.where(questionType: params[:type])
+
 		if params[:count] == 'All'
-			@passages = @book.questions.shuffle
+			@passages = @passages.shuffle
 		else
 			# shuffle questions and get the the number that we want
-			@passages = @book.questions.shuffle[0..params[:count].to_i-1]
+			@passages = @passages.shuffle[0..params[:count].to_i-1]
 		end
 
 		@passages.each do |passage|

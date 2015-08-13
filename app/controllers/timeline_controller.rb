@@ -33,5 +33,7 @@ class TimelineController < ApplicationController
     # @passages = @biblesearch.passages('John 15:5', :version => "eng-ESV")
     @passages = @biblesearch.passages((@book.abbr+' '+@book.key_verse), :version => "eng-ESV")
 
+    @questions = @book.questions
+
   end
 end
