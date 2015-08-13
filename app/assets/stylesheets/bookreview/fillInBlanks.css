@@ -43,6 +43,7 @@
 
 .blanks-padding {
 	padding: 5px;
+	transition: background-color 0.2s ease-in-out 0s;
 }
 
 .blanks-padding.white {
@@ -50,7 +51,7 @@
 }
 
 .blanks-padding.grey {
-	background-color: #CFCFCF;
+	background-color: #D5D5D5;
 }
 
 .blanks-hidden {
