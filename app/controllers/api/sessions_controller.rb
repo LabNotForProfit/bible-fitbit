@@ -8,10 +8,14 @@ class Api::SessionsController < Devise::SessionsController
 
   # GET /api/users/sign_in
   def new
-    # self.resource = resource_class.new(sign_in_params)
-    # clean_up_passwords(resource)
-    # respond_with(resource, serialize_options(resource))
-    super
+
+    if request.xhr?
+      self.resource = resource_class.new(sign_in_params)
+      clean_up_passwords(resource)
+      render partial: 'devise/sessions/sign_in_form'
+    else
+      super
+    end
   end
 
   # POST /api/users/sign_in

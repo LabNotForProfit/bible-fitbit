@@ -148,13 +148,26 @@ sup {
 
 
 .home-image {
+	position:absolute;
+	z-index: -999;
 	background: url(Big-Bible.jpg) no-repeat center center fixed;
 	background-size: cover;
 	background-position: 0px 90px;
-	height: 85vh;
-	width: 100%;
+	/*height: 85vh;
+	width: 100%;*/
+	top:0;
+	left:0;
+	bottom:0;
+	right:0;
 	/*translateX(-100px);
 	translateY(100px);*/
+}
+
+.blur {
+	-webkit-filter: blur(30px); 
+    -moz-filter: blur(30px); 
+    filter: blur(30px);
+    transition: filter 0.2s ease-in-out;
 }
 
 .dial {
