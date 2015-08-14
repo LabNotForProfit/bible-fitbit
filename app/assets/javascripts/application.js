@@ -56,12 +56,32 @@ $(document).ready(function() {
 		return false;
 	})
 
-	// blur background
-	$(".blur").blurjs({
-		source: ".home-image",
-		radius: 200,
-		// overlay: 'rgba(0,0,0,0.1)',
-		cache: true
+	$("#sign-in-link").click(function(e) {
+		e.preventDefault();
+		$.ajax({
+			url: "/api/users/sign_in",
+			type: "GET",
+			success: function(data) {
+				$(".form").fadeOut("fast", "swing", function() {
+					$(".form").html(data).fadeIn("slow");
+				});
+				// blur background
+				$(".home-image").addClass("blur");
+			}
+		})
+	});
+	$("#sign-up-link").click(function (e) {
+		e.preventDefault();
+		$.ajax({
+			url: "api/users/sign_up",
+			type: "GET",
+			success: function(data) {
+				$(".form").fadeOut("fast", "swing", function() {
+					$(".form").html(data).fadeIn("slow");
+				});
+				$(".home-image").addClass("blur");
+			}
+		})
 	})
 })
 

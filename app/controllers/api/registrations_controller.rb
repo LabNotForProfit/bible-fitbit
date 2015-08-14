@@ -4,6 +4,18 @@ class Api::RegistrationsController < Devise::RegistrationsController
   protect_from_forgery
   respond_to :json
 
+  # GET /api/users/sign_up
+  def new
+    if request.xhr?
+      build_resource({})
+      set_minimum_password_length
+      yield resource if block_given?
+      render partial: 'devise/registrations/sign_up_form'
+    else
+      super
+    end
+  end
+
   # POST /api/users
   def create
     build_resource(sign_up_params)
