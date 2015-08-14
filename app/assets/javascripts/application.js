@@ -60,7 +60,7 @@ $(document).ready(function() {
 	$(".blur").blurjs({
 		source: ".home-image",
 		radius: 200,
-		overlay: 'rgba(0,0,0,0.1)',
+		// overlay: 'rgba(0,0,0,0.1)',
 		cache: true
 	})
 })
