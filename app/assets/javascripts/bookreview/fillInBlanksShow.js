@@ -31,7 +31,7 @@ function checkAnswers() {
 	$('#score').text(score);
 	$checkAnswers.text('Review Again').attr('onclick', 'reset()');
 	$checkAnswers.after('<button id="showAnswers" class="btn btn-default btn-lg ghost-button-twitter" onclick="showAnswers();">Show Answers</button>');
-	saveScore(score, Object.keys(verses).length); // Now send the score (num correct) and total questions separately
+	saveScore(score, $('#questionNumber').html()); // Now send the score (num correct) and total questions separately
 }
 
 function saveScore(num_correct, num_questions) {
@@ -82,8 +82,8 @@ function shuffle(array) {
 }
 
  $(function() {
+	getBookId();
 	// $('.v, .s1, .b').remove();
-	// getBookId();
 	// var passages = $('.show-passages').remove();
 	// var byChapter = '<h3>Pick the correct chapter (e.g. 25)</h3>';
 	// var count = 0;
