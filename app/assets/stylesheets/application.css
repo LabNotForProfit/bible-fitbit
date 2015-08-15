@@ -167,7 +167,7 @@ sup {
 	-webkit-filter: blur(30px); 
     -moz-filter: blur(30px); 
     filter: blur(30px);
-    transition: filter 0.2s ease-in-out;
+    transition: filter 1.3s ease-in-out;
 }
 
 .dial {
