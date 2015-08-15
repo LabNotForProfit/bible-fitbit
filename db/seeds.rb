@@ -82,6 +82,56 @@ Question.find_or_create_by({book_id: 45, reference: @fill['display'], verse: @fi
 Question.find_or_create_by({book_id: 45, reference: @fill['display'], verse: @fill.text, answer: "advantage", questionType: "Fill In Blank"})
 @fill = @biblesearch.passages('Rom 3:20', :version => "eng-ESV").collection.first
 Question.find_or_create_by({book_id: 45, reference: @fill['display'], verse: @fill.text, answer: "law", questionType: "Fill In Blank"})
+@fill = @biblesearch.passages('Rom 4:4-5', :version => "eng-ESV").collection.first
+Question.find_or_create_by({book_id: 45, reference: @fill['display'], verse: @fill.text, answer: "wages", questionType: "Fill In Blank"})
+@fill = @biblesearch.passages('Rom 4:13', :version => "eng-ESV").collection.first
+Question.find_or_create_by({book_id: 45, reference: @fill['display'], verse: @fill.text, answer: "promise", questionType: "Fill In Blank"})
+@fill = @biblesearch.passages('Rom 5:3-5', :version => "eng-ESV").collection.first
+Question.find_or_create_by({book_id: 45, reference: @fill['display'], verse: @fill.text, answer: "character", questionType: "Fill In Blank"})
+@fill = @biblesearch.passages('Rom 5:1', :version => "eng-ESV").collection.first
+Question.find_or_create_by({book_id: 45, reference: @fill['display'], verse: @fill.text, answer: "peace", questionType: "Fill In Blank"})
+@fill = @biblesearch.passages('Rom 5:12', :version => "eng-ESV").collection.first
+Question.find_or_create_by({book_id: 45, reference: @fill['display'], verse: @fill.text, answer: "one", questionType: "Fill In Blank"})
+@fill = @biblesearch.passages('Rom 6:4', :version => "eng-ESV").collection.first
+Question.find_or_create_by({book_id: 45, reference: @fill['display'], verse: @fill.text, answer: "newness", questionType: "Fill In Blank"})
+@fill = @biblesearch.passages('Rom 6:16', :version => "eng-ESV").collection.first
+Question.find_or_create_by({book_id: 45, reference: @fill['display'], verse: @fill.text, answer: "obedience", questionType: "Fill In Blank"})
+@fill = @biblesearch.passages('Rom 7:6', :version => "eng-ESV").collection.first
+Question.find_or_create_by({book_id: 45, reference: @fill['display'], verse: @fill.text, answer: "Spirit", questionType: "Fill In Blank"})
+@fill = @biblesearch.passages('Rom 7:13', :version => "eng-ESV").collection.first
+Question.find_or_create_by({book_id: 45, reference: @fill['display'], verse: @fill.text, answer: "good", questionType: "Fill In Blank"})
+@fill = @biblesearch.passages('Rom 8:15', :version => "eng-ESV").collection.first
+Question.find_or_create_by({book_id: 45, reference: @fill['display'], verse: @fill.text, answer: "adoption", questionType: "Fill In Blank"})
+@fill = @biblesearch.passages('Rom 8:28', :version => "eng-ESV").collection.first
+Question.find_or_create_by({book_id: 45, reference: @fill['display'], verse: @fill.text, answer: "good", questionType: "Fill In Blank"})
+@fill = @biblesearch.passages('Rom 9:3', :version => "eng-ESV").collection.first
+Question.find_or_create_by({book_id: 45, reference: @fill['display'], verse: @fill.text, answer: "accursed", questionType: "Fill In Blank"})
+@fill = @biblesearch.passages('Rom 9:33', :version => "eng-ESV").collection.first
+Question.find_or_create_by({book_id: 45, reference: @fill['display'], verse: @fill.text, answer: "offense", questionType: "Fill In Blank"})
+@fill = @biblesearch.passages('Rom 10:12-13', :version => "eng-ESV").collection.first
+Question.find_or_create_by({book_id: 45, reference: @fill['display'], verse: @fill.text, answer: "distinction", questionType: "Fill In Blank"})
+@fill = @biblesearch.passages('Rom 10:17', :version => "eng-ESV").collection.first
+Question.find_or_create_by({book_id: 45, reference: @fill['display'], verse: @fill.text, answer: "hearing", questionType: "Fill In Blank"})
+@fill = @biblesearch.passages('Rom 11:33', :version => "eng-ESV").collection.first
+Question.find_or_create_by({book_id: 45, reference: @fill['display'], verse: @fill.text, answer: "depth", questionType: "Fill In Blank"})
+@fill = @biblesearch.passages('Rom 12:1', :version => "eng-ESV").collection.first
+Question.find_or_create_by({book_id: 45, reference: @fill['display'], verse: @fill.text, answer: "acceptable", questionType: "Fill In Blank"})
+@fill = @biblesearch.passages('Rom 12:2', :version => "eng-ESV").collection.first
+Question.find_or_create_by({book_id: 45, reference: @fill['display'], verse: @fill.text, answer: "conformed", questionType: "Fill In Blank"})
+@fill = @biblesearch.passages('Rom 13:8', :version => "eng-ESV").collection.first
+Question.find_or_create_by({book_id: 45, reference: @fill['display'], verse: @fill.text, answer: "fulfilled", questionType: "Fill In Blank"})
+@fill = @biblesearch.passages('Rom 13:10', :version => "eng-ESV").collection.first
+Question.find_or_create_by({book_id: 45, reference: @fill['display'], verse: @fill.text, answer: "fulfilling", questionType: "Fill In Blank"})
+@fill = @biblesearch.passages('Rom 14:10', :version => "eng-ESV").collection.first
+Question.find_or_create_by({book_id: 45, reference: @fill['display'], verse: @fill.text, answer: "judgement", questionType: "Fill In Blank"})
+@fill = @biblesearch.passages('Rom 14:15', :version => "eng-ESV").collection.first
+Question.find_or_create_by({book_id: 45, reference: @fill['display'], verse: @fill.text, answer: "grieved", questionType: "Fill In Blank"})
+@fill = @biblesearch.passages('Rom 15:1', :version => "eng-ESV").collection.first
+Question.find_or_create_by({book_id: 45, reference: @fill['display'], verse: @fill.text, answer: "please", questionType: "Fill In Blank"})
+@fill = @biblesearch.passages('Rom 15:27', :version => "eng-ESV").collection.first
+Question.find_or_create_by({book_id: 45, reference: @fill['display'], verse: @fill.text, answer: "material", questionType: "Fill In Blank"})
+@fill = @biblesearch.passages('Rom 16:17', :version => "eng-ESV").collection.first
+Question.find_or_create_by({book_id: 45, reference: @fill['display'], verse: @fill.text, answer: "obstacles", questionType: "Fill In Blank"})
 ###########################################
 
 # 1 Corinthians
