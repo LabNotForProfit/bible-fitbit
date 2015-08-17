@@ -80,6 +80,12 @@ $(document).ready(function() {
 					$(".form").html(data).fadeIn("slow");
 				});
 				$(".home-image").addClass("blur");
+				// add event binding to new fields on page
+				$(document).on("keyup", "#api_user_email", function() {
+					var email = $(this).val();
+					var strings = email.split("@"); // split email at @ sign, so always 2 parts at most
+					$("#api_user_username").val(strings[0]);
+				});
 			}
 		})
 	})

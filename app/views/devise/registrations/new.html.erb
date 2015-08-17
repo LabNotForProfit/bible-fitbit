@@ -3,13 +3,3 @@
 <div class="form">
   <%= render partial: "sign_up_form" %>
 </div>
-
-<script>
-$(document).ready(function() {
-  $("#api_user_email").keyup(function() {
-    var email = $(this).val();
-    var strings = email.split("@"); // split email at @ sign, so always 2 parts at most
-    $("#api_user_username").val(strings[0]);
-  })
-})
-</script>
