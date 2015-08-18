@@ -158,10 +158,10 @@ puts "Adding 2 Corinthians Questions"
 end
 
 # Add sample quiz scores
-User.all.each do |user|
-	rand_num = rand(20)+20
-	rand_num.times do
-		num_questions = rand(31)+10
-		QuizScore.find_or_create_by({user: user, book: Book.all.order(:order_num)[rand(4)+1], num_questions: num_questions, num_correct: num_questions-rand(11)})
-	end
-end
+# User.all.each do |user|
+# 	rand_num = rand(20)+20
+# 	rand_num.times do
+# 		num_questions = rand(31)+10
+# 		QuizScore.find_or_create_by({user: user, book: Book.all.order(:order_num)[rand(4)+1], num_questions: num_questions, num_correct: num_questions-rand(11)})
+# 	end
+# end
