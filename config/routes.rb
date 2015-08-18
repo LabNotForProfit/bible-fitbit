@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  get 'timeline/index'
-  get 'timeline/edit'
-  get 'timeline/edit/:book' => 'timeline#update'
-
   #devise_for :users
   get 'home/index'
   get 'home/tools' => 'home#tools'
