@@ -21,8 +21,7 @@ class Api::UsersController < ApplicationController
 
   # GET /api/users/show/:id
   def show
-    # change to User.friendly.find to use the friendly username param
-    @user = User.friendly.find(params[:id])
+    @user = User.find(params[:id])
     @book = @user.current_book
 
     setup_quiz_vars
