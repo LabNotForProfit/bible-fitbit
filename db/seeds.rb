@@ -1,3 +1,4 @@
+require 'yaml'
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
@@ -64,77 +65,20 @@ puts "Adding Genesis Questions"
 	Question.find_or_create_by({book_id: 1, reference: passage['display'], verse: passage.text, answer: passage['display'].split(':').first.split(' ').last, questionType: "Pick Chapter"})
 end
 
-# Romans ##################################
+# Romans pick chapter questions
 puts "Adding Romans Questions"
 @passages = @biblesearch.passages(('Rom 3:1-2, 7:8, 1:14, 9:3, 12:9-11, 14:3, 16:25-27, 1:16, 4:2-3, 10:9, 6:23, 8:31-32, 13:1, 1:18, 9:20, 13:8, 15:20, 3:23-24, 14:20-21, 12:4-5, 2:4, 4:17-18, 5:3-5, 8:1, 3:10-12, 7:24, 1:24-25, 5:1-2, 10:14-15, 8:16-17, 11:17-18, 6:1-2, 6:12-13, 15:1-2, 3:20, 2:28-29, 16:3-4, 14:7-8, 6:7, 5:6-8'), :version => "eng-ESV")
 @passages.collection.each do |passage|
 	Question.find_or_create_by({book_id: 45, reference: passage['display'], verse: passage.text, answer: passage['display'].split(':').first.split(' ').last, questionType: "Pick Chapter"})
 end
 
-# Not sure the best way to add fill in the blank questions
-@fill = @biblesearch.passages('Rom 1:18', :version => "eng-ESV").collection.first
-Question.find_or_create_by({book_id: 45, reference: @fill['display'], verse: @fill.text, answer: "unrighteousness", questionType: "Fill In Blank"})
-@fill = @biblesearch.passages('Rom 1:21', :version => "eng-ESV").collection.first
-Question.find_or_create_by({book_id: 45, reference: @fill['display'], verse: @fill.text, answer: "honor", questionType: "Fill In Blank"})
-@fill = @biblesearch.passages('Rom 2:1', :version => "eng-ESV").collection.first
-Question.find_or_create_by({book_id: 45, reference: @fill['display'], verse: @fill.text, answer: "judge", questionType: "Fill In Blank"})
-@fill = @biblesearch.passages('Rom 2:9-11', :version => "eng-ESV").collection.first
-Question.find_or_create_by({book_id: 45, reference: @fill['display'], verse: @fill.text, answer: "partiality", questionType: "Fill In Blank"})
-@fill = @biblesearch.passages('Rom 3:1-2', :version => "eng-ESV").collection.first
-Question.find_or_create_by({book_id: 45, reference: @fill['display'], verse: @fill.text, answer: "advantage", questionType: "Fill In Blank"})
-@fill = @biblesearch.passages('Rom 3:20', :version => "eng-ESV").collection.first
-Question.find_or_create_by({book_id: 45, reference: @fill['display'], verse: @fill.text, answer: "law", questionType: "Fill In Blank"})
-@fill = @biblesearch.passages('Rom 4:4-5', :version => "eng-ESV").collection.first
-Question.find_or_create_by({book_id: 45, reference: @fill['display'], verse: @fill.text, answer: "wages", questionType: "Fill In Blank"})
-@fill = @biblesearch.passages('Rom 4:13', :version => "eng-ESV").collection.first
-Question.find_or_create_by({book_id: 45, reference: @fill['display'], verse: @fill.text, answer: "promise", questionType: "Fill In Blank"})
-@fill = @biblesearch.passages('Rom 5:3-5', :version => "eng-ESV").collection.first
-Question.find_or_create_by({book_id: 45, reference: @fill['display'], verse: @fill.text, answer: "character", questionType: "Fill In Blank"})
-@fill = @biblesearch.passages('Rom 5:1', :version => "eng-ESV").collection.first
-Question.find_or_create_by({book_id: 45, reference: @fill['display'], verse: @fill.text, answer: "peace", questionType: "Fill In Blank"})
-@fill = @biblesearch.passages('Rom 5:12', :version => "eng-ESV").collection.first
-Question.find_or_create_by({book_id: 45, reference: @fill['display'], verse: @fill.text, answer: "one", questionType: "Fill In Blank"})
-@fill = @biblesearch.passages('Rom 6:4', :version => "eng-ESV").collection.first
-Question.find_or_create_by({book_id: 45, reference: @fill['display'], verse: @fill.text, answer: "newness", questionType: "Fill In Blank"})
-@fill = @biblesearch.passages('Rom 6:16', :version => "eng-ESV").collection.first
-Question.find_or_create_by({book_id: 45, reference: @fill['display'], verse: @fill.text, answer: "obedience", questionType: "Fill In Blank"})
-@fill = @biblesearch.passages('Rom 7:6', :version => "eng-ESV").collection.first
-Question.find_or_create_by({book_id: 45, reference: @fill['display'], verse: @fill.text, answer: "Spirit", questionType: "Fill In Blank"})
-@fill = @biblesearch.passages('Rom 7:13', :version => "eng-ESV").collection.first
-Question.find_or_create_by({book_id: 45, reference: @fill['display'], verse: @fill.text, answer: "good", questionType: "Fill In Blank"})
-@fill = @biblesearch.passages('Rom 8:15', :version => "eng-ESV").collection.first
-Question.find_or_create_by({book_id: 45, reference: @fill['display'], verse: @fill.text, answer: "adoption", questionType: "Fill In Blank"})
-@fill = @biblesearch.passages('Rom 8:28', :version => "eng-ESV").collection.first
-Question.find_or_create_by({book_id: 45, reference: @fill['display'], verse: @fill.text, answer: "good", questionType: "Fill In Blank"})
-@fill = @biblesearch.passages('Rom 9:3', :version => "eng-ESV").collection.first
-Question.find_or_create_by({book_id: 45, reference: @fill['display'], verse: @fill.text, answer: "accursed", questionType: "Fill In Blank"})
-@fill = @biblesearch.passages('Rom 9:33', :version => "eng-ESV").collection.first
-Question.find_or_create_by({book_id: 45, reference: @fill['display'], verse: @fill.text, answer: "offense", questionType: "Fill In Blank"})
-@fill = @biblesearch.passages('Rom 10:12-13', :version => "eng-ESV").collection.first
-Question.find_or_create_by({book_id: 45, reference: @fill['display'], verse: @fill.text, answer: "distinction", questionType: "Fill In Blank"})
-@fill = @biblesearch.passages('Rom 10:17', :version => "eng-ESV").collection.first
-Question.find_or_create_by({book_id: 45, reference: @fill['display'], verse: @fill.text, answer: "hearing", questionType: "Fill In Blank"})
-@fill = @biblesearch.passages('Rom 11:33', :version => "eng-ESV").collection.first
-Question.find_or_create_by({book_id: 45, reference: @fill['display'], verse: @fill.text, answer: "depth", questionType: "Fill In Blank"})
-@fill = @biblesearch.passages('Rom 12:1', :version => "eng-ESV").collection.first
-Question.find_or_create_by({book_id: 45, reference: @fill['display'], verse: @fill.text, answer: "acceptable", questionType: "Fill In Blank"})
-@fill = @biblesearch.passages('Rom 12:2', :version => "eng-ESV").collection.first
-Question.find_or_create_by({book_id: 45, reference: @fill['display'], verse: @fill.text, answer: "conformed", questionType: "Fill In Blank"})
-@fill = @biblesearch.passages('Rom 13:8', :version => "eng-ESV").collection.first
-Question.find_or_create_by({book_id: 45, reference: @fill['display'], verse: @fill.text, answer: "fulfilled", questionType: "Fill In Blank"})
-@fill = @biblesearch.passages('Rom 13:10', :version => "eng-ESV").collection.first
-Question.find_or_create_by({book_id: 45, reference: @fill['display'], verse: @fill.text, answer: "fulfilling", questionType: "Fill In Blank"})
-@fill = @biblesearch.passages('Rom 14:10', :version => "eng-ESV").collection.first
-Question.find_or_create_by({book_id: 45, reference: @fill['display'], verse: @fill.text, answer: "judgement", questionType: "Fill In Blank"})
-@fill = @biblesearch.passages('Rom 14:15', :version => "eng-ESV").collection.first
-Question.find_or_create_by({book_id: 45, reference: @fill['display'], verse: @fill.text, answer: "grieved", questionType: "Fill In Blank"})
-@fill = @biblesearch.passages('Rom 15:1', :version => "eng-ESV").collection.first
-Question.find_or_create_by({book_id: 45, reference: @fill['display'], verse: @fill.text, answer: "please", questionType: "Fill In Blank"})
-@fill = @biblesearch.passages('Rom 15:27', :version => "eng-ESV").collection.first
-Question.find_or_create_by({book_id: 45, reference: @fill['display'], verse: @fill.text, answer: "material", questionType: "Fill In Blank"})
-@fill = @biblesearch.passages('Rom 16:17', :version => "eng-ESV").collection.first
-Question.find_or_create_by({book_id: 45, reference: @fill['display'], verse: @fill.text, answer: "obstacles", questionType: "Fill In Blank"})
-###########################################
+# Romans fill in the blank questions
+seed_file = Rails.root.join('db', 'seeds', 'fill_in_blank.yml')
+config = YAML.load_stream File.read(seed_file)
+config.each do |key, value|
+  @fill = @biblesearch.passages(key['passage'], :version => "eng-ESV").collection.first
+	Question.find_or_create_by({book_id: key['book_id'], reference: @fill['display'], verse: @fill.text, answer: key['answer'], questionType: "Fill In Blank"})
+end
 
 # 1 Corinthians
 puts "Adding 1 Corinthians Questions"
