@@ -58,20 +58,14 @@ end
 
 
 @biblesearch = BibleSearch.new('PPBuBK5LCmR4KLIsbytjtvCPDWbLkoSagxJhzQ6u')
-# Genesis pick chapter questions
-puts "Adding Genesis Questions"
-seed_file = Rails.root.join('db', 'seeds', 'genesis_pick_chapter.yml')
+
+# Pick chapter questions
+seed_file = Rails.root.join('db', 'seeds', 'pick_chapter.yml')
 config = YAML.load_stream File.read(seed_file)
 config.each do |key, value|
+	puts "Adding #{key['name']} questions"
 	@passages = @biblesearch.passages((key['passage']), :version => "eng-ESV")
-	@passages.collection.each { |passage| Question.find_or_create_by({book_id: 1, reference: passage['display'], verse: passage.text, answer: passage['display'].split(':').first.split(' ').last, questionType: "Pick Chapter"}) }
-end
-
-# Romans pick chapter questions
-puts "Adding Romans Questions"
-@passages = @biblesearch.passages(('Rom 3:1-2, 7:8, 1:14, 9:3, 12:9-11, 14:3, 16:25-27, 1:16, 4:2-3, 10:9, 6:23, 8:31-32, 13:1, 1:18, 9:20, 13:8, 15:20, 3:23-24, 14:20-21, 12:4-5, 2:4, 4:17-18, 5:3-5, 8:1, 3:10-12, 7:24, 1:24-25, 5:1-2, 10:14-15, 8:16-17, 11:17-18, 6:1-2, 6:12-13, 15:1-2, 3:20, 2:28-29, 16:3-4, 14:7-8, 6:7, 5:6-8'), :version => "eng-ESV")
-@passages.collection.each do |passage|
-	Question.find_or_create_by({book_id: 45, reference: passage['display'], verse: passage.text, answer: passage['display'].split(':').first.split(' ').last, questionType: "Pick Chapter"})
+	@passages.collection.each { |passage| Question.find_or_create_by({book_id: key['book_id'], reference: passage['display'], verse: passage.text, answer: passage['display'].split(':').first.split(' ').last, questionType: "Pick Chapter"}) }
 end
 
 # Romans fill in the blank questions
