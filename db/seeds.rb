@@ -55,8 +55,6 @@ end
 	Book.find_or_create_by({name: @books[i], key_verse: @key_verses[i], abbr: @book_abbr[i], order_num: @book_order_nums[i]})
 end
 
-
-
 @biblesearch = BibleSearch.new('PPBuBK5LCmR4KLIsbytjtvCPDWbLkoSagxJhzQ6u')
 
 # Pick chapter questions
@@ -74,27 +72,6 @@ config = YAML.load_stream File.read(seed_file)
 config.each do |key, value|
   @fill = @biblesearch.passages(key['passage'], :version => "eng-ESV").collection.first
 	Question.find_or_create_by({book_id: key['book_id'], reference: @fill['display'], verse: @fill.text, answer: key['answer'], questionType: "Fill In Blank"})
-end
-
-# 1 Corinthians
-puts "Adding 1 Corinthians Questions"
-@passages = @biblesearch.passages(('1Cor 9:22, 10:31, 6:12, 1:26, 8:9, 15:19, 14:20, 2:2, 3:1-2, 15:58, 3:16, 12:18, 4:15, 12:26, 5:12, 13:4, 3:6-7, 1:18, 11:3, 6:19-20, 4:20, 8:1, 1:31, 14:19, 4:7, 9:27, 10:13, 1:12, 11:1, 14:12, 12:4-5, 9:19, 15:1-2, 6:11, 13:12, 3:10, 15:3, 1:27, 7:29-31, 6:18'), :version => "eng-ESV")
-@passages.collection.each do |passage|
-	Question.find_or_create_by({book_id: 46, reference: passage['display'], verse: passage.text, answer: passage['display'].split(':').first.split(' ').last, questionType: "Pick Chapter"})
-end
-
-# 2 Timothy
-puts "Adding 2 Timothy Questions"
-@passages = @biblesearch.passages(('2Tim 1:6, 1:7, 1:13-14, 1:15, 1:16-18, 2:1-2, 2:3-4, 2:5-6, 2:8-9, 2:11-13, 2:15, 2:16-18, 2:19, 2:20-21, 2:22, 2:23, 2:24-26, 3:1, 3:2-5, 3:7, 3:8-9, 3:10-11, 3:12-13, 3:14-15, 3:16-17, 4:2, 4:3-4, 4:5, 4:6-8, 4:16-18'), :version => "eng-ESV")
-@passages.collection.each do |passage|
-	Question.find_or_create_by({book_id: 55, reference: passage['display'], verse: passage.text, answer: passage['display'].split(':').first.split(' ').last, questionType: "Pick Chapter"})
-end
-
-# 2 Corinthians
-puts "Adding 2 Corinthians Questions"
-@passages = @biblesearch.passages(('2Cor 1:3-4, 1:8-9, 1:12, 1:21-22, 2:5-8, 2:10-11, 2:12-13, 2:14-16, 3:2-3, 3:5-6, 3:17, 4:1, 4:8-10, 4:16-18, 5:1, 5:7, 5:9-10, 5:11, 5:14-15, 5:17, 5:18-19, 5:20-21, 6:4-8, 6:9-10, 6:14-15, 7:1, 7:10, 8:1-3, 8:9, 8:13-15, 8:21, 9:6, 9:7, 9:9-10, 10:3-4, 10:5-6, 10:10-11, 10:12, 10:17-18, 11:1-3, 11:13-15, 11:23-27, 11:30, 12:9, 12:10, 12:14-15, 13:1-2, 13:3-4, 13:9-10, 13:11'), :version => "eng-ESV")
-@passages.collection.each do |passage|
-	@question = Question.find_or_create_by({book_id: 47, reference: passage['display'], verse: passage.text, answer: passage['display'].split(':').first.split(' ').last, questionType: "Pick Chapter"})
 end
 
 # Add sample quiz scores
