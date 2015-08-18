@@ -6,7 +6,7 @@
     <% if user_signed_in? %>
         <li><%= link_to 'My Profile', api_user_path(current_user) %></li>
         <li><%= link_to "Friends", api_friendships_path %></li>
-        <li><%= link_to "Books", timeline_edit_path %></li>
+        <li><%= link_to "Books", api_books_path %></li>
         <li><%= link_to 'Study Tools', home_tools_path %></li>
         <li><%= link_to 'Sign Out', destroy_api_user_session_path, :method => :delete %></li>
     <% else %>

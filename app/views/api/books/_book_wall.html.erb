@@ -1,0 +1,15 @@
+
+<% @books.each do |book| %>
+	<%
+	@completed = ''
+	if current_user.books.include?(book)
+		@completed = "completed"
+	end
+	%>
+	<%= content_tag(:div, class: ['brick', 'size12', 'clickable', @completed]) do %>
+		<%= content_tag(:div, class: "cover") do %>
+			<%= content_tag(:h2, book.name) %>
+			<%= content_tag(:p, "Content goes here") %>
+		<% end %>
+	<% end %>
+<% end %>

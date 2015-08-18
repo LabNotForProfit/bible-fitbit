@@ -1,0 +1,45 @@
+<% content_for :head do %>
+    <%= javascript_include_tag 'jquery.knob', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'timeline/update/timelineUpdate', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag 'timeline/index/timelineIndex', media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag 'timeline/update/timelineUpdate', media: 'all', 'data-turbolinks-track' => true %>
+<% end %>
+
+<%- title "#{@book.name}" %>
+<div id="bookId" style="display:none;"><%= @book.id %></div>
+
+<div class="timeline-bar-block form-inline">
+    <%= link_to content_tag(:span, " Book List", class: "glyphicon glyphicon-arrow-left"), api_books_path, class: "btn btn-default" %>
+
+    <%= select_tag "question-number", options_for_select(["10 Questions", "20 Questions", "30 Questions", "40 Questions", "All Questions"].collect { |q| [q, q.split(' ').first]}, "10"), id: "question-number", class: "form-control" %>
+
+    <%= select_tag "question-type", options_for_select(["Pick Chapter", "Fill In Blank"], "Pick Chapter"), class: "form-control", id: "question-type" %>
+
+    <%= button_tag(type: 'button', class: 'btn btn-default', onclick:"reviewBook('#{api_fill_in_blank_path(@book.id)}')") do
+            content_tag(:span, " Take Quiz", class: "glyphicon glyphicon-education")
+        end
+    %>
+</div>
+
+
+<div class="container">
+    <h1><%= @book.name %></h1>
+    <h2><%= @passages.collection.first.text.html_safe %></h2>
+    <input class="dial" value="0" rel="100">
+
+    <% if current_user.books.include? @book %>
+        <div class="completed-button-done btn btn-success btn-lg disabled">COMPLETED</div>
+    <% else %>
+        <div class="completed-button btn btn-danger btn-lg">COMPLETED</div>
+    <% end %>
+
+    <h2>Useful Study Tools</h2>
+    <div id="tools">
+        <%= render partial: 'tools/tool', locals: { book: @book } %>
+    </div>
+</div>
+<script>
+    createDial();
+</script>
+
+
