@@ -33,12 +33,7 @@ class Api::FillInBlanksController < ApplicationController
 		@type = params[:type]
 		@passages = @book.questions.where(questionType: @type)
 
-		if params[:count] == 'All'
-			@passages = @passages.shuffle
-		else
-			# shuffle questions and get the the number that we want
-			@passages = @passages.shuffle[0..params[:count].to_i-1]
-		end
+		@passages = params[:count] == 'All' ? @passages.shuffle : @passages.shuffle[0..params[:count].to_i-1]
 
 		@passages.each do |passage|
 			html = Nokogiri::HTML(passage.verse)
