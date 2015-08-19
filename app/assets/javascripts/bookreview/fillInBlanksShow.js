@@ -126,10 +126,10 @@ function shuffle(array) {
 	// $('#pickChapter').html(byChapter);
 	$('input').focus(function() {
     	$('.blanks-padding').removeClass('grey');
-        $(this).parent('div').parent('div').parent('div').parent('div').addClass('grey');
+        $(this).parents('.row.blanks-padding').addClass('grey');
     }).blur(
     function(){
-        $(this).parent('div').parent('div').parent('div').parent('div').removeClass('grey');
+        $(this).parents('.row.blanks-padding').removeClass('grey');
     });
     $('.blanks-padding').hover(function() {
     	$('.blanks-padding').removeClass('grey');
