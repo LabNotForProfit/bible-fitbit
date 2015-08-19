@@ -67,7 +67,15 @@ config.each do |key, value|
 end
 
 # Romans fill in the blank questions
-seed_file = Rails.root.join('db', 'seeds', 'fill_in_blank.yml')
+seed_file = Rails.root.join('db', 'seeds', 'romans_fill_in_blank.yml')
+config = YAML.load_stream File.read(seed_file)
+config.each do |key, value|
+  @fill = @biblesearch.passages(key['passage'], :version => "eng-ESV").collection.first
+	Question.find_or_create_by({book_id: key['book_id'], reference: @fill['display'], verse: @fill.text, answer: key['answer'], questionType: "Fill In Blank"})
+end
+
+# 1 Corinthians fill in the blank questions
+seed_file = Rails.root.join('db', 'seeds', '1cor_fill_in_blank.yml')
 config = YAML.load_stream File.read(seed_file)
 config.each do |key, value|
   @fill = @biblesearch.passages(key['passage'], :version => "eng-ESV").collection.first
