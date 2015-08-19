@@ -46,7 +46,8 @@ class Api::FillInBlanksController < ApplicationController
 
 			answers.each do |answer|
 				if question.questionType == "Fill In Blank"
-					question.verse.sub!(/#{answer}/i, "<input id=\"\\0\" class=\"answer-field form-control\"/>")
+					question.verse.sub!(/#{answer}/i, "<input id=\"\\0\" class=\"answer-field form-control blanks-fill-answer\"/><span class=\"blanks-icon\">
+										</span>")
 					# question.verse.sub!(/\b#{answer}\b/i, "_______")
 				end
 			end

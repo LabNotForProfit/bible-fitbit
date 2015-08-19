@@ -16,17 +16,28 @@ function checkAnswers() {
 		}
 	});
 
-	$('.blanks-fill-answer').each(function(index, answer) {
-		var $icon = $(answer).next();
-		var correctAnswer = $(answer).attr('id')
-		var givenAnswer = $(answer).val();
-		if(givenAnswer.trim().toLowerCase() == correctAnswer.trim().toLowerCase()) {
-			$icon.addClass('green fa fa-check');
-			score++;
-		} else {
-			$icon.addClass('red fa fa-close');
+	$('.blanks-fill-question').each(function(index, question){
+		var $user_answers = $(this).children('.blanks-fill-answer');
+		var num_correct = 0;
+		var num_blanks = $user_answers.length;
+		console.log(num_blanks);
+		$user_answers.each(function(index, answer) {
+			var $icon = $(answer).next();
+			var correctAnswer = $(answer).attr('id')
+			var givenAnswer = $(answer).val();
+			if(givenAnswer.trim().toLowerCase() == correctAnswer.trim().toLowerCase()) {
+				$icon.addClass('green fa fa-check');
+				num_correct++;
+			} else {
+				$icon.addClass('red fa fa-close');
+			}
+		});
+		// you get a point for getting at least half correct
+		if(num_correct >= num_blanks / 2) {
+			score++
 		}
 	});
+	
 	var $checkAnswers = $('#checkAnswers');
 	$('#score').text(score);
 	$checkAnswers.text('Review Again').attr('onclick', 'reset()');
@@ -83,6 +94,8 @@ function shuffle(array) {
 
  $(function() {
 	getBookId();
+
+	$('.answer-field').val("");
 	// $('.v, .s1, .b').remove();
 	// var passages = $('.show-passages').remove();
 	// var byChapter = '<h3>Pick the correct chapter (e.g. 25)</h3>';
