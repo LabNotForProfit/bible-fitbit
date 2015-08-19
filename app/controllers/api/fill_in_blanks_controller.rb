@@ -42,12 +42,12 @@ class Api::FillInBlanksController < ApplicationController
 			question.verse = html.text
 			question.verse.strip!
 
-			answers = question.split(',')
+			answers = question.answer.split(',')
 
 			answers.each do |answer|
 				if question.questionType == "Fill In Blank"
 					# question.verse.gsub!(/#{question.answer}/i, "<span class=\"answer-word\">\\0</span>")
-					question.verse.sub!(/\b#{question.answer}\b/i, "_______")
+					question.verse.sub!(/\b#{answer}\b/i, "_______")
 				end
 			end
 		end
