@@ -64,22 +64,13 @@ config.each do |key, value|
 	puts "Adding #{key['name']} questions"
 	@passages = @biblesearch.passages((key['passage']), :version => "eng-ESV")
 	@passages.collection.each { |passage| Question.find_or_create_by({book_id: key['book_id'], reference: passage['display'], verse: passage.text, answer: passage['display'].split(':').first.split(' ').last, questionType: "Pick Chapter"}) }
-end
-
-# Romans fill in the blank questions
-seed_file = Rails.root.join('db', 'seeds', 'romans_fill_in_blank.yml')
-config = YAML.load_stream File.read(seed_file)
-config.each do |key, value|
-  @fill = @biblesearch.passages(key['passage'], :version => "eng-ESV").collection.first
-	Question.find_or_create_by({book_id: key['book_id'], reference: @fill['display'], verse: @fill.text, answer: key['answer'], questionType: "Fill In Blank"})
-end
-
-# 1 Corinthians fill in the blank questions
-seed_file = Rails.root.join('db', 'seeds', '1cor_fill_in_blank.yml')
-config = YAML.load_stream File.read(seed_file)
-config.each do |key, value|
-  @fill = @biblesearch.passages(key['passage'], :version => "eng-ESV").collection.first
-	Question.find_or_create_by({book_id: key['book_id'], reference: @fill['display'], verse: @fill.text, answer: key['answer'], questionType: "Fill In Blank"})
+	
+	seed_file = Rails.root.join('db', 'seeds', "#{key['name'].downcase}_fill_in_blank.yml")
+	config = YAML.load_stream File.read(seed_file)
+	config.each do |key, value|
+  	@fill = @biblesearch.passages(key['passage'], :version => "eng-ESV").collection.first
+		Question.find_or_create_by({book_id: key['book_id'], reference: @fill['display'], verse: @fill.text, answer: key['answer'], questionType: "Fill In Blank"})
+	end
 end
 
 # Add sample quiz scores
