@@ -33,7 +33,7 @@
 				<%= content_tag(:span, "Friend Request Sent", class: "btn btn-info disabled") %>
 			<% else %>
 				<!-- Otherwise, make a link to add friend -->
-				<%= link_to content_tag(:span, " Add Friend", class: "glyphicon glyphicon-send"), api_friend_requests_path(:friend_id => @user), :method => :post, class: "btn btn-success add-friend" %>
+				<%= link_to content_tag(:span, " Add Friend", class: "glyphicon glyphicon-send"), api_friend_requests_path(:friend_id => @user.username), :method => :post, class: "btn btn-success add-friend" %>
 			<% end %>
 		</div>
 	</div>
