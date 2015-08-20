@@ -24,6 +24,8 @@
 					<h3>Pick the correct chapter that the verse is from</h3>
 				<% elsif @type == "Fill In Blank" %>
 					<h3>Type the word that is missing in the verse</h3>
+				<% elsif @type == "Header" %>
+					<h3>Type the correct chapter of the header</h3>
 				<% end %>
 
 				<% @questions.each_with_index do |passage, num| %>
@@ -36,7 +38,7 @@
 										<%= "#{num+1}." %>
 									</div>
 									<div class="col-md-10">
-										<% if passage.questionType == "Pick Chapter" %>
+										<% if passage.questionType == "Pick Chapter" || passage.questionType == "Chapter Header" %>
 											<%= text_field_tag "#{passage.reference}", nil, class: "answer-field blanks-chapter-answer form-control" %>
 										<% end %>										
 										<div class="blanks-icon">
@@ -62,6 +64,8 @@
 							<% elsif passage.questionType == "Fill In Blank" %>
 								<%= "#{passage.answer}"%><br/>
 								<%= "#{passage.reference}" %>
+							<% elsif passage.questionType == "Chapter Header" %>
+								<%= "Chapter #{passage.answer}" %>
 							<% end %>
 						</div>
 					</div>

@@ -13,7 +13,7 @@
 
     <%= select_tag "question-number", options_for_select(["10 Questions", "20 Questions", "30 Questions", "40 Questions", "All Questions"].collect { |q| [q, q.split(' ').first]}, "10"), id: "question-number", class: "form-control" %>
 
-    <%= select_tag "question-type", options_for_select(["Pick Chapter", "Fill In Blank", "Header"], "Pick Chapter"), class: "form-control", id: "question-type" %>
+    <%= select_tag "question-type", options_for_select(["Pick Chapter", "Fill In Blank", "Chapter Header"], "Pick Chapter"), class: "form-control", id: "question-type" %>
 
     <%= button_tag(type: 'button', class: 'btn btn-default', onclick:"reviewBook('#{api_fill_in_blank_path(@book.id)}')") do
             content_tag(:span, " Take Quiz", class: "glyphicon glyphicon-education")
