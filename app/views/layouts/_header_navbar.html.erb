@@ -9,6 +9,8 @@
         <li><%= link_to "Books", api_books_path %></li>
         <li><%= link_to 'Study Tools', home_tools_path %></li>
         <li><%= link_to 'Sign Out', destroy_api_user_session_path, :method => :delete %></li>
+        <li class="pull-right nav-username">Hello <%= current_user.firstname %></li>
+        <li class="pull-right"><%= render partial: 'api/users/avatar', locals: {user: current_user, size: 'thumb'} %></li>
     <% else %>
         <!-- Using links for these but in application.js, jquery overrides the link to make an ajax call -->
         <li><%= link_to 'Sign In', new_api_user_session_path, id: "sign-in-link" %></li>
