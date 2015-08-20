@@ -41,12 +41,10 @@ function saveBadge() {
 }
 
 $(document).ready(function() {
-	$(".avatar-container img").load(function() {
-    	$(this).wrap(function(){
-    		return '<span class="image-wrap ' + $(this).attr('class') + '" style="position:relative; display:inline-block; background: #F3F3F3 url(' + $(this).attr('src') + ') no-repeat center center; " />';
-    	});
-    $(this).css("opacity","0");
-  	});
+    $('.avatar').wrap(function(){
+        return '<span class="image-wrap ' + $(this).attr('class') + '" style="position:relative; display:inline-block; background: #F3F3F3 url(' + $(this).attr('src') + ') no-repeat center center; " />';
+    });
+    $('.avatar img').css("opacity","0");
 
   	// Workaround to prevent input cursor from appear on dial
 	// Also means you can't select the dial number
