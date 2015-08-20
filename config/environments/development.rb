@@ -42,4 +42,5 @@ Rails.application.configure do
   # default url options for devise
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   # in production host needs to be actual host i.e. heroku
+
 end

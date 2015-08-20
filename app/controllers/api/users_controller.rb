@@ -41,18 +41,16 @@ class Api::UsersController < ApplicationController
   end
 
   def edit
+    @user = User.find(params[:id])
   end
 
   def update
     current_user.firstname = params[:firstname]
     current_user.lastname = params[:lastname]
     current_user.email = params[:email]
+    current_user.avatar = params[:user][:avatar] if params.has_key?(:user)
     current_user.save
-    respond_to do |format|
-      format.json {
-        render :json => {:status => "Sucessfully update user."}
-      }
-    end
+    redirect_to api_user_path, notice: 'Your profile has been successfully updated'
   end
 
   def quiz_graph

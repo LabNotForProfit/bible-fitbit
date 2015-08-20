@@ -1,0 +1,39 @@
+<%= form_for @user, :url => {:action => "update"}, method: :put do |f| %>
+	<% if @user.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+			<ul>
+				<% @user.errors.full_messages.each do |message| %>
+					<li><%= message %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+
+	<div class="field">
+		<%= hidden_field_tag(:username, current_user.username) %>
+		<%= label_tag(:firstname, 'First Name: ') %></br>
+		<%= text_field_tag(:firstname, current_user.firstname) %>
+	</div>
+
+	<div class="field">
+		<%= label_tag(:lastname, 'Last Name: ') %></br>
+		<%= text_field_tag(:lastname, current_user.lastname) %>
+	</div>
+
+	<div class="field">
+		<%= label_tag(:email, 'Email: ') %></br>
+		<%= text_field_tag(:email, current_user.email) %>
+	</div>
+
+	<div class="field form-group">
+    <%= f.label :avatar %><br/>
+    <%= f.file_field :avatar %>
+  </div>
+
+	<div class="actions">
+		<%= f.submit "Update Profile", class: "nav-item", id: "update-profile" %>
+	</div>
+
+<% end %>
+
