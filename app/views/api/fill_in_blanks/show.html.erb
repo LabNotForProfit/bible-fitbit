@@ -9,14 +9,14 @@
 	<div class="form-inline">
 		<%= link_to content_tag(:span, " Back to Book (Cancels Quiz)", class: "glyphicon glyphicon-arrow-left"), :back, class: "btn btn-default" %>
 	</div>
-	<% unless @passages.empty? %>
+	<% unless @questions.empty? %>
 		<div>
 			<div class="row">
 				<div class="col-lg-9">
 					<h1>Review <%= @book.name %></h1>
 				</div>
 				<div class="col-xs-2">
-					Score: <div id="score" class="blanks-score"></div>/<div id="questionNumber" class="blanks-question-number"><%= @passages.length %></div>
+					Score: <div id="score" class="blanks-score"></div>/<div id="questionNumber" class="blanks-question-number"><%= @questions.length %></div>
 				</div>
 			</div>
 			<div id="questions">
@@ -26,27 +26,36 @@
 					<h3>Type the word that is missing in the verse</h3>
 				<% end %>
 
-				<% @passages.each_with_index do |passage, num| %>
+				<% @questions.each_with_index do |passage, num| %>
 					<div class="row blanks-padding">
-						<div class="col-md-2">
-							<div class="row">
-								<div class="col-md-2">
-									<%= "#{num+1}." %>
-								</div>
-								<div class="col-md-10">
-									<% if passage.questionType == "Pick Chapter" %>
-										<%= text_field_tag "#{passage.reference}", nil, class: "answer-field blanks-chapter-answer form-control" %>
-									<% elsif passage.questionType == "Fill In Blank" %>
-										<%= text_field_tag "#{passage.answer}", nil, class: "answer-field blanks-fill-answer form-control" %>
-									<% end %>										
-									<div class="blanks-icon">
+
+						<% unless passage.questionType == "Fill In Blank" %>
+							<div class="col-md-2">
+								<div class="row">
+									<div class="col-md-2">
+										<%= "#{num+1}." %>
+									</div>
+									<div class="col-md-10">
+										<% if passage.questionType == "Pick Chapter" %>
+											<%= text_field_tag "#{passage.reference}", nil, class: "answer-field blanks-chapter-answer form-control" %>
+										<% end %>										
+										<div class="blanks-icon">
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
-						<div class="col-md-8">
-							<%= passage.verse.html_safe %>
-						</div>
+						<% end %>
+
+						<% if passage.questionType == "Fill In Blank" %>
+							<div class="col-md-10 blanks-fill-question">
+								<%= "#{num+1}." %>
+								<%= passage.verse.html_safe %>
+							</div>
+						<% else %>
+							<div class="col-md-8 blanks-chapter-question">
+								<%= passage.verse.html_safe %>
+							</div>
+						<% end %>
 						<div class="col-md-2 blanks-hidden">
 							<% if passage.questionType == "Pick Chapter" %>
 								<%= passage.reference %>
