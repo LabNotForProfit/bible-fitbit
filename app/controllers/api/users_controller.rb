@@ -48,7 +48,7 @@ class Api::UsersController < ApplicationController
     current_user.firstname = params[:firstname]
     current_user.lastname = params[:lastname]
     current_user.email = params[:email]
-    current_user.avatar = params[:user][:avatar]
+    current_user.avatar = params[:user][:avatar] if params.has_key?(:user)
     current_user.save
     redirect_to api_user_path, notice: 'Your profile has been successfully updated'
   end

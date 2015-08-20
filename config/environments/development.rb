@@ -42,4 +42,8 @@ Rails.application.configure do
   # default url options for devise
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   # in production host needs to be actual host i.e. heroku
+
+  # Paperclip configuration
+  Paperclip.options[:image_magick_path] = "/opt/ImageMagick/bin"
+  Paperclip.options[:command_path] = "/opt/ImageMagick/bin"
 end
