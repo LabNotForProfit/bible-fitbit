@@ -195,6 +195,11 @@ sup {
 	margin: 0px auto;
 }
 
+.style-image{
+	height: 50px;
+	width: 150px;
+}
+
 /*.form-signin .form-control {
 	width: 100%;
 	height: auto;
