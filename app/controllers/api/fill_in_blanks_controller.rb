@@ -31,20 +31,25 @@ class Api::FillInBlanksController < ApplicationController
 		puts "Calling show"
 		@book = Book.find(params[:id])
 		@type = params[:type]
-		@passages = @book.questions.where(questionType: @type)
+		@questions = @book.questions.where(questionType: @type)
 
-		@passages = params[:count] == 'All' ? @passages.shuffle : @passages.shuffle[0..params[:count].to_i-1]
+		@questions = params[:count] == 'All' ? @questions.shuffle : @questions.shuffle[0..params[:count].to_i-1]
 
-		@passages.each do |passage|
-			html = Nokogiri::HTML(passage.verse)
+		@questions.each do |question|
+			html = Nokogiri::HTML(question.verse)
 			html.css(".s1").remove
 			html.css("sup").remove
-			passage.verse = html.text
-			passage.verse.strip!
+			question.verse = html.text
+			question.verse.strip!
 
-			if passage.questionType == "Fill In Blank"
-				# passage.verse.gsub!(/#{passage.answer}/i, "<span class=\"answer-word\">\\0</span>")
-				passage.verse.gsub!(/\b#{passage.answer}\b/i, "_______")
+			answers = question.answer.split(',')
+
+			answers.each do |answer|
+				if question.questionType == "Fill In Blank"
+					question.verse.sub!(/#{answer}/i, "<input id=\"\\0\" class=\"answer-field form-control blanks-fill-answer\"/><span class=\"blanks-icon\">
+										</span>")
+					# question.verse.sub!(/\b#{answer}\b/i, "_______")
+				end
 			end
 		end
 
