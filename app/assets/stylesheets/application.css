@@ -207,6 +207,11 @@ sup {
 	box-shadow: 0px 0px 10px #337AB7;
 }
 
+.style-image {
+	height: 50px;
+	width: 150px;
+}
+
 /*.form-signin .form-control {
 	width: 100%;
 	height: auto;
