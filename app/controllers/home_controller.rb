@@ -1,4 +1,7 @@
 class HomeController < ApplicationController
+
+	skip_before_filter :authenticate_user!
+	
 	def index
 		@b = BibleGateway.new
 		@b.version = :english_standard_version

@@ -1,6 +1,8 @@
 class Api::RegistrationsController < Devise::RegistrationsController
 
+  prepend_before_filter :require_no_authentication
   before_filter :configure_permitted_parameters
+
   protect_from_forgery
   respond_to :json
 
