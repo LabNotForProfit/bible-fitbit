@@ -71,7 +71,7 @@ $(document).ready(function() {
 	$("#sign-up-link").click(function (e) {
 		e.preventDefault();
 		$.ajax({
-			url: "api/users/sign_up",
+			url: "/api/users/sign_up",
 			type: "GET",
 			success: function(data) {
 				$(".form").fadeOut("fast", "swing", function() {

@@ -24,5 +24,8 @@ module BibleFitbit
     config.active_record.raise_in_transactional_callbacks = true
 
     # config.action_controller.include_all_helpers = false
+
+    # Load devise custom failure file
+    config.autoload_paths << Rails.root.join('lib/devise')
   end
 end
