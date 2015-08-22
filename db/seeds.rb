@@ -57,14 +57,17 @@ end
 
 @biblesearch = BibleSearch.new('PPBuBK5LCmR4KLIsbytjtvCPDWbLkoSagxJhzQ6u')
 
-# Pick chapter questions
+# Questions
 seed_file = Rails.root.join('db', 'seeds', 'pick_chapter.yml')
 config = YAML.load_stream File.read(seed_file)
 config.each do |key, value|
 	puts "Adding #{key['name']} questions"
+
+	# Pick chapter questions
 	@passages = @biblesearch.passages((key['passage']), :version => "eng-ESV")
 	@passages.collection.each { |passage| Question.find_or_create_by({book_id: key['book_id'], reference: passage['display'], verse: passage.text, answer: passage['display'].split(':').first.split(' ').last, questionType: "Pick Chapter"}) }
 	
+	# Fill in blank questions
 	seed_file = Rails.root.join('db', 'seeds', "#{key['name'].downcase}_fill_in_blank.yml")
 	config = YAML.load_stream File.read(seed_file)
 	config.each do |key, value|
