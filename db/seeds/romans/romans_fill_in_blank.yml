@@ -1,124 +1,132 @@
 # Romans fill in the blank questions
 book_id: 45
 passage: 'Rom 1:18'
-answer: 'unrighteousness'
+answer: 'wrath,ungodliness,unrighteousness,truth'
 ---
 book_id: 45
 passage: 'Rom 1:21'
-answer: 'honor'
+answer: 'knew,honor,thanks,futile,hearts'
 ---
 book_id: 45
 passage: 'Rom 2:1'
-answer: 'judge'
+answer: 'judges,judgment,judge,same'
 ---
 book_id: 45
 passage: 'Rom 2:9-11'
-answer: 'partiality'
+answer: 'tribulation,evil,good,partiality'
 ---
 book_id: 45
 passage: 'Rom 3:1-2'
-answer: 'advantage'
+answer: 'advantage,much,oracles'
 ---
 book_id: 45
 passage: 'Rom 3:20'
-answer: 'law'
+answer: 'law,justified,law,sin'
+---
+book_id: 45
+passage: 'Rom 3:23'
+answer: 'all,fall,short,glory'
 ---
 book_id: 45
 passage: 'Rom 4:4-5'
-answer: 'wages'
+answer: 'works,wages,gift,due,believes,justifies'
 ---
 book_id: 45
 passage: 'Rom 4:13'
-answer: 'promise'
+answer: 'promise,offspring,law,faith'
 ---
 book_id: 45
 passage: 'Rom 5:3-5'
-answer: 'character'
+answer: 'sufferings,suffering,endurance,endurance,character,character,hope,hope'
 ---
 book_id: 45
 passage: 'Rom 5:1'
-answer: 'peace'
+answer: 'justified,peace'
 ---
 book_id: 45
 passage: 'Rom 5:12'
-answer: 'one'
+answer: 'one,man,death,all'
 ---
 book_id: 45
 passage: 'Rom 6:4'
-answer: 'newness'
+answer: 'buried,baptism,walk,newness'
 ---
 book_id: 45
 passage: 'Rom 6:16'
-answer: 'obedience'
+answer: 'obedient,obey,sin,faith'
+---
+book_id: 45
+passage: 'Rom 6:23'
+answer: 'wages,death,free,life'
 ---
 book_id: 45
 passage: 'Rom 7:6'
-answer: 'Spirit'
+answer: 'released,Spirit,written'
 ---
 book_id: 45
 passage: 'Rom 7:13'
-answer: 'good'
+answer: 'good,death,law'
 ---
 book_id: 45
 passage: 'Rom 8:15'
-answer: 'adoption'
+answer: 'slavery,fear,adoption'
 ---
 book_id: 45
 passage: 'Rom 8:28'
-answer: 'good'
+answer: 'work,together,good,according'
 ---
 book_id: 45
 passage: 'Rom 9:3'
-answer: 'accursed'
+answer: 'accursed,kinsmen,flesh'
 ---
 book_id: 45
 passage: 'Rom 9:33'
-answer: 'offense'
+answer: 'stumbling,offense,shame'
 ---
 book_id: 45
 passage: 'Rom 10:12-13'
-answer: 'distinction'
+answer: 'distinction,all,riches,saved'
 ---
 book_id: 45
 passage: 'Rom 10:17'
-answer: 'hearing'
+answer: 'faith,hearing,hearing'
 ---
 book_id: 45
 passage: 'Rom 11:33'
-answer: 'depth'
+answer: 'depth,wisdom,unsearchable,inscrutable'
 ---
 book_id: 45
 passage: 'Rom 12:1'
-answer: 'acceptable'
+answer: 'living,sacrifice,acceptable'
 ---
 book_id: 45
 passage: 'Rom 12:2'
-answer: 'conformed'
+answer: 'conformed,transformed,discern'
 ---
 book_id: 45
 passage: 'Rom 13:8'
-answer: 'fulfilled'
+answer: 'Owe,love,fulfilled'
 ---
 book_id: 45
 passage: 'Rom 13:10'
-answer: 'fulfilling'
+answer: 'no,wrong,fulfilling'
 ---
 book_id: 45
 passage: 'Rom 14:10'
-answer: 'judgment'
+answer: 'pass,judgment,despise,judgment,seat'
 ---
 book_id: 45
 passage: 'Rom 14:15'
-answer: 'grieved'
+answer: 'grieved,eat,eat'
 ---
 book_id: 45
 passage: 'Rom 15:1'
-answer: 'please'
+answer: 'strong,failings,please'
 ---
 book_id: 45
 passage: 'Rom 15:27'
-answer: 'material'
+answer: 'spiritual,material'
 ---
 book_id: 45
 passage: 'Rom 16:17'
-answer: 'obstacles'
+answer: 'divisions,obstacles,avoid'
