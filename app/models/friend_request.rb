@@ -1,4 +1,6 @@
 class FriendRequest < ActiveRecord::Base
+	after_create :send_friend_email
+
 	belongs_to :user
 	belongs_to :friend, :class_name => 'User'
 
@@ -25,5 +27,9 @@ class FriendRequest < ActiveRecord::Base
 
   def not_pending
     errors.add(:friend, 'already requested friendship') if friend.pending_friends.include?(user)
+  end
+
+  def send_friend_email
+    UserMailer.friend_email(self).deliver
   end
 end
