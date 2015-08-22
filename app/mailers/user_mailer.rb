@@ -8,6 +8,6 @@ class UserMailer < ApplicationMailer
 
   def friend_email(friend_request)
   	@friend_request = friend_request
-  	mail(to: @friend_request.friend.email, subject: 'You have a new friend request from #{@friend_request.user.firstname}!')
+  	mail(to: @friend_request.friend.email, :subject => "You have a new friend request from #{@friend_request.user.firstname}!")
   end
 end
