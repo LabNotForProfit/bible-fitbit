@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  after_create :send_welcome_email 
 
   has_many :friendships, dependent: :destroy
   has_many :friends, :through => :friendships
@@ -90,4 +91,10 @@ class User < ActiveRecord::Base
     user_info = {:id => @user.id, :email => @user.email}
     return user_info
   end
+
+  private
+
+  def send_welcome_email
+    UserMailer.welcome_email(self).deliver
+  end 
 end
