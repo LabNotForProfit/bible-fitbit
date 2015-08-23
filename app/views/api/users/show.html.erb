@@ -125,6 +125,10 @@
 		num_questions = <%= @num_questions %>
 		num_correct = <%= @num_correct %>
 
+		// Need raw for strings in js
+		quiz_dates = <%= raw @quiz_dates %>
+		quiz_types = <%= raw @quiz_types %>
+
 	    $('#score-graph').highcharts({
 	        chart: {
 	            type: 'column'
@@ -152,7 +156,8 @@
 	        tooltip: {
             	useHTML: true,
             	formatter: function() {
-            		return '<span style="font-size: 10px">Quiz attempt '+this.key+'</span><br/>' +
+            		return '<span style="font-size: 10px"><b>Quiz attempt '+this.key+'</b> | '+quiz_dates[this.x-1]+'</span><br/>' +
+            				'<span style="color:#337AB7"><b>'+quiz_types[this.x-1]+'</span></b><br/>' +
             				'<span style="color:#337AB7">Score: </span> <b>'+this.y.toFixed(2)+'%</b><br/>' +
             				'<span style="color:#337AB7">Num Correct: </span> <b>' + num_correct[this.x-1] + '</b><br/>' +
             				'<span style="color:#337AB7">Num Questions: </span> <b>' + num_questions[this.x-1] + '</b><br/>';

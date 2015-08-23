@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150811224906) do
+ActiveRecord::Schema.define(version: 20150823001430) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,14 +31,6 @@ ActiveRecord::Schema.define(version: 20150811224906) do
     t.string   "abbr"
     t.integer  "order_num"
   end
-
-  create_table "books_users", id: false, force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "book_id"
-  end
-
-  add_index "books_users", ["book_id"], name: "index_books_users_on_book_id", using: :btree
-  add_index "books_users", ["user_id"], name: "index_books_users_on_user_id", using: :btree
 
   create_table "friend_requests", force: :cascade do |t|
     t.integer  "user_id"
@@ -71,6 +63,7 @@ ActiveRecord::Schema.define(version: 20150811224906) do
     t.datetime "updated_at",    null: false
     t.integer  "num_questions"
     t.integer  "num_correct"
+    t.string   "quiz_type"
   end
 
   create_table "studied_books", force: :cascade do |t|
