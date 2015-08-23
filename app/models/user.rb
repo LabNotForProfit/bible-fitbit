@@ -47,7 +47,7 @@ class User < ActiveRecord::Base
 
   # returns an array of all the quiz scores for a given book for this user
   def score_nums(book)
-    scores = quiz_scores.where(book: book)
+    scores = quiz_scores.where(book: book).order(:created_at)
     score_nums = []
     scores.each do |score|
       score_nums <<  score.score

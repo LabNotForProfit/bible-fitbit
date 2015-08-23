@@ -67,14 +67,14 @@ class Api::UsersController < ApplicationController
   def setup_quiz_vars
     @books = Book.all.order(:order_num)
     @score_nums = @user.score_nums(@book)
-    @num_questions = @user.quiz_scores.where(book:@book).pluck(:num_questions)
-    @num_correct = @user.quiz_scores.where(book: @book).pluck(:num_correct)
-    @quiz_dates = @user.quiz_scores.where(book: @book).pluck(:created_at)
+    @num_questions = @user.quiz_scores.where(book:@book).order(:created_at).pluck(:num_questions)
+    @num_correct = @user.quiz_scores.where(book: @book).order(:created_at).pluck(:num_correct)
+    @quiz_dates = @user.quiz_scores.where(book: @book).order(:created_at).pluck(:created_at)
 
     @quiz_dates.map! do |date|
       date.strftime("%B %-d, %Y %l:%M%P")
     end
 
-    @quiz_types = @user.quiz_scores.where(book: @book).pluck(:quiz_type)
+    @quiz_types = @user.quiz_scores.where(book: @book).order(:created_at).pluck(:quiz_type)
   end
 end
