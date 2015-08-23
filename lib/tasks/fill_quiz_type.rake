@@ -3,7 +3,7 @@ namespace :seed do
 	task :fill_quiz_type => :environment do
 		scores = QuizScore.where(quiz_type: nil)
 		scores.each do |score|
-			score.quiz_type = "Unknown"
+			score.quiz_type = "Unknown type"
 			score.save!
 		end
 	end
