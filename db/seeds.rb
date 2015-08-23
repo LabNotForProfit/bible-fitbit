@@ -43,7 +43,7 @@ end
 
 # Make admin user
 admin = User.find_or_initialize_by({firstname: "Admin", lastname: "User", username: "viabahiahouse", email: "viabahiahouse@gmail.com"})
-admin.password = "admin12345"
+admin.password = ENV['ADMIN_PASSWORD']
 admin.admin = "true"
 admin.save!
 
