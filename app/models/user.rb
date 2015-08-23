@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
 
   UNAME_REGEX = /\A(\w|\.)+\z/
   EMAIL_REGEX = /\A([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})\z/i
-  validates :username, :presence => true, :uniqueness => true, :length => {:in => 1..20}, :format => UNAME_REGEX
+  # validates :username, :presence => true, :uniqueness => true, :length => {:in => 1..20}, :format => UNAME_REGEX
 
   # Paperclip
   # This method associates the attribute ":avatar" with a file attachment
