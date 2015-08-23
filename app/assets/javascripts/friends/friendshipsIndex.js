@@ -1,3 +1,21 @@
+var users;
+function getUsers(input) {
+	var requestObject = {
+		input: input
+	}
+	$.ajax({
+		type: "GET",
+		url: "/api/users",
+		data: requestObject,
+		dataType: "JSON",
+		success: function (data) {
+			$('#friendSearch').autocomplete("option", "source", data);
+		}
+	});
+	console.log('return');
+	return users;
+}
+
 $(function() {
 	var $friendSearch = $('#friendSearch');
 	$friendSearch.bind('enterKey', function(e) {
@@ -30,6 +48,13 @@ $(function() {
 	$friendSearch.keyup(function(e) {
 		if (e.keyCode == 13) {
 			$(this).trigger('enterKey');
+		}
+	});
+	$friendSearch.autocomplete({
+		source: function(request, response) {
+			var users = getUsers(request.term);
+			console.log(users);
+			return users;
 		}
 	});
 });
