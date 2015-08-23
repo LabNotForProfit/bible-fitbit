@@ -75,6 +75,6 @@ class Api::UsersController < ApplicationController
       date.strftime("%B %-d, %Y %l:%M%P")
     end
 
-    @quiz_types = @user.quiz_scores.where(book: @book).pluck(:type)
+    @quiz_types = @user.quiz_scores.where(book: @book).pluck(:quiz_type)
   end
 end
