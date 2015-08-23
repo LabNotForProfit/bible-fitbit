@@ -41,6 +41,12 @@ require 'yaml'
 	u.save!
 end
 
+# Make admin user
+admin = User.find_or_initialize_by({firstname: "Admin", lastname: "User", username: "viabahiahouse", email: "viabahiahouse@gmail.com"})
+admin.password = "admin12345"
+admin.admin = "true"
+admin.save!
+
 # Make some friendships
 if User.find(1).friends.empty?
 	(2..15).each do |i|
