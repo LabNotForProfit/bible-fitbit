@@ -42,7 +42,7 @@ require 'yaml'
 end
 
 # Make admin user
-admin = User.find_or_initialize_by({firstname: "Admin", lastname: "User", username: "viabahiahouse", email: "viabahiahouse@gmail.com"})
+admin = User.find_or_initialize_by({firstname: "Admin", lastname: "User", username: ENV['ADMIN_USERNAME'], email: ENV['ADMIN_EMAIL']})
 admin.password = ENV['ADMIN_PASSWORD']
 admin.admin = "true"
 admin.save!
