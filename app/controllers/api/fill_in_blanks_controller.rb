@@ -7,8 +7,9 @@ class Api::FillInBlanksController < ApplicationController
 
 	def create
 		puts "Calling create"
-		@quizScore = QuizScore.new(:user_id => current_user.id, :book_id => params[:bookId], :num_correct => params[:num_correct], :num_questions => params[:num_questions])
-		@quizScore.save
+		
+		@quizScore = QuizScore.new(:user_id => current_user.id, :book_id => params[:bookId], :num_correct => params[:num_correct], :num_questions => params[:num_questions], :quiz_type => params[:type])
+		@quizScore.save!
 		respond_to do |format|
 	        format.json {
 	          render :json=> {:success => 'success'}

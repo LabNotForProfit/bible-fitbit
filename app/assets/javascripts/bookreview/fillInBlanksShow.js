@@ -1,5 +1,6 @@
 var verses = {};
 var bookId = '';
+var type = '';
 
 function checkAnswers() {
 	var score = 0;
@@ -49,7 +50,8 @@ function saveScore(num_correct, num_questions) {
 	var requestObject = {
 		num_correct: num_correct,
 		num_questions: num_questions,
-		bookId: bookId
+		bookId: bookId,
+		type: type
 	};
 	$.ajax({
 		type: 'POST',
@@ -65,6 +67,10 @@ function saveScore(num_correct, num_questions) {
 function getBookId() {
 	var url = window.location.href.split('/');
 	bookId = url[url.length - 1].split('?')[0];
+}
+
+function getQuizType() {
+	type = $("#q-type").html();
 }
 
 function showAnswers() {
@@ -94,7 +100,7 @@ function shuffle(array) {
 
  $(function() {
 	getBookId();
-
+	getQuizType();
 	$('.answer-field').val("");
 	// $('.v, .s1, .b').remove();
 	// var passages = $('.show-passages').remove();
