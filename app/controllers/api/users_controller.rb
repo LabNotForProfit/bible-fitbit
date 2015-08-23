@@ -69,5 +69,12 @@ class Api::UsersController < ApplicationController
     @score_nums = @user.score_nums(@book)
     @num_questions = @user.quiz_scores.where(book:@book).pluck(:num_questions)
     @num_correct = @user.quiz_scores.where(book: @book).pluck(:num_correct)
+    @quiz_dates = @user.quiz_scores.where(book: @book).pluck(:created_at)
+
+    @quiz_dates.map! do |date|
+      date.strftime("%B %-d, %Y %l:%M%P")
+    end
+
+    
   end
 end
