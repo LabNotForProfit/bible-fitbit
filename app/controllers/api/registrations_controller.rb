@@ -20,7 +20,14 @@ class Api::RegistrationsController < Devise::RegistrationsController
 
   # POST /api/users
   def create
-    build_resource(sign_up_params)
+    # get local part of email (ex: test1@test.com => test1) to set as username
+    full_email = sign_up_params[:email]
+    local_email = full_email[/[^@]+/]
+    # return sign_up_params without username key
+    new_params = sign_up_params.dup.except('username')
+    new_params[:username] = local_email
+
+    build_resource(new_params)
     resource.save
     yield resource if block_given?
     if resource.persisted?
