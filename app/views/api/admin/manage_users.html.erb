@@ -1,10 +1,10 @@
 <% content_for :head do %>
 	<%= stylesheet_link_tag 'users/users', media: 'all', 'data-turbolinks-track' => true %>
-	<%= javascript_include_tag 'friends/friendshipsIndex', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'admin/manage_users', 'data-turbolinks-track' => true %>
 <% end %>
 
 <div class="field form-group" id="friend-search-container">
-  <%= text_field_tag(:friendSearch, nil, placeholder: 'Search for friends by username or email', class: "form-control") %>
+  <%= text_field_tag(:userSearch, nil, placeholder: 'Search for friends by username or email', class: "form-control") %>
 </div>
 
 <% @users.each do |user|%>
