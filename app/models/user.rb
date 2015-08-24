@@ -92,6 +92,10 @@ class User < ActiveRecord::Base
     return user_info
   end
 
+  def avatar_url
+    avatar.url(:thumb)
+  end
+  
   private
 
   def send_welcome_email
