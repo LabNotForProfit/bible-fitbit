@@ -13,7 +13,7 @@
         <li><%= link_to 'Study Tools', home_tools_path %></li>
 
         <% if current_user.admin? %>
-            <li><%= link_to 'Admin', api_admin_manage_users_path %></li>
+            <li><%= link_to 'Admin', api_admin_home_path %></li>
         <% end %>
 
         <li><%= link_to 'Sign Out', destroy_api_user_session_path, :method => :delete %></li>

@@ -1,6 +1,9 @@
 class Api::AdminController < ApplicationController
 	before_filter :authorize_admin!
 
+	def home
+	end
+
   def manage_users
   	@users = User.all
 
