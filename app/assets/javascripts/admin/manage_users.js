@@ -32,7 +32,6 @@ $(function() {
 			type: 'GET',
 			url: '/api/admin/render_admin_form',
 			data: { friend_id : $userSearch.val() },
-			dataType: "script",
 			beforeSend: function(jqXHR, settings) {
 				jqXHR.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
 			},
