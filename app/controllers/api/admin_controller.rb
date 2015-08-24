@@ -15,4 +15,8 @@ class Api::AdminController < ApplicationController
 
   def change_settings
   end
+
+  def render_admin_form
+  end
+
 end
