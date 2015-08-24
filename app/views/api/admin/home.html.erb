@@ -2,87 +2,84 @@
     <%= javascript_include_tag 'jquery.knob', 'data-turbolinks-track' => true %>
 <% end %>
 
-	<section id="container" >
-		<!-- **********************************************************************************************************************************************************
-		MAIN CONTENT
-		*********************************************************************************************************************************************************** -->
-		<!--main content start-->
-		<section id="main-content">
-			<section class="wrapper site-min-height">
-				<h3 id="dashboard-header"><i class="fa fa-angle-right"></i> Admin Dashboard</h3>
-				<div class="row mt">
-					<div class="col-lg-12">
-						
-						<!-- 1st ROW OF PANELS -->
-						<div class="row">
-							<!-- TWITTER PANEL -->
-							<div class="col-lg-4 col-md-4 col-sm-4 mb">
-								<div class="white-panel pn">
-									<div class="white-header">
-										<h2>User Management</h2>
-									</div>
-									<ul class="nav nav-pills nav-stacked">
-  									<li role="presentation"><%= link_to 'Grant users administrative privileges', api_admin_manage_users_path %></li>
-  									<li role="presentation"><%= link_to 'View all users', api_admin_manage_users_path %></li>
-									</ul>
+<section id="container" >
+	<section id="main-content">
+		<section class="wrapper site-min-height">
+			<h3 id="dashboard-header"><i class="fa fa-angle-right"></i> Admin Dashboard</h3>
+			<div class="row mt">
+				<div class="col-lg-12">
+					<!-- 1st ROW OF PANELS -->
+					<div class="row">
+
+						<!-- USER MANAGEMENT PANEL -->
+						<div class="col-lg-4 col-md-4 col-sm-4 mb">
+							<div class="white-panel pn">
+								<div class="white-header">
+								 	<h2>User Management</h2>
 								</div>
-							</div><!-- /col-md-4 -->
+								<ul class="nav nav-pills nav-stacked">
+  								<li role="presentation"><%= link_to 'Grant users administrative privileges', api_admin_manage_users_path %></li>
+  								<li role="presentation"><%= link_to 'View all users', api_admin_manage_users_path %></li>
+								</ul>
+							</div>
+						</div><!-- END USER MANAGEMENT PANEL -->
 								
-							<div class="col-lg-4 col-md-4 col-sm-4 mb">
-								<!-- WHITE PANEL - TOP USER -->
-								<div class="white-panel pn leaderboard">
-									<div class="white-header">
-										<h2>Tools</h2>
-									</div>
+						<!-- TOOLS PANEL -->
+						<div class="col-lg-4 col-md-4 col-sm-4 mb">
+							<div class="white-panel pn leaderboard">
+								<div class="white-header">
+									<h2>Tools</h2>
+								</div>
 	
-								</div>
-							</div><!-- /col-md-4 -->
-								
-							<div class="col-lg-4 col-md-4 col-sm-4 mb">
-								<div class="white-panel pn">
-									<div class="white-header">
-										<h2>More Tools</h2>
-
-									</div>
-								</div>
-							</div><!-- /col-md-4 -->
-						</div><!--/END 1ST ROW OF PANELS -->
-								
-						<!-- 2ND ROW OF PANELS -->
-						<div class="row">			
-							<!-- PROFILE 01 PANEL -->
-							<div class="col-lg-4 col-md-4 col-sm-4 mb">
-								<div class="white-panel pn">
-									<div class="white-header">
-										<h2>Configuration</h2>
-									</div>
-									
-								</div><!--/content-panel -->
-							</div><!--/col-md-4 -->
-									
-							<!-- PROFILE 02 PANEL -->
-							<div class="col-lg-4 col-md-4 col-sm-4 mb">
-								<div class="white-panel pn">
-									<div class="white-header">
-										<h2>Reporting</h2>
-									</div>
-
-								</div><!--/panel -->
-							</div><!--/ col-md-4 -->
+							</div>
+						</div><!-- END TOOLS PANEL -->
 							
-						</div><!--/END 2ND ROW OF PANELS -->
+						<!-- MORE TOOLS PANEL -->	
+						<div class="col-lg-4 col-md-4 col-sm-4 mb">
+							<div class="white-panel pn">
+								<div class="white-header">
+									<h2>More Tools</h2>
+								</div>
+
+							</div>
+						</div><!-- END MORE TOOLS PANEL -->
+					
+					</div><!--/END 1ST ROW OF PANELS -->
+								
+					<!-- 2ND ROW OF PANELS -->
+					<div class="row">		
+
+						<!-- CONFIGURATION PANEL -->
+						<div class="col-lg-4 col-md-4 col-sm-4 mb">
+							<div class="white-panel pn">
+								<div class="white-header">
+									<h2>Configuration</h2>
+								</div>
+									
+							</div>
+						</div><!-- END CONFIGURATION PANEL -->
+									
+						<!-- REPORTING PANEL -->
+						<div class="col-lg-4 col-md-4 col-sm-4 mb">
+							<div class="white-panel pn">
+								<div class="white-header">
+									<h2>Reporting</h2>
+								</div>
+
+							</div>
+						</div><!-- END REPORTING PANEL -->
 							
-					</div>
+					</div><!--/END 2ND ROW OF PANELS -->
+							
 				</div>
-							
-			</section><!--/wrapper -->
-		</section><!-- /MAIN CONTENT -->
-		<!--main content end-->
-		<!--footer start-->
-		<footer class="site-footer">
-			<div class="text-center">
-				2015 - Via Bahia Development
 			</div>
-		</footer>
-		<!--footer end-->
-	</section>
+							
+		</section><!--/wrapper -->
+	</section><!-- /MAIN CONTENT -->
+	<!--main content end-->
+	
+	<footer class="site-footer">
+		<div class="text-center">2015 - Via Bahia Development</div>
+	</footer>
+	
+</section>
