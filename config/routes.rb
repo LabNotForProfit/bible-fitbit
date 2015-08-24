@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  namespace :api do
+    get 'admin/manage_users'
+  end
+
   #devise_for :users
   get 'home/index'
   get 'home/tools' => 'home#tools'

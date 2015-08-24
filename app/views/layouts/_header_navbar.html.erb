@@ -11,6 +11,11 @@
         <li><%= link_to "Friends", api_friendships_path %></li>
         <li><%= link_to "Books", api_books_path %></li>
         <li><%= link_to 'Study Tools', home_tools_path %></li>
+
+        <% if current_user.admin? %>
+            <li><%= link_to 'Admin', api_admin_manage_users_path %></li>
+        <% end %>
+
         <li><%= link_to 'Sign Out', destroy_api_user_session_path, :method => :delete %></li>
         <li class="pull-right nav-username">Hello, <%= current_user.firstname %></li>
         <li class="pull-right"><%= render partial: 'api/users/avatar', locals: {user: current_user, size: 'thumb'} %></li>
