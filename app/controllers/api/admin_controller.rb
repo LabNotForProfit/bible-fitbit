@@ -1,4 +1,5 @@
 class Api::AdminController < ApplicationController
+	before_filter :authorize_admin!
 
   def manage_users
   	@users = User.all
@@ -21,6 +22,12 @@ class Api::AdminController < ApplicationController
 
   def render_admin_form
   	@user = User.find_by_username(params[:username])
+  end
+
+  private
+
+  def authorize_admin!
+  	redirect_to home_index_path, notice: "You don't have admin privileges" unless current_user.admin?
   end
 
 end
