@@ -9,6 +9,7 @@ Rails.application.config.assets.precompile += %w( timeline/update/timelineUpdate
 Rails.application.config.assets.precompile += %w( friends/friendshipsIndex.js )
 Rails.application.config.assets.precompile += %w( users/usersEdit.js )
 Rails.application.config.assets.precompile += %w( users/userShow.js )
+Rails.application.config.assets.precompile += %w( admin/manage_users.js )
 
 # Rails.application.config.assets.precompile += %w( dashboard/dashboard.css )
 Rails.application.config.assets.precompile += %w( timeline/timeline.css )

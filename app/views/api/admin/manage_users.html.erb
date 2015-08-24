@@ -1,0 +1,16 @@
+<% content_for :head do %>
+	<%= stylesheet_link_tag 'users/users', media: 'all', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'admin/manage_users', 'data-turbolinks-track' => true %>
+<% end %>
+
+<div class="field form-group" id="user-search-container">
+  <%= text_field_tag(:userSearch, nil, placeholder: 'Search for users by username or email', class: "form-control") %>
+</div>
+
+<div id="make-admin-container"></div>
+
+<% if false %>
+<% @users.each do |user|%>
+	<p><%= user.username %> <%= user.email %></p>
+<% end %>
+<% end %>
