@@ -30,6 +30,6 @@ class FriendRequest < ActiveRecord::Base
   end
 
   def send_friend_email
-    UserMailer.friend_email(self).deliver
+    # UserMailer.friend_email(self).deliver
   end
 end

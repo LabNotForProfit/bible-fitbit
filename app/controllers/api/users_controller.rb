@@ -8,11 +8,19 @@ class Api::UsersController < ApplicationController
   def index
     puts "calling index"
     puts params
-    @users = params.nil? ? User.all : User.where(['username LIKE ?', "%#{params[:input]}%"])
+    @friends = current_user.friends
+    @friendRequests = current_user.friend_requests
+    @friendIds = @friends.pluck(:id)
+    @friendRequests.each do |friendRequest|
+      @friendIds << friendRequest.friend.id
+    end
+    @friendIds << current_user.id
+    puts @friendIds.join(', ')
+    @users = params.nil? ? [] : User.where(['username LIKE ? and id not in (' + @friendIds.join(', ') + ')', "%#{params[:input]}%"])
 
     respond_to do |format|
       format.json {
-        render :json => @users.as_json
+        render :json => @users.as_json(:only => [:id, :username, :firstname, :lastname], :methods => [:avatar_url])
       }
       format.html {
         render 'index'
