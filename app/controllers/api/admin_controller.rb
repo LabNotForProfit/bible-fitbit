@@ -13,10 +13,14 @@ class Api::AdminController < ApplicationController
     end
   end
 
-  def change_settings
+  def make_admin
+  	@user = User.find_by_id(params[:user_id])
+  	@user.update_attribute :admin, true
+  	redirect_to api_admin_manage_users_path
   end
 
   def render_admin_form
+  	@user = User.find_by_username(params[:username])
   end
 
 end

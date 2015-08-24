@@ -1,1 +1,39 @@
-<p>Successful!!!!!!!</p>
+<% content_for :head do %>
+	<%= stylesheet_link_tag 'users/users', media: 'all', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'users/userShow', 'data-turbolinks-track' => true %>
+<% end %>
+
+<style>
+.avatar{
+	border-radius: 50%;
+}
+.attribute{
+	padding-left: 1%
+}
+</style>
+
+<div class="container">
+	<div class="row">
+		<div class="avatar-container">
+			<%= image_tag @user.avatar.url(:square), class: "col-md-offset-1 col-md-2 avatar", id: "profile-avatar" %>
+		</div>
+		<div id="profile-name" class="col-md-4">
+			<h2><%= @user.firstname %> <%= @user.lastname %></h2>
+		</div>
+	</div>
+
+	<% unless @user.admin? %>
+	<%= link_to content_tag(:span, " Make Admin", class: "glyphicon glyphicon-user"), api_admin_make_admin_path(:user_id => @user.id), :method => :post, data: { type: :js }, class: "btn btn-success add-friend" %>
+	<% end %>
+	<br />
+
+	<div class="row">
+		<div id="profile-info" >
+			<% @user.attributes.each do |attr_name, attr_value| %>
+  			<div class="attribute">
+    		<%= attr_name %>: <%= attr_value %>
+  			</div>
+			<% end %>
+		</div>
+	</div>
+</div>
