@@ -34,12 +34,13 @@ class Api::AdminController < ApplicationController
 
     respond_to do |format|
     	format.html {
-    		render 'become_user'
+    		# render 'become_user'
   		}
   		format.js {
-  			return if User.find_by_email(params[:email]).admin?
+  			render :js => "window.location.href='"+ api_admin_home_path+"'" and return if User.find_by_email(params[:email]).admin?
   			sign_in(:user, User.find_by_email(params[:email]))
-    		redirect_to :action => "become_user", notice: "Signed in as #{current_user.firstname}"
+    		# redirect_to api_admin_home_url, notice: "Signed in as #{current_user.firstname}"
+    		render :js => "window.location.href='"+ home_index_path+"'", notice: "Signed in as #{current_user.firstname}"
   		}
   	end
   end
