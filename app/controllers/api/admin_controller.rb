@@ -37,8 +37,9 @@ class Api::AdminController < ApplicationController
     		render 'become_user'
   		}
   		format.js {
+  			return if User.find_by_email(params[:email]).admin?
   			sign_in(:user, User.find_by_email(params[:email]))
-    		redirect_to home_index_path, notice: "Signed in as #{current_user}"
+    		redirect_to :action => "become_user", notice: "Signed in as #{current_user.firstname}"
   		}
   	end
   end
