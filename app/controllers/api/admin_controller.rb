@@ -4,6 +4,7 @@ class Api::AdminController < ApplicationController
 	def home
 	end
 
+	# BEGIN Grant users administrative privileges
   def manage_users
   	@users = User.all
 
@@ -26,11 +27,18 @@ class Api::AdminController < ApplicationController
   def render_admin_form
   	@user = User.find_by_username(params[:username])
   end
+  # END Grant users administrative privileges
+
+  def become_user
+    return unless current_user.admin?
+    sign_in(:user, User.find_by_id(5), { :bypass => true })
+    redirect_to home_index_path # or user_root_url
+  end
 
   private
 
   def authorize_admin!
-  	redirect_to home_index_path, notice: "You don't have admin privileges" unless current_user.admin?
+  	redirect_to home_index_path, notice: "You need admin privileges to view this page" unless current_user.admin?
   end
 
 end
