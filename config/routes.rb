@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     get 'admin/render_admin_form'
     post 'admin/make_admin'
     get 'admin/become_user'
+    post 'admin/become_user'
   end
 
   #devise_for :users

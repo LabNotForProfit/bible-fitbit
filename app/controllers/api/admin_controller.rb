@@ -31,8 +31,16 @@ class Api::AdminController < ApplicationController
 
   def become_user
     return unless current_user.admin?
-    sign_in(:user, User.find_by_id(5), { :bypass => true })
-    redirect_to home_index_path # or user_root_url
+
+    respond_to do |format|
+    	format.html {
+    		render 'become_user'
+  		}
+  		format.js {
+  			sign_in(:user, User.find_by_email(params[:email]))
+    		redirect_to home_index_path, notice: "Signed in as #{current_user}"
+  		}
+  	end
   end
 
   private
