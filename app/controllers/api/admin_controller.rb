@@ -33,14 +33,14 @@ class Api::AdminController < ApplicationController
     return unless current_user.admin?
 
     respond_to do |format|
-    	format.html {
-    		# render 'become_user'
-  		}
+    	format.html
   		format.js {
-  			render :js => "window.location.href='"+ api_admin_home_path+"'" and return if User.find_by_email(params[:email]).admin?
-  			sign_in(:user, User.find_by_email(params[:email]))
-    		# redirect_to api_admin_home_url, notice: "Signed in as #{current_user.firstname}"
-    		render :js => "window.location.href='"+ home_index_path+"'", notice: "Signed in as #{current_user.firstname}"
+  			# Check if user to become is an admin. If so, then redirect.
+  			render :js => "window.location.href='" + api_admin_home_path + "'" and return if User.find_by_email(params[:email]).admin?
+
+  			# Sign in as user and redirect
+  			sign_in(:user, User.find_by_email(params[:email]), { :bypass => true })
+    		render :js => "window.location.href='" + home_index_path + "'"
   		}
   	end
   end
