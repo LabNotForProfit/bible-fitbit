@@ -194,6 +194,11 @@ sup {
 	padding: 15px;
 	margin: 0px auto;
 }
+.form-forgot-pass {
+	max-width: 400px;
+	padding: 15px;
+	margin: 0px auto;
+}
 
 /* For every image within #avatar-container */
 .avatar-container .image-wrap {
