@@ -1,0 +1,86 @@
+<% content_for :head do %>
+    <%= javascript_include_tag 'jquery.knob', 'data-turbolinks-track' => true %>
+<% end %>
+
+<section id="container" >
+	<section id="main-content">
+		<section class="wrapper site-min-height">
+			<h3 id="dashboard-header"><i class="fa fa-angle-right"></i> Admin Dashboard</h3>
+			<div class="row mt">
+				<div class="col-lg-12">
+					<!-- 1st ROW OF PANELS -->
+					<div class="row">
+
+						<!-- USER MANAGEMENT PANEL -->
+						<div class="col-lg-4 col-md-4 col-sm-4 mb">
+							<div class="white-panel pn">
+								<div class="white-header">
+								 	<h2>User Management</h2>
+								</div>
+								<ul class="nav nav-pills nav-stacked">
+  								<li role="presentation"><%= link_to 'Grant users administrative privileges', api_admin_manage_users_path %></li>
+  								<li role="presentation"><%= link_to 'Troubleshoot as another user', api_admin_become_user_path %></li>
+  								<li role="presentation"><%= link_to 'View all users',  api_admin_show_users_path %></li>
+								</ul>
+							</div>
+						</div><!-- END USER MANAGEMENT PANEL -->
+								
+						<!-- TOOLS PANEL -->
+						<div class="col-lg-4 col-md-4 col-sm-4 mb">
+							<div class="white-panel pn leaderboard">
+								<div class="white-header">
+									<h2>Tools</h2>
+								</div>
+	
+							</div>
+						</div><!-- END TOOLS PANEL -->
+							
+						<!-- MORE TOOLS PANEL -->	
+						<div class="col-lg-4 col-md-4 col-sm-4 mb">
+							<div class="white-panel pn">
+								<div class="white-header">
+									<h2>More Tools</h2>
+								</div>
+
+							</div>
+						</div><!-- END MORE TOOLS PANEL -->
+					
+					</div><!--/END 1ST ROW OF PANELS -->
+								
+					<!-- 2ND ROW OF PANELS -->
+					<div class="row">		
+
+						<!-- CONFIGURATION PANEL -->
+						<div class="col-lg-4 col-md-4 col-sm-4 mb">
+							<div class="white-panel pn">
+								<div class="white-header">
+									<h2>Configuration</h2>
+								</div>
+									
+							</div>
+						</div><!-- END CONFIGURATION PANEL -->
+									
+						<!-- REPORTING PANEL -->
+						<div class="col-lg-4 col-md-4 col-sm-4 mb">
+							<div class="white-panel pn">
+								<div class="white-header">
+									<h2>Reporting</h2>
+								</div>
+
+							</div>
+						</div><!-- END REPORTING PANEL -->
+							
+					</div><!--/END 2ND ROW OF PANELS -->
+							
+				</div>
+			</div>
+							
+		</section><!--/wrapper -->
+	</section><!-- /MAIN CONTENT -->
+	<!--main content end-->
+	
+	<footer class="site-footer">
+		<div class="text-center">2015 - Via Bahia Development</div>
+	</footer>
+	
+</section>

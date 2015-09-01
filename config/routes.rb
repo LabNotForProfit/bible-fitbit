@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
   namespace :api do
+    get 'admin/home'
     get 'admin/manage_users'
     get 'admin/render_admin_form'
     post 'admin/make_admin'
+    get 'admin/become_user'
+    post 'admin/become_user'
+    get 'admin/show_users'
   end
 
   #devise_for :users

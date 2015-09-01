@@ -1,7 +1,7 @@
 $(function() {
-	var $userSearch = $('#userSearch');
+	var $becomeUserSearch = $('#becomeUserSearch');
 
-	$userSearch.autocomplete({
+	$becomeUserSearch.autocomplete({
 		source: function(request, response) {
 			var requestObject = {
 				input: request.term
@@ -14,7 +14,7 @@ $(function() {
 				success: function (data) {
 					response($.map(data, function(item) {
 						item.label = 'friend_id';
-						item.value = item.username;
+						item.value = item.email;
 						return item;
 					}));
 				}
@@ -26,15 +26,16 @@ $(function() {
 		return listItem;
 	};
 
-	$userSearch.bind('enterKey', function(e) {
+	$becomeUserSearch.bind('enterKey', function(e) {
 		// Ajax call to make friend request
 		$.ajax({
-			type: 'GET',
-			url: '/api/admin/render_admin_form',
-			data: { username : $userSearch.val() },
+			type: 'POST',
+			url: '/api/admin/become_user',
+			data: { email : $becomeUserSearch.val() },
+			dataType: 'script'
 		});
 	});
-	$userSearch.keyup(function(e) {
+	$becomeUserSearch.keyup(function(e) {
 		if (e.keyCode == 13) {
 			$(this).trigger('enterKey');
 		}
