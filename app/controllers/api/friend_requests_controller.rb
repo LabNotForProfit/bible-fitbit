@@ -18,20 +18,35 @@ class Api::FriendRequestsController < ApplicationController
 		end
 
 		if friend.nil?
-			render partial: "cant_find_user", locals: {user: params[:friend_id]}
+			render partial: "layouts/alert", locals: { message: "We can't find #{params[:friend_id]} in the system!" }
 		else
 
 			@friend_request = current_user.friend_requests.new(friend: friend)
 
 			if @friend_request.save
 				if request.xhr?
-					# See if we have to render the whole list or just the new item
-					render partial: 'friend_request_sent', locals: { user: friend }
+					# Render the successfull friend request sent partial
+					render partial: 'layouts/notice', locals: { message: "Friend request sent to #{friend.firstname}" }
 				else
 					redirect_to api_user_path(friend)
 				end
 			else
-				render json: @friend_request.errors
+				if request.xhr?
+					# Figure out what error it was
+					if @friend_request.not_self
+						render partial: 'layouts/alert', locals: { message: "You can't send a friend request to yourself!" }
+					elsif @friend_request.not_pending_from
+						render partial: 'layouts/alert', locals: { message: "You were already sent a friend request from #{friend.firstname}!" }
+					elsif @friend_request.not_pending_to
+						render partial: 'layouts/alert', locals: { message: "You already sent a friend request to #{friend.firstname}!" }							
+					elsif @friend_request.not_friends
+						render partial: 'layouts/alert', locals: { message: "You are already friends with #{friend.firstname}!" }
+					else
+						render partial: 'layouts/alert', locals: { message: "Something bad happened, and I can't tell you what!" }
+					end
+				else
+					render json: @friend_request.errors
+				end
 			end
 		end
 	end

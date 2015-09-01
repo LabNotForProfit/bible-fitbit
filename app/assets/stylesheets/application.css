@@ -94,7 +94,7 @@ sup {
   }
 }
 
-#no-user {
+.friend-request-notification {
 	position: relative;	
 	display: block;
 }
