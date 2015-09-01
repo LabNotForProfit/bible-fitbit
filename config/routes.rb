@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     post 'admin/make_admin'
     get 'admin/become_user'
     post 'admin/become_user'
+    get 'admin/show_users'
   end
 
   #devise_for :users

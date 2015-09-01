@@ -10,6 +10,7 @@ class Api::FriendRequestsController < ApplicationController
 		puts 'calling create'
 		puts params
 		# Check if :friend_id is username or email
+		puts params[:friend_id]
 		if params[:friend_id] =~ EMAIL_REGEX
 			friend = User.find_by_email(params[:friend_id])
 		else

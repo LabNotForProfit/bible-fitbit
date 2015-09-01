@@ -1,0 +1,41 @@
+<% content_for :head do %>
+	<%= stylesheet_link_tag 'leaderboard/leaderboard', media: 'all', 'data-turbolinks-track' => true %>
+	<%= stylesheet_link_tag 'users/users', media: 'all', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'leaderboard/leaderboardsIndex', 'data-turbolinks-track' => true %>
+<% end %>
+
+<table id="userNames" class="table use-datatable table-striped table-hover table-responsive">
+	<thead>
+		<tr>
+			<th>User ID</th>
+			<th>Avatar</th>
+			<th>Username</th>
+			<th>Email</th>
+			<th>Friend?</th>
+		</tr>
+	</thead>
+	<tbody>
+		
+		<% @users.each do |user| %>
+			<% if user == current_user %>
+			<tr class="info">
+			<% else %>
+			<tr>
+			<% end %>
+				<td><h2 class="center"><%= user.id %></h2></td>
+				<td>
+					<%= render partial: "api/users/avatar", locals: { size: :thumb, user: user }%>
+				</td>
+				<td><%= user.username %></td>
+				<td><%= user.email %></td>
+				<% if user != current_user && !(current_user.friends.include?(user)) && !(current_user.pending_friends.include?(user)) && !(user.pending_friends.include?(current_user)) %>
+					<td><%= link_to content_tag(:span, " Add Friend", class: "glyphicon glyphicon-send"), api_friend_requests_path(:friend_id => user.username), :method => :post, class: "btn btn-success add-friend" %></td>
+				<% else %>
+					<td>Already a friend</td>
+				<% end %>
+			</tr>
+
+			
+		<% end %>
+	</tbody>
+</table>

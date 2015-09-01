@@ -45,6 +45,10 @@ class Api::AdminController < ApplicationController
   	end
   end
 
+  def show_users
+    @users = User.all
+  end
+
   private
 
   def authorize_admin!
